@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-SistemaAcad-9667DE32-2BD6-4C77-83F1-F2E295B0EE60</UserSecretsId>
+    <UserSecretsId>aspnet-SistemaAcad-BF1CA97B-4634-4A3E-BB63-9CB7A0838C0E</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
