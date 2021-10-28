@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SistemaAcad.Models;
 using System;
@@ -22,7 +23,7 @@ namespace SistemaAcad.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrador")]
         public IActionResult Privacy()
         {
             return View();
