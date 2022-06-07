@@ -29,12 +29,5 @@ namespace EjemploSIST.Models.Entidades
         public virtual ICollection<OrdenCompraDet> OrdenCompraDet { get; set; }  //Para relacionar entidades
 
 
-
-
-
-
-
-
-
     }
 }

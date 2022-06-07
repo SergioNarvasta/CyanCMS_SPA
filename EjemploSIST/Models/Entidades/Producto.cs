@@ -11,7 +11,6 @@ namespace EjemploSIST.Models.Entidades
         [Key]
         public int idProducto { get; set; }
 
-
         [Display(Name = "Nombre de Producto")]
         [Required(ErrorMessage = "Debe de ingresar el nombre del Producto")]
         [MaxLength(60, ErrorMessage = "El campo no debe de tener mas de 60 caracteres ")]
@@ -30,10 +29,7 @@ namespace EjemploSIST.Models.Entidades
         [Required(ErrorMessage = "Debe de ingresar el precio del producto")]
         public decimal Precio { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public DateTime FechaModificacion { get; set; }
-
-        
-
+        public DateTime FechaModificacion { get; set; }    
 
     }
 }
