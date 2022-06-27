@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m5rKomrK4GmYuf3H0uDdmaTU9s218ZjnQJ66bkEUiVkLutHqgYN1/LpvBJngrro5ipo8eQL2nLBqmgKJWzV4ow==",
+  "dgSpecHash": "K1ivIpvRyKkO01lsgsrn12o3uZKexWGeXHTw9R6E2qBCDcd9Bx0/HFpIQ46ifYx0xwwQWSTjm40rFngQFKQsFA==",
   "success": true,
-  "projectFilePath": "F:\\3. PROYECTOS\\OTROS\\EjemploSIST -ASP.Net Core MVC\\EjemploSIST\\EjemploSIST.csproj",
+  "projectFilePath": "F:\\3. PROYECTOS\\SystemAC\\EjemploSIST\\EjemploSIST.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MI PC\\.nuget\\packages\\libuv\\1.10.0\\libuv.1.10.0.nupkg.sha512",
     "C:\\Users\\MI PC\\.nuget\\packages\\microsoft.applicationinsights\\2.4.0\\microsoft.applicationinsights.2.4.0.nupkg.sha512",

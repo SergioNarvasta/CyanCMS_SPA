@@ -39,9 +39,5 @@ namespace EjemploSIST.Models.Entidades
         public int idOrdenCompraCab { get; set; }
         public virtual OrdenCompraCab OrdenCompraCab { get; set; }
 
-
-
-
-
     }
 }

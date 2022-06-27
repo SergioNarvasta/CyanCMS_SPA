@@ -13652,11 +13652,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\3. PROYECTOS\\OTROS\\EjemploSIST -ASP.Net Core MVC\\EjemploSIST\\EjemploSIST.csproj",
+      "projectUniqueName": "F:\\3. PROYECTOS\\SystemAC\\EjemploSIST\\EjemploSIST.csproj",
       "projectName": "EjemploSIST",
-      "projectPath": "F:\\3. PROYECTOS\\OTROS\\EjemploSIST -ASP.Net Core MVC\\EjemploSIST\\EjemploSIST.csproj",
+      "projectPath": "F:\\3. PROYECTOS\\SystemAC\\EjemploSIST\\EjemploSIST.csproj",
       "packagesPath": "C:\\Users\\MI PC\\.nuget\\packages\\",
-      "outputPath": "F:\\3. PROYECTOS\\OTROS\\EjemploSIST -ASP.Net Core MVC\\EjemploSIST\\obj\\",
+      "outputPath": "F:\\3. PROYECTOS\\SystemAC\\EjemploSIST\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MI PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
