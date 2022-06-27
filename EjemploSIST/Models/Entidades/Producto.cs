@@ -31,6 +31,7 @@ namespace EjemploSIST.Models.Entidades
         public decimal Precio { get; set; }
 
         public DateTime FechaCreacion { get; set; }
+
         public DateTime FechaModificacion { get; set; }    
 
     }
