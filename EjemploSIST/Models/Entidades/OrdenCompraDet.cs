@@ -37,6 +37,7 @@ namespace EjemploSIST.Models.Entidades
         public DateTime FechaModificacion { get; set; }
 
         public int idOrdenCompraCab { get; set; }
+
         public virtual OrdenCompraCab OrdenCompraCab { get; set; }
 
     }
