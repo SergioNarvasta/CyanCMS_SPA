@@ -18,8 +18,6 @@ namespace EjemploSIST.Data.DataAccess
             }
             return Listado;
         }
-
-
         public OrdenCompraCab GetIdCompraCab(int id)
         {
             var resultado = new OrdenCompraCab();
