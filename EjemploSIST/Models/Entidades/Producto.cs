@@ -27,6 +27,7 @@ namespace EjemploSIST.Models.Entidades
 
 
         [Display(Name = "Precio del Producto")]
+        
         [Required(ErrorMessage = "Debe de ingresar el precio del producto")]
 
 
