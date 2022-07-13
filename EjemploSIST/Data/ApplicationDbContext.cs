@@ -30,6 +30,7 @@ namespace EjemploSIST.Data
         public virtual DbSet<EjemploSIST.Models.Entidades.OrdenCompraDet> OrdenCompraDet { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder optionBuilder)
         {
+            
             optionBuilder.UseSqlServer("Server=RANDY;DataBase=DBLoguistica;Trusted_Connection=true;MultipleActiveResultSets=True");
         }
     }
