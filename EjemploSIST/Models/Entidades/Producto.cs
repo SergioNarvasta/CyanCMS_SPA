@@ -29,13 +29,15 @@ namespace EjemploSIST.Models.Entidades
         [Display(Name = "Precio del Producto")]
         [Required(ErrorMessage = "Debe de ingresar el precio del producto")]
 
-        
+
 
         public decimal Precio { get; set; }
 
         public DateTime FechaCreacion { get; set; }
 
         public DateTime FechaModificacion { get; set; }    
+
+        // optionsBuilder.UseSqlServer("Server=DESKTOP-H70G0ED\\SQLEXPRESS;Database=BDSistemaAcad;Trusted_Connection=true; MultipleActiveResultSets=true;");
 
     }
 }

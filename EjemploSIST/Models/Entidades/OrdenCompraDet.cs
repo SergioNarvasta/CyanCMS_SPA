@@ -8,6 +8,7 @@ namespace EjemploSIST.Models.Entidades
 {
     public class OrdenCompraDet
     {
+        
         [Key]
         public int idOrdenCompraDet { get; set; }
 
