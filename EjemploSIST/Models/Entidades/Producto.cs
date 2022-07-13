@@ -25,8 +25,11 @@ namespace EjemploSIST.Models.Entidades
         [Required(ErrorMessage = "Debe ingresar el stock del producto")]
         public decimal Stock { get; set; }
 
+
         [Display(Name = "Precio del Producto")]
         [Required(ErrorMessage = "Debe de ingresar el precio del producto")]
+
+        
 
         public decimal Precio { get; set; }
 
