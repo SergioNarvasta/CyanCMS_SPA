@@ -361,6 +361,7 @@ namespace EjemploSIST.Controllers
             _logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
             return RedirectToAction(nameof(TwoFactorAuthentication));
         }
+        
 
         [HttpGet]
         public async Task<IActionResult> EnableAuthenticator()
