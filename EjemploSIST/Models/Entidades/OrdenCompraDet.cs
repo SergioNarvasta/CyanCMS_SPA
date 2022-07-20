@@ -17,7 +17,7 @@ namespace EjemploSIST.Models.Entidades
         [MaxLength(60, ErrorMessage = "El campo no debe de tener mas de 60 caracteres")]
         public string Descripcion { get; set; }
 
-        [Display(Name = "Codigo Rapido")]
+        [Display(Name = "Codigo --")]
         [Required(ErrorMessage = "Debe de ingresar el codigo rapido del articulo")]
         [MaxLength(15, ErrorMessage = "El campo no debe de tener mas de 15 caracteres")]
         public string CodigoRapido { get; set; }
@@ -39,6 +39,7 @@ namespace EjemploSIST.Models.Entidades
 
         public int idOrdenCompraCab { get; set; }
         
+
         //REFERENCES
 
         public virtual OrdenCompraCab OrdenCompraCab { get; set; }
