@@ -20,5 +20,8 @@ namespace SistemaAcad.Data
             optionsBuilder.UseSqlServer("Server=DESKTOP-H70G0ED\\SQLEXPRESS;Database=BDSistemaAcad;Trusted_Connection=true; MultipleActiveResultSets=true;");
         }
 
+        //Area Para DbSet
+
+
     }
 }

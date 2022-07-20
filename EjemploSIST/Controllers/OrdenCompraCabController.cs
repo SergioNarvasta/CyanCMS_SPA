@@ -11,6 +11,7 @@ namespace EjemploSIST.Controllers
     {
         public IActionResult Index()
         {
+            
             var Listado = new DAOrdenCompraCab();
             var models = Listado.getOrdenCompraCab();
 
