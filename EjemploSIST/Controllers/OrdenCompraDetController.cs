@@ -11,7 +11,9 @@ namespace EjemploSIST.Controllers
 {
     public class OrdenCompraDetController : Controller
     {
+        //Indica el Rol al que debe asignar
         [Authorize]
+
         public IActionResult Index()
         {
             var dbOrdenCompraDet = new DAOrdenCompraDet();
