@@ -37,11 +37,10 @@ namespace EjemploSIST.Models.Entidades
 
         public DateTime FechaModificacion { get; set; }
 
+
+        //Foreign Key
         public int idOrdenCompraCab { get; set; }
         
-
-        //REFERENCES
-
         public virtual OrdenCompraCab OrdenCompraCab { get; set; }
 
     }
