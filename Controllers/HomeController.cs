@@ -16,6 +16,7 @@ namespace SistemaAcad.Controllers
 
 
         public HomeController(ILogger<HomeController> logger)
+        
         {
             _logger = logger;
         }
@@ -24,6 +25,7 @@ namespace SistemaAcad.Controllers
         {
             return View();
         }
+
         //Autorizacion  por Roles
         
         [Authorize(Roles = "Administrador")]
