@@ -14,6 +14,7 @@ namespace SistemaAcad.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -23,6 +24,8 @@ namespace SistemaAcad.Controllers
         {
             return View();
         }
+        //Autorizacion  por Roles
+        
         [Authorize(Roles = "Administrador")]
         public IActionResult Privacy()
         {
