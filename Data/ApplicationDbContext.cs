@@ -16,6 +16,9 @@ namespace SistemaAcad.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
+
+
+
         {
 
             optionsBuilder.UseSqlServer("Server=DESKTOP-H70G0ED\\SQLEXPRESS;Database=BDSistemaAcad;Trusted_Connection=true; MultipleActiveResultSets=true;");
