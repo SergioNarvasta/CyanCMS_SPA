@@ -31,7 +31,7 @@ namespace EjemploSIST.Data
         protected override void OnConfiguring (DbContextOptionsBuilder optionBuilder)
         {
             
-            optionBuilder.UseSqlServer("Server=RANDY;DataBase=DBLoguistica;Trusted_Connection=true;MultipleActiveResultSets=True");
+            optionBuilder.UseSqlServer("Server=SNARVASTA;DataBase=DBLoguistica;Trusted_Connection=true;MultipleActiveResultSets=True");
         }
     }
 }
