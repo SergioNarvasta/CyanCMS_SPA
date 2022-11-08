@@ -64,3 +64,31 @@ F:\3. PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\fr-FR\EjemploSIST.r
 F:\3. PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.dll
 F:\3. PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.pdb
 F:\3. PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.genruntimeconfig.cache
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.csproj.AssemblyReference.cache
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.Resource.Views.OrdenCompraDet.Index.en-US.resources
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.Resource.Views.OrdenCompraDet.Index.es-PE.resources
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.Resource.Views.OrdenCompraDet.Index.fr-FR.resources
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.csproj.GenerateResource.cache
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.GeneratedMSBuildEditorConfig.editorconfig
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.AssemblyInfoInputs.cache
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.AssemblyInfo.cs
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.csproj.CoreCompileInputs.cache
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.pdb
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\appsettings.Development.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\appsettings.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\bower.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\bundleconfig.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\EjemploSIST.deps.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\EjemploSIST.runtimeconfig.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\EjemploSIST.runtimeconfig.dev.json
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\EjemploSIST.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\EjemploSIST.pdb
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\en-US\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\es-PE\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\bin\Debug\netcoreapp2.0\fr-FR\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\en-US\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\es-PE\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\fr-FR\EjemploSIST.resources.dll
+D:\Docs_Sergio\Personal\PROYECTOS\SystemAC\EjemploSIST\obj\Debug\netcoreapp2.0\EjemploSIST.genruntimeconfig.cache

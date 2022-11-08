@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Controllers",
-    "\\EjemploSIST",
-    "\\EjemploSIST\\Data",
-    "\\EjemploSIST\\Data\\DataAccess",
-    "\\EjemploSIST\\Models",
-    "\\EjemploSIST\\Models\\Entidades",
-    "\\Models",
-    "\\obj"
+    ""
   ],
-  "SelectedNode": "\\EjemploSIST\\Data\\DataAccess\\DAOrdenCompraCab.cs",
+  "SelectedNode": "\\EjemploSIST.sln",
   "PreviewInSolutionExplorer": false
 }
