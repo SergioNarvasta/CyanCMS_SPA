@@ -12,7 +12,7 @@ namespace EjemploSIST.Controllers
     public class OrdenCompraDetController : Controller
     {
         //Indica el Rol al que debe asignar
-        [Authorize]
+       // [Authorize]
 
         public IActionResult Index()
         {

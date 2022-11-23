@@ -17,13 +17,9 @@ namespace EjemploSIST.Data
         public ApplicationDbContext()
         {
         }
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
         protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=HDVMSQLDES; Database=Z_SIST; UserID=sa; Password=S0p0rt3; MultipleActiveResultSets=true;");
+            optionsBuilder.UseSqlServer("Server=HDVMSQLDES; Database=Z_SIST; User=sa; Password=S0p0rt3; MultipleActiveResultSets=true;");
         }
         public  DbSet<EjemploSIST.Models.Entidades.OrdenCompraCab> OrdenCompraCab { get; set; }
         public  DbSet<EjemploSIST.Models.Entidades.OrdenCompraDet> OrdenCompraDet { get; set; }
