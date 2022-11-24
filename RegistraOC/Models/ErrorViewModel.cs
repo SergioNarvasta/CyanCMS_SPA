@@ -1,4 +1,4 @@
-namespace RegistraOC.Models
+namespace RQ_Compra.Models
 {
     public class ErrorViewModel
     {

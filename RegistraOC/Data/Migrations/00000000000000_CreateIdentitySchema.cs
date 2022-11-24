@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace RegistraOC.Data.Migrations
+namespace RQ_Compra.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

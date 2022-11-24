@@ -2460,9 +2460,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\RegistraOC\\RegistraOC.csproj",
-      "projectName": "RegistraOC",
-      "projectPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\RegistraOC\\RegistraOC.csproj",
+      "projectUniqueName": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\RegistraOC\\RQ_Compra.csproj",
+      "projectName": "RQ_Compra",
+      "projectPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\RegistraOC\\RQ_Compra.csproj",
       "packagesPath": "C:\\Users\\snarvasta\\.nuget\\packages\\",
       "outputPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\RegistraOC\\obj\\",
       "projectStyle": "PackageReference",
