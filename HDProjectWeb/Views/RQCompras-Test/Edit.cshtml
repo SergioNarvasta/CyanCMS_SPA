@@ -1,0 +1,349 @@
+﻿@model RQ_Compra.Models.RQCompra
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RQCompra</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cia_codcia" class="control-label"></label>
+                <input asp-for="Cia_codcia" class="form-control" />
+                <span asp-validation-for="Cia_codcia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Suc_codsuc" class="control-label"></label>
+                <input asp-for="Suc_codsuc" class="form-control" />
+                <span asp-validation-for="Suc_codsuc" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Rco_numrco" />
+            <div class="form-group">
+                <label asp-for="Tin_codtin" class="control-label"></label>
+                <input asp-for="Tin_codtin" class="form-control" />
+                <span asp-validation-for="Tin_codtin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecreg" class="control-label"></label>
+                <input asp-for="Rco_fecreg" class="form-control" />
+                <span asp-validation-for="Rco_fecreg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecsug" class="control-label"></label>
+                <input asp-for="Rco_fecsug" class="form-control" />
+                <span asp-validation-for="Rco_fecsug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adi_codadi" class="control-label"></label>
+                <input asp-for="Adi_codadi" class="form-control" />
+                <span asp-validation-for="Adi_codadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S10_usuario" class="control-label"></label>
+                <input asp-for="S10_usuario" class="form-control" />
+                <span asp-validation-for="S10_usuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_motivo" class="control-label"></label>
+                <input asp-for="Rco_motivo" class="form-control" />
+                <span asp-validation-for="Rco_motivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_glorco" class="control-label"></label>
+                <input asp-for="Rco_glorco" class="form-control" />
+                <span asp-validation-for="Rco_glorco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cco_codcco" class="control-label"></label>
+                <input asp-for="Cco_codcco" class="form-control" />
+                <span asp-validation-for="Cco_codcco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_sitrco" class="control-label"></label>
+                <input asp-for="Rco_sitrco" class="form-control" />
+                <span asp-validation-for="Rco_sitrco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_sitlog" class="control-label"></label>
+                <input asp-for="Rco_sitlog" class="form-control" />
+                <span asp-validation-for="Rco_sitlog" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano_codano" class="control-label"></label>
+                <input asp-for="Ano_codano" class="form-control" />
+                <span asp-validation-for="Ano_codano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mes_codmes" class="control-label"></label>
+                <input asp-for="Mes_codmes" class="form-control" />
+                <span asp-validation-for="Mes_codmes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usu_codapr" class="control-label"></label>
+                <input asp-for="Usu_codapr" class="form-control" />
+                <span asp-validation-for="Usu_codapr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecapr" class="control-label"></label>
+                <input asp-for="Rco_fecapr" class="form-control" />
+                <span asp-validation-for="Rco_fecapr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_gloapr" class="control-label"></label>
+                <input asp-for="Rco_gloapr" class="form-control" />
+                <span asp-validation-for="Rco_gloapr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_indest" class="control-label"></label>
+                <input asp-for="Rco_indest" class="form-control" />
+                <span asp-validation-for="Rco_indest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_feccre" class="control-label"></label>
+                <input asp-for="Rco_feccre" class="form-control" />
+                <span asp-validation-for="Rco_feccre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_usucre" class="control-label"></label>
+                <input asp-for="Rco_usucre" class="form-control" />
+                <span asp-validation-for="Rco_usucre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecact" class="control-label"></label>
+                <input asp-for="Rco_fecact" class="form-control" />
+                <span asp-validation-for="Rco_fecact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_codusu" class="control-label"></label>
+                <input asp-for="Rco_codusu" class="form-control" />
+                <span asp-validation-for="Rco_codusu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ung_codung" class="control-label"></label>
+                <input asp-for="Ung_codung" class="form-control" />
+                <span asp-validation-for="Ung_codung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_indcie" class="control-label"></label>
+                <input asp-for="Rco_indcie" class="form-control" />
+                <span asp-validation-for="Rco_indcie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_obscie" class="control-label"></label>
+                <input asp-for="Rco_obscie" class="form-control" />
+                <span asp-validation-for="Rco_obscie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_indval" class="control-label"></label>
+                <input asp-for="Rco_indval" class="form-control" />
+                <span asp-validation-for="Rco_indval" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_numpcn" class="control-label"></label>
+                <input asp-for="Rco_numpcn" class="form-control" />
+                <span asp-validation-for="Rco_numpcn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dis_coddis" class="control-label"></label>
+                <input asp-for="Dis_coddis" class="form-control" />
+                <span asp-validation-for="Dis_coddis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_rembls" class="control-label"></label>
+                <input asp-for="Rco_rembls" class="form-control" />
+                <span asp-validation-for="Rco_rembls" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_presup" class="control-label"></label>
+                <input asp-for="Rco_presup" class="form-control" />
+                <span asp-validation-for="Rco_presup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_9digit" class="control-label"></label>
+                <input asp-for="Rco_9digit" class="form-control" />
+                <span asp-validation-for="Rco_9digit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_priori" class="control-label"></label>
+                <input asp-for="Rco_priori" class="form-control" />
+                <span asp-validation-for="Rco_priori" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_codalt" class="control-label"></label>
+                <input asp-for="Rco_codalt" class="form-control" />
+                <span asp-validation-for="Rco_codalt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_obspri" class="control-label"></label>
+                <input asp-for="Rco_obspri" class="form-control" />
+                <span asp-validation-for="Rco_obspri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_rutdoc" class="control-label"></label>
+                <input asp-for="Rco_rutdoc" class="form-control" />
+                <span asp-validation-for="Rco_rutdoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecprg" class="control-label"></label>
+                <input asp-for="Rco_fecprg" class="form-control" />
+                <span asp-validation-for="Rco_fecprg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_procur" class="control-label"></label>
+                <input asp-for="Rco_procur" class="form-control" />
+                <span asp-validation-for="Rco_procur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_tiprco" class="control-label"></label>
+                <input asp-for="Rco_tiprco" class="form-control" />
+                <span asp-validation-for="Rco_tiprco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ocm_corocm" class="control-label"></label>
+                <input asp-for="Ocm_corocm" class="form-control" />
+                <span asp-validation-for="Ocm_corocm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tmo_codtmo" class="control-label"></label>
+                <input asp-for="Tmo_codtmo" class="form-control" />
+                <span asp-validation-for="Tmo_codtmo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fecent" class="control-label"></label>
+                <input asp-for="Rco_fecent" class="form-control" />
+                <span asp-validation-for="Rco_fecent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_impser" class="control-label"></label>
+                <input asp-for="Rco_impser" class="form-control" />
+                <span asp-validation-for="Rco_impser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_flgcom" class="control-label"></label>
+                <input asp-for="Rco_flgcom" class="form-control" />
+                <span asp-validation-for="Rco_flgcom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_flgate" class="control-label"></label>
+                <input asp-for="Rco_flgate" class="form-control" />
+                <span asp-validation-for="Rco_flgate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_jusate" class="control-label"></label>
+                <input asp-for="Rco_jusate" class="form-control" />
+                <span asp-validation-for="Rco_jusate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_flgmig" class="control-label"></label>
+                <input asp-for="Rco_flgmig" class="form-control" />
+                <span asp-validation-for="Rco_flgmig" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_imppor" class="control-label"></label>
+                <input asp-for="Rco_imppor" class="form-control" />
+                <span asp-validation-for="Rco_imppor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_hito01" class="control-label"></label>
+                <input asp-for="Rco_hito01" class="form-control" />
+                <span asp-validation-for="Rco_hito01" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpa_codcpa" class="control-label"></label>
+                <input asp-for="Cpa_codcpa" class="form-control" />
+                <span asp-validation-for="Cpa_codcpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_imprec" class="control-label"></label>
+                <input asp-for="Rco_imprec" class="form-control" />
+                <span asp-validation-for="Rco_imprec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_impfac" class="control-label"></label>
+                <input asp-for="Rco_impfac" class="form-control" />
+                <span asp-validation-for="Rco_impfac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_numsol" class="control-label"></label>
+                <input asp-for="Rco_numsol" class="form-control" />
+                <span asp-validation-for="Rco_numsol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_monpre" class="control-label"></label>
+                <input asp-for="Rco_monpre" class="form-control" />
+                <span asp-validation-for="Rco_monpre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_imppre" class="control-label"></label>
+                <input asp-for="Rco_imppre" class="form-control" />
+                <span asp-validation-for="Rco_imppre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_sitctb" class="control-label"></label>
+                <input asp-for="Rco_sitctb" class="form-control" />
+                <span asp-validation-for="Rco_sitctb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_ajufac" class="control-label"></label>
+                <input asp-for="Rco_ajufac" class="form-control" />
+                <span asp-validation-for="Rco_ajufac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_impcfm" class="control-label"></label>
+                <input asp-for="Rco_impcfm" class="form-control" />
+                <span asp-validation-for="Rco_impcfm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_feinre" class="control-label"></label>
+                <input asp-for="Rco_feinre" class="form-control" />
+                <span asp-validation-for="Rco_feinre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fefire" class="control-label"></label>
+                <input asp-for="Rco_fefire" class="form-control" />
+                <span asp-validation-for="Rco_fefire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_clfprv" class="control-label"></label>
+                <input asp-for="Rco_clfprv" class="form-control" />
+                <span asp-validation-for="Rco_clfprv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_gloclf" class="control-label"></label>
+                <input asp-for="Rco_gloclf" class="form-control" />
+                <span asp-validation-for="Rco_gloclf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_ultcer" class="control-label"></label>
+                <input asp-for="Rco_ultcer" class="form-control" />
+                <span asp-validation-for="Rco_ultcer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_feaclf" class="control-label"></label>
+                <input asp-for="Rco_feaclf" class="form-control" />
+                <span asp-validation-for="Rco_feaclf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_usaclf" class="control-label"></label>
+                <input asp-for="Rco_usaclf" class="form-control" />
+                <span asp-validation-for="Rco_usaclf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
