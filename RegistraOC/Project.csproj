@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <Folder Include="Services\" />
+    <Folder Include="Views\RQ_OrdenCompra\" />
   </ItemGroup>
 
 </Project>

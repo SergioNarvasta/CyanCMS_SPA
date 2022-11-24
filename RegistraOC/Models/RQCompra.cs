@@ -2,7 +2,7 @@
 
 namespace RQ_Compra.Models
 {
-    public class RQ_OrdenCompra
+    public class RQCompra
     {
         //Class Purchase requirement
         [Key]
@@ -26,29 +26,70 @@ namespace RQ_Compra.Models
         public string s10_usuario{ get; set; }
 
         [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
-        public string rco_motivo{ get; set; }  
-        public string rco_glorco{ get; set; } 
-        public string cco_codcco{ get; set; }  
-        public string rco_sitrco{ get; set; } 
-        public string rco_sitlog{ get; set; } 
-        public string ano_codano{ get; set; } 
-        public string mes_codmes{ get; set; } 
-        public string usu_codapr{ get; set; }  
-        public string rco_fecapr{ get; set; }  
-        public string rco_gloapr{ get; set; }  
+        public string rco_motivo{ get; set; }
+
+        [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
+        public string rco_glorco{ get; set; }
+
+        [MaxLength(6, ErrorMessage = "El campo no debe de tener mas de 6 caracteres")]
+        public string cco_codcco{ get; set; }
+
+        [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracter")]
+        public string rco_sitrco{ get; set; }
+
+        [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracter")]
+        public string rco_sitlog{ get; set; }
+
+        [MaxLength(4, ErrorMessage = "El campo no debe de tener mas de 4 caracteres")]
+        public string ano_codano{ get; set; }
+
+        [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
+        public string mes_codmes{ get; set; }
+
+        [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
+        public string usu_codapr{ get; set; } 
+        
+        public DateTime rco_fecapr{ get; set; }
+
+        [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
+        public string rco_gloapr{ get; set; }
+
+        [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracter")]
         public string rco_indest{ get; set; }  
-        public string rco_feccre{ get; set; }  
+
+        public DateTime rco_feccre{ get; set; }
+
+        [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
         public string rco_usucre{ get; set; }  
-        public string rco_fecact{ get; set; }  
-        public string rco_codusu{ get; set; }  
+
+        public DateTime rco_fecact{ get; set; }
+
+        [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
+        public string rco_codusu{ get; set; }
+
+        [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
         public string ung_codung{ get; set; }  
-        public string rco_indcie{ get; set; }  
+
+        public Int16 rco_indcie{ get; set; }
+
+        [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
         public string rco_obscie{ get; set; }  
-        public string rco_indval{ get; set; }  
-        public string rco_numpcn{ get; set; }  
-        public string dis_coddis{ get; set; }  
-        public string rco_rembls{ get; set; }  
-        public string rco_presup{ get; set; }  
+
+        public Int16 rco_indval{ get; set; }
+
+        [MaxLength(20, ErrorMessage = "El campo no debe de tener mas de 20 caracteres")]
+        public string rco_numpcn{ get; set; }
+
+        [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
+        public string dis_coddis{ get; set; }
+
+        [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
+        public string rco_rembls{ get; set; }
+
+        [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
+        public string rco_presup{ get; set; }
+
+        [MaxLength(9, ErrorMessage = "El campo no debe de tener mas de 9 caracteres")]
         public string rco_9digit{ get; set; }  
         public string rco_priori{ get; set; }  
         public string rco_codalt{ get; set; }  
