@@ -1,36 +1,14 @@
-﻿using Dapper;
-using HDProjectWeb.Models;
-using Microsoft.Data.SqlClient;
+USE [LAVALIN]
+GO
 
-namespace HDProjectWeb.Services
-{
-    public interface IRepositorioRQCompra
-    {
-        Task<IEnumerable<RQCompraCab>> Obtener(string periodo);
-    }
-    public class RepositorioRQCompra:IRepositorioRQCompra
-    {
-        private readonly string connectionString;
 
-        public RepositorioRQCompra(IConfiguration configuration)
-        {
-            connectionString = configuration.GetConnectionString("DefaultConnection");
-        }
-        public async Task Crear(RQCompra rQCompra)
-        {
-            using var connection = new SqlConnection(connectionString);
-            var id = await connection.QuerySingleAsync<string>("");
-        }
-        public string Query()
-        {
-            string query = "";
-            return query;
-        }
-        public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo) 
-        {
-            using var connection = new SqlConnection(connectionString);
-            
-            return await connection.QueryAsync<RQCompraCab>(@"Select 
+
+ALTER PROCEDURE PA_HD_WEB_RQ_RQCompraCab @Periodo as char(6)
+AS
+--HDProjectWeb
+--Clase RQCompraCab - Index
+--SNarvasta 25-11-2022
+Select 
     a.rco_numrco as Rco_Numero,             
 	a.rco_fecreg as Rco_Fec_Registro, 
 	Isnull(rtrim(g.s10_nomusu),'') as Usuario_Origen,
@@ -93,8 +71,13 @@ Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.s
 Left Join sys_tabla_usuarios_s10 G on f.s10_usuario=g.s10_usuario
 Left Join tipo_requisicion_tir h On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
 Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=@periodo
-and isnull(a.rco_flgmig,'0')='0' ", 
-             new { periodo});
-        }
-    }
-}
+and isnull(a.rco_flgmig,'0')='0'
+--and isnull(rco_indest,'0')='1'
+--V_HD_REQUERIMIENTO_COMPRA_CAB
+
+
+
+
+GO
+
+

@@ -1,0 +1,123 @@
+﻿@model HDProjectWeb.Models.RQCompraCab
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Registrar</h1>
+
+<h4>Requerimiento de Compra</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rco_numero" class="control-label"></label>
+                <input asp-for="Rco_numero" class="form-control" />
+                <span asp-validation-for="Rco_numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_fec_registro" class="control-label"></label>
+                <input asp-for="Rco_fec_registro" class="form-control" />
+                <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario_origen" class="control-label"></label>
+                <input asp-for="Usuario_origen" class="form-control" />
+                <span asp-validation-for="Usuario_origen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User_solicita" class="control-label"></label>
+                <input asp-for="User_solicita" class="form-control" />
+                <span asp-validation-for="User_solicita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_motivo" class="control-label"></label>
+                <input asp-for="Rco_motivo" class="form-control" />
+                <span asp-validation-for="Rco_motivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="U_negocio" class="control-label"></label>
+                <input asp-for="U_negocio" class="form-control" />
+                <span asp-validation-for="U_negocio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Centro_costo" class="control-label"></label>
+                <input asp-for="Centro_costo" class="form-control" />
+                <span asp-validation-for="Centro_costo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Disciplina" class="control-label"></label>
+                <input asp-for="Disciplina" class="form-control" />
+                <span asp-validation-for="Disciplina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_situacion_aprobado" class="control-label"></label>
+                <input asp-for="Rco_situacion_aprobado" class="form-control" />
+                <span asp-validation-for="Rco_situacion_aprobado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_prioridad" class="control-label"></label>
+                <input asp-for="Rco_prioridad" class="form-control" />
+                <span asp-validation-for="Rco_prioridad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_justificacion" class="control-label"></label>
+                <input asp-for="Rco_justificacion" class="form-control" />
+                <span asp-validation-for="Rco_justificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_reembolso" class="control-label"></label>
+                <input asp-for="Rco_reembolso" class="form-control" />
+                <span asp-validation-for="Rco_reembolso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_presupuesto" class="control-label"></label>
+                <input asp-for="Rco_presupuesto" class="form-control" />
+                <span asp-validation-for="Rco_presupuesto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rco_categorizado" class="control-label"></label>
+                <input asp-for="Rco_categorizado" class="form-control" />
+                <span asp-validation-for="Rco_categorizado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ccc_numeroccc" class="control-label"></label>
+                <input asp-for="Ccc_numeroccc" class="form-control" />
+                <span asp-validation-for="Ccc_numeroccc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scc_cotizacion" class="control-label"></label>
+                <input asp-for="Scc_cotizacion" class="form-control" />
+                <span asp-validation-for="Scc_cotizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Occ_numeroocc" class="control-label"></label>
+                <input asp-for="Occ_numeroocc" class="form-control" />
+                <span asp-validation-for="Occ_numeroocc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Occ_dessituacionocc" class="control-label"></label>
+                <input asp-for="Occ_dessituacionocc" class="form-control" />
+                <span asp-validation-for="Occ_dessituacionocc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OCC_ProveedorOCC" class="control-label"></label>
+                <input asp-for="OCC_ProveedorOCC" class="form-control" />
+                <span asp-validation-for="OCC_ProveedorOCC" class="text-danger"></span>
+            </div> <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-action="Index">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

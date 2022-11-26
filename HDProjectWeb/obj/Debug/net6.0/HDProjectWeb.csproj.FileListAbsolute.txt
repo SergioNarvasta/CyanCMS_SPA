@@ -277,3 +277,9 @@ D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\obj\Debug\net6.0\HDProjec
 D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\obj\Debug\net6.0\HDProjectWeb.genruntimeconfig.cache
 D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\obj\Debug\net6.0\ref\HDProjectWeb.dll
 D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\Dapper.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\REQ_COMPRA\HDProjectWeb\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

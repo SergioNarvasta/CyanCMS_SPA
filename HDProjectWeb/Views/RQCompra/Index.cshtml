@@ -1,421 +1,157 @@
-﻿@model IEnumerable<RQ_Compra.Models.RQCompra>
+﻿@model IEnumerable<RQCompraCab>
 
 @{
     ViewData["Title"] = "Requerimiento de Compra";
+    ViewData["Compañia"] = "LAVALIN";
 }
 
-<h1>Requerimiento de Compra</h1>
+<h1>Requerimiento de Compra</h1> <br/>
 
-<p>
+<div class="flex-column  justify-content-between"> 
+    <p>Campo Selec. </p>
+    <input type="text" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
+    <a class="btn btn-primary" asp-action=" ">Filtrar</a>
     <a class="btn btn-primary" asp-action="Create">Nuevo</a>
-</p>
-<table class="table">
+    <a class="btn btn-danger" asp-action=" ">Salir</a>
+</div>
+<br />
+<select name="cboEstado">
+    <option value=2>Todos</option>
+    <option value=1>Vigentes</option>
+    <option value=0>Anulados</option>
+</select>
+<a class="btn btn-primary m" asp-action=" ">Cambiar Periodo</a>
+<br/>
+    
+<div width="80%" height="60%">
+<table class="table" >
     <thead>
         <tr>
+            <th>   </th>
             <th>
-               Accion
+                Nº Req
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cia_codcia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Suc_codsuc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_numrco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tin_codtin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecreg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecsug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Adi_codadi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.S10_usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_motivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_glorco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cco_codcco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_sitrco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_sitlog)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ano_codano)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mes_codmes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usu_codapr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecapr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_gloapr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_indest)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_feccre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_usucre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_codusu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ung_codung)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_indcie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_obscie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_indval)
-            </th>
+              Fecha Registro
+            </th>         
             <th>
-                @Html.DisplayNameFor(model => model.Rco_numpcn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dis_coddis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_rembls)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_presup)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_9digit)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_priori)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_codalt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_obspri)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_rutdoc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecprg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_procur)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_tiprco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ocm_corocm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tmo_codtmo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fecent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_impser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_flgcom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_flgate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_jusate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_flgmig)
-            </th>
+               Originador
+            </th>         
             <th>
-                @Html.DisplayNameFor(model => model.Rco_imppor)
+               Solicitante
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_hito01)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cpa_codcpa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_imprec)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_impfac)
-            </th>
+                Motivo
+            </th>                 
             <th>
-                @Html.DisplayNameFor(model => model.Rco_numsol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_monpre)
-            </th>
+                Unidad Negocio
+            </th>           
             <th>
-                @Html.DisplayNameFor(model => model.Rco_imppre)
+               Centro Costo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_sitctb)
+                Disciplina
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_ajufac)
+               Situacion Req
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_impcfm)
+               Prioridad Req
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_feinre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rco_fefire)
-            </th>
+                Justificacion
+            </th>           
             <th>
-                @Html.DisplayNameFor(model => model.Rco_clfprv)
-            </th>
+                Reem.
+            </th>          
             <th>
-                @Html.DisplayNameFor(model => model.Rco_gloclf)
+                Pr.
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_ultcer)
+               Cat.
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_feaclf)
+               CCtrl.
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rco_usaclf)
+               Cotizacion
             </th>
-            <th></th>
+             <th>
+               Orden Compra
+             </th>
+             <th>
+                Situacion 
+             </th>
+             <th>
+                Proveedor
+             </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-               <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Rco_numrco">Edit</a>
+               <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Rco_numero">Editar</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cia_codcia)
+                @Html.DisplayFor(modelItem => item.Rco_numero)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Suc_codsuc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_numrco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tin_codtin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecreg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecsug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adi_codadi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.S10_usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_motivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_glorco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cco_codcco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_sitrco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_sitlog)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano_codano)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mes_codmes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usu_codapr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecapr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_gloapr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_indest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_feccre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_usucre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_codusu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ung_codung)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_indcie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_obscie)
-            </td>
+                @Html.DisplayFor(modelItem => item.Rco_fec_registro)
+            </td>     
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_indval)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_numpcn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dis_coddis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_rembls)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_presup)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_9digit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_priori)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_codalt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_obspri)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_rutdoc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecprg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_procur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_tiprco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ocm_corocm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tmo_codtmo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_fecent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_impser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_flgcom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_flgate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_jusate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_flgmig)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_imppor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_hito01)
-            </td>
+                @Html.DisplayFor(modelItem => item.Usuario_origen)
+            </td>           
             <td>
-                @Html.DisplayFor(modelItem => item.Cpa_codcpa)
+                @Html.DisplayFor(modelItem => item.User_solicita)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_imprec)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rco_impfac)
-            </td>
+                @Html.DisplayFor(modelItem => item.U_negocio)
+            </td>      
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_numsol)
+                @Html.DisplayFor(modelItem => item.Centro_costo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_monpre)
+                @Html.DisplayFor(modelItem => item.Disciplina)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_imppre)
+                @Html.DisplayFor(modelItem => item.Rco_situacion_aprobado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_sitctb)
+                @Html.DisplayFor(modelItem => item.Rco_prioridad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_ajufac)
+                @Html.DisplayFor(modelItem => item.Rco_justificacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_impcfm)
+                @Html.DisplayFor(modelItem => item.Rco_reembolso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_feinre)
-            </td>
+                @Html.DisplayFor(modelItem => item.Rco_presupuesto)
+            </td>  
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_fefire)
+                @Html.DisplayFor(modelItem => item.Rco_categorizado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_clfprv)
+                @Html.DisplayFor(modelItem => item.Ccc_numeroccc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_gloclf)
+                @Html.DisplayFor(modelItem => item.Scc_cotizacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_ultcer)
+                @Html.DisplayFor(modelItem => item.Occ_numeroocc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_feaclf)
+                @Html.DisplayFor(modelItem => item.Occ_dessituacionocc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rco_usaclf)
+                @Html.DisplayFor(modelItem => item.OCC_ProveedorOCC)
             </td>
-            
         </tr>
 }
     </tbody>
 </table>
+</div>
+
+<a class="btn btn-success" asp-action=" ">Configuracion</a>
+

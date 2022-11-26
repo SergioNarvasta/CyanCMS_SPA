@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HDProjectWeb.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RQ_Compra.Models;
 
 namespace HDProjectWeb.Data
 {
@@ -10,6 +10,7 @@ namespace HDProjectWeb.Data
             : base(options)
         {
         }
-        public DbSet<RQ_Compra.Models.RQCompra> RQCompra { get; set; }
+        public DbSet<HDProjectWeb.Models.RQCompraCab> RQCompraCab { get; set; }
+   
     }
 }
