@@ -4,7 +4,8 @@ namespace HDProjectWeb.Models
 {
     public class RQCompraEd
     {
-        [MaxLength(14, ErrorMessage = "El campo no debe de tener mas de 14 caracteres")]
+        [Key]
+        
         public string Rco_numero { get; set; }
 
         public DateTime Rco_fec_registro { get; set; }

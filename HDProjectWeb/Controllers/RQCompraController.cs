@@ -21,13 +21,22 @@ namespace HDProjectWeb.Controllers
         public IActionResult Crear()
         {
             return View();
-        }
-    
-        public async Task<IActionResult> Index()
+        }    
+        public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
-            var periodo = servicioPeriodo.ObtenerPeriodo();
-            var rQCompra = await repositorioRQCompra.Obtener(periodo);
-            return View(rQCompra);
+            var periodo    = servicioPeriodo.ObtenerPeriodo();
+            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
+            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
+            var respuesta = new PaginacionRespuesta<RQCompraCab>
+            {
+                Elementos = rQCompra,
+                Pagina = paginacionViewModel.Pagina,
+                RecordsporPagina = paginacionViewModel.RecordsPorPagina,
+                CantidadRegistros = totalRegistros,
+                BaseURL = Url.Action()
+            };
+
+            return View(respuesta);
         }
         [HttpGet]
         public async Task<IActionResult> Editar(string Rco_Numero)

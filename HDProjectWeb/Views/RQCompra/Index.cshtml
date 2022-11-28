@@ -1,31 +1,39 @@
-﻿@model IEnumerable<RQCompraCab>
+﻿@model PaginacionRespuesta<RQCompraCab>
 
 @{
     ViewData["Title"] = "Requerimiento de Compra";
     ViewData["Compañia"] = "LAVALIN";
 }
 
-<h1>Requerimiento de Compra</h1> <br/>
+<h2>Requerimiento de Compra</h2> <br/>
 
-<div class="flex-column  justify-content-between"> 
-    <p>Campo Selec. </p>
-    <input type="text" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
-    <a class="btn btn-primary" asp-action=" ">Filtrar</a>
-    <a class="btn btn-primary" asp-action="Crear">Nuevo</a>
-    <a class="btn btn-danger" asp-action=" ">Salir</a>
+<div class="d-flex flex-row"> 
+   <div> 
+       <span>Campo Selec. </span>
+       <input class="ms-2" type="text" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
+   </div>
+    <a class="btn btn-primary ms-5" asp-action=" ">Filtrar</a>
+    <a class="btn btn-primary ms-5" asp-action="Crear">Nuevo</a>
+    <a class="btn btn-danger ms-5" asp-action=" ">Salir</a>
 </div>
 <br />
-<select name="cboEstado">
-    <option value=2>Todos</option>
-    <option value=1>Vigentes</option>
-    <option value=0>Anulados</option>
-</select>
-<a class="btn btn-primary " asp-action=" ">Cambiar Periodo</a>
+<div class="d-flex flex-row ">
+   <div>
+      <span>Estado :</span>
+      <select name="cboEstado">
+         <option value=2>Todos</option>
+         <option value=1>Vigentes</option>
+         <option value=0>Anulados</option>
+      </select>
+    </div>
+<a class="btn btn-primary ms-5" asp-action=" ">Cambiar Periodo</a>
+<span class="ms-xl-5">Cantidad de Registros :  @Model.CantidadRegistros </span>
+</div>
 <br/>
     
-<div width="80%" height="60%">
-<table class="table" >
-    <thead>
+<div class="table-responsive" style="width=100%" >
+<table class="table table-bordered table-hover" >
+    <thead class="table-primary">
         <tr>
             <th>   </th>
             <th>
@@ -88,7 +96,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Elementos) {
         <tr>
             <td>
                <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Rco_numero">Editar</a>
@@ -155,6 +163,6 @@
     </tbody>
 </table>
 </div>
-
+<partial name="_paginacion" />
 <a class="btn btn-success" asp-action=" ">Configuracion</a>
 

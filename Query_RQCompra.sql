@@ -80,9 +80,8 @@ ORDER BY A.rco_feccre DESC
 
 GO
 
-EXEC PA_HD_WEB_RQ_RQCompraCab @Periodo=202210
-
-
+EXEC PA_HD_WEB_RQ_RQCompraCab @Periodo=202210 
+SELECT COUNT(*) FROM REQUERIMIENTO_COMPRA_RCO WHERE ano_codano+ mes_codmes=202210
 
 ALTER Procedure PA_HD_WEB_RQ_RQCompraCab_Update
 /* HDProjectWeb

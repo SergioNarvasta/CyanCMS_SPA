@@ -1,20 +1,17 @@
 ﻿@model HDProjectWeb.Models.RQCompraCab
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registrar Req Compra";
 }
-
-<h1>Registrar</h1>
-
-<h4>Requerimiento de Compra</h4>
-<hr />
+<h2>TITULO PRINCIPAL </h2>
+<br />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Crear">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Rco_numero" class="control-label"></label>
-                <input asp-for="Rco_numero" class="form-control" />
+            <div class="form-group flex-row">
+                <label >Nro Req</label>
+                <input asp-for="Rco_numero" class="form-control" style="width=10px" />
                 <span asp-validation-for="Rco_numero" class="text-danger"></span>
             </div>
             <div class="form-group">
