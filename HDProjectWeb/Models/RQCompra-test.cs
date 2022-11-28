@@ -12,7 +12,6 @@ namespace HDProjectWeb.Models
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
         public string Cia_codcia { get; set; }
 
-
         [Required(ErrorMessage = "Campo obligatorio")]//Campo Requerido
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
         public string Suc_codsuc { get; set; }

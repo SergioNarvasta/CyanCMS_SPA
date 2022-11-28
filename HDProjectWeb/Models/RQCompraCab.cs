@@ -1,12 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//using System.ComponentModel.DataAnnotations;
 
 namespace HDProjectWeb.Models
 {
     public class RQCompraCab
-    {
-        [Key]
-        public string Rco_numero { get; set; } 
-     public DateTime Rco_fec_registro { get; set; }
+    { 
+     public string Rco_numero { get; set; } 
+     public DateTime Rco_fec_registro { get; set; } = DateTime.Now;
      public string Usuario_origen { get; set; }
      public string User_solicita { get; set; } 
      public string Rco_motivo { get; set; } 
@@ -25,4 +24,5 @@ namespace HDProjectWeb.Models
      public string Occ_dessituacionocc { get; set; } 
      public string OCC_ProveedorOCC { get; set; } 
     }
+  
 }

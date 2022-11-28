@@ -24,20 +24,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/Home/NoEncontrado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb0VuY29udHJhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQ3JlYXRlLmNzaHRtbA==
+[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcRGVsZXRlLmNzaHRtbA==
+[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcRWRpdC5jc2h0bWw=
+[D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Docs_Sergio/Z_PROYECTOS WEB/REQ_COMPRA/HDProjectWeb/Views/RQCompra/Index.cshtml]

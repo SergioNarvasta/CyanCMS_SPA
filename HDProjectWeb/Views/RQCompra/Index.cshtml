@@ -11,7 +11,7 @@
     <p>Campo Selec. </p>
     <input type="text" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
     <a class="btn btn-primary" asp-action=" ">Filtrar</a>
-    <a class="btn btn-primary" asp-action="Create">Nuevo</a>
+    <a class="btn btn-primary" asp-action="Crear">Nuevo</a>
     <a class="btn btn-danger" asp-action=" ">Salir</a>
 </div>
 <br />
@@ -20,7 +20,7 @@
     <option value=1>Vigentes</option>
     <option value=0>Anulados</option>
 </select>
-<a class="btn btn-primary m" asp-action=" ">Cambiar Periodo</a>
+<a class="btn btn-primary " asp-action=" ">Cambiar Periodo</a>
 <br/>
     
 <div width="80%" height="60%">
@@ -91,7 +91,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-               <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Rco_numero">Editar</a>
+               <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Rco_numero">Editar</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rco_numero)
@@ -104,6 +104,9 @@
             </td>           
             <td>
                 @Html.DisplayFor(modelItem => item.User_solicita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rco_motivo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.U_negocio)
