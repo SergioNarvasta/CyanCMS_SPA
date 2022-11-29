@@ -5,20 +5,68 @@
 }
 <h2>TITULO PRINCIPAL </h2>
 <br />
-<div class="row">
-    <div class="col-md-4">
+<div>
+    <div class="col-md-4 form-control-sm">
         <form asp-action="Crear">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group flex-row">
-                <label >Nro Req</label>
-                <input asp-for="Rco_numero" class="form-control" style="width=10px" />
-                <span asp-validation-for="Rco_numero" class="text-danger"></span>
+            <div class="d-flex flex-row">
+                <div class="form-group d-flex flex-row me-3">
+                    <label class="me-2">Requerimiento</label>
+                    <input asp-for="Rco_numero" class="form-control form-control-sm col-sm-4 " />
+                    <span asp-validation-for="Rco_numero" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex flex-row ms-xl-5">
+                    <label class="ms-xl-5">Fecha_Reg</label>
+                    <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" />
+                    <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
+                </div>
+                <div class="d-flex flex-row ms-xl-5">
+                    <span>Estado </span>
+                    <select name="cboEstado" class="ms-2">
+                        <option value=1>VIGENTE</option>
+                        <option value=0>ANULADO</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-row ms-xl-5">
+                    <span>Tipo_Req </span>
+                    <select name="cboEstado" class="ms-2">
+                        <option value=1>COMPRA REGULAR</option>
+                        <option value=2>CERTIF. CONFORMIDAD</option>
+                        <option value=3>ADENDA CONTRATO</option>
+                        <option value=4>CLS CONSULTOR</option>
+                        <option value=5>CLS EMPRESA</option>
+                        <option value=6>AM CONSULTOR</option>
+                        <option value=7>AM EMPRESA</option>
+                    </select>
+                </div>
+                 <div class="d-flex flex-row ms-xl-5">
+                    <span>Prioridad </span>
+                    <select name="cboEstado" class="ms-2">
+                        <option value=1>MUY ALTA</option>
+                        <option value=2>ALTA</option>
+                        <option value=3>MEDIA</option>
+                        <option value=4>BAJA</option>
+                    </select>
+                </div>          
+            </div> <br />   
+            <div class="d-flex flex-row">
+                <div class="form-group">
+                    <label asp-for="U_negocio" class="control-label"></label>
+                    <select asp-for="U_negocio" name="cboEstado" class="ms-2">
+                        <option value=1>MINING & METALURGY</option>
+                        <option value=2>INFRAESTRUCTURE E&W</option>
+                        <option value=3>O&G-FEED & ENGINEERING</option>
+                        <option value=4>SHARED SERVICES</option>    
+                        <option value=3>O&G - PROJECTS</option>
+                        <option value=2>M&M - E&G</option>
+                        <option value=2>ANTAMINA FASE VII</option>
+                    </select>
+                    <span asp-validation-for="U_negocio" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Rco_fec_registro" class="control-label"></label>
-                <input asp-for="Rco_fec_registro" class="form-control" />
-                <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
-            </div>
+
+
+
             <div class="form-group">
                 <label asp-for="Usuario_origen" class="control-label"></label>
                 <input asp-for="Usuario_origen" class="form-control" />
@@ -34,11 +82,7 @@
                 <input asp-for="Rco_motivo" class="form-control" />
                 <span asp-validation-for="Rco_motivo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="U_negocio" class="control-label"></label>
-                <input asp-for="U_negocio" class="form-control" />
-                <span asp-validation-for="U_negocio" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="Centro_costo" class="control-label"></label>
                 <input asp-for="Centro_costo" class="form-control" />
