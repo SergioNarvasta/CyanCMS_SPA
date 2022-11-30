@@ -17,7 +17,6 @@ namespace HDProjectWeb.Controllers
             this.repositorioRQCompra = repositorioRQCompra;
             this.servicioPeriodo     = servicioPeriodo;
         } 
-        
         public IActionResult Crear()
         {
             return View();
