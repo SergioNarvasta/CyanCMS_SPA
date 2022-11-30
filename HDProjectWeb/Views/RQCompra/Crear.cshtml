@@ -55,47 +55,59 @@
                 <div class="form-group d-flex flex-row ">
                     <label >U.Negocio</label>
                     <select asp-for="U_negocio" name="cboEstado" class="ms-2">
-                        <option value=1>MINING & METALURGY</option>
-                        <option value=2>INFRAESTRUCTURE E&W</option>
+                        <option value=1>MINING & METALURGY    </option>
+                        <option value=2>INFRAESTRUCTURE E&W   </option>
                         <option value=3>O&G-FEED & ENGINEERING</option>
                         <option value=4>SHARED SERVICES</option>    
-                        <option value=5>O&G - PROJECTS</option>
-                        <option value=6>M&M - E&G</option>
+                        <option value=5>O&G - PROJECTS </option>
+                        <option value=6>M&M - E&G      </option>
                         <option value=7>ANTAMINA FASE VII</option>
                     </select>
                     <span asp-validation-for="U_negocio" class="text-danger"></span>
                 </div>
-                <div class="form-group d-flex flex-row ms-2 me-4">
+                <div class="form-group d-flex flex-row ms-2 me-5">
                     <label asp-for="Centro_costo" class="control-label"></label>
                     <input asp-for="Centro_costo" class="form-control col-sm-1 ms-2" />
-                    <textbox> </textbox>
-                   
                     <span asp-validation-for="Centro_costo" class="text-danger"></span>
                 </div>
                 <div class="form-group d-flex flex-row ms-xl-5">
-                    <label >Situacion</label>
+                    <label>Situacion</label>
                     <select asp-for="Rco_situacion_aprobado" id="CboSituacion" class="ms-2">
                         <option value=1>PENDIENTE</option>
-                        <option value=2>APROBADO</option>
+                        <option value=2>APROBADO </option>
                         <option value=2>RECHAZADO</option>
                     </select>
                     <span asp-validation-for="Rco_situacion_aprobado" class="text-danger"></span>
                 </div>
+                <div class="form-group d-flex flex-row ms-5 me-5">
+                    <label class="control-label me-2">Solicitud</label>
+                    <input asp-for="User_solicita" class="form-control form-control-sm col-sm-4" />
+                    <span asp-validation-for="User_solicita" class="text-danger"></span>
+                </div>
+            </div> <br />
+            <!--3ER DIV HORIZONTAL-->
+            <div class="d-flex flex-row">
+                <div class="form-group d-flex flex-row me-5">
+                    <label asp-for="User_solicita" class="control-label me-2"></label>
+                    <input asp-for="User_solicita" class="form-control form-control-sm col-sm-4" />
+                    <span asp-validation-for="User_solicita" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex flex-row ms-5 me-5">
+                    <label  class="control-label me-2">Resumen</label>
+                    <input asp-for="User_solicita" class="form-control form-control-sm col-sm-4" />
+                    <span asp-validation-for="User_solicita" class="text-danger"></span>
+                </div>
 
 
             </div>
-             <input id="Centro_costo_des" type="text" class="col-md-10 ms-2 me-4"/>
-
+            
+            
             <div class="form-group">
                 <label asp-for="Usuario_origen" class="control-label"></label>
                 <input asp-for="Usuario_origen" class="form-control" />
                 <span asp-validation-for="Usuario_origen" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="User_solicita" class="control-label"></label>
-                <input asp-for="User_solicita" class="form-control" />
-                <span asp-validation-for="User_solicita" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="Rco_motivo" class="control-label"></label>
                 <input asp-for="Rco_motivo" class="form-control" />
