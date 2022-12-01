@@ -3,12 +3,109 @@
 @{
     ViewData["Title"] = "Registrar Req Compra";
 }
-<h2>TITULO PRINCIPAL </h2>
+<h2 class="text-center">TITULO PRINCIPAL </h2>
 <br />
-<div>
-    <div class="col-md-4 form-control-sm">
+<div class="d-flex ">
+    <div class="col-md-4">
         <form asp-action="Crear">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table>
+                <tbody class="m-2">
+                    <tr>
+                        <th>
+                            <div class="form-group d-flex flex-row me-5">
+                                <label class="me-2">Requerimiento</label>
+                                <input asp-for="Rco_numero" class="form-control form-control-sm col-sm-4 " />
+                                <span asp-validation-for="Rco_numero" class="text-danger"></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group d-flex flex-row ms-xl-5">
+                                <label class="ms-xl-5">Fecha_Reg</label>
+                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" />
+                                <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
+                            </div>
+                        </th>
+                        <!--<th>
+                            <div class="form-group d-flex flex-row ms-5">
+                                <label class="ms-5">Fecha_Sug</label>
+                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" />
+                                <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
+                            </div>
+                        </th>-->
+                        <th>
+                            <div class="d-flex flex-row ms-xl-5">
+                                <span>Estado </span>
+                                <select name="cboEstado" class="ms-2">
+                                    <option value=1>VIGENTE</option>
+                                    <option value=0>ANULADO</option>
+                                </select>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="d-flex flex-row ms-xl-5">
+                                <span>Tipo_Req </span>
+                                <select name="cboEstado" class="ms-2">
+                                    <option value=1>COMPRA REGULAR</option>
+                                    <option value=2>CERTIF. CONFORMIDAD</option>
+                                    <option value=3>ADENDA CONTRATO</option>
+                                    <option value=4>CLS CONSULTOR</option>
+                                    <option value=5>CLS EMPRESA</option>
+                                    <option value=6>AM CONSULTOR</option>
+                                    <option value=7>AM EMPRESA</option>
+                                </select>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="d-flex flex-row ms-xl-5">
+                                <span>Prioridad </span>
+                                <select name="cboEstado" class="ms-2">
+                                    <option value=1>MUY ALTA</option>
+                                    <option value=2>ALTA</option>
+                                    <option value=3>MEDIA</option>
+                                    <option value=4>BAJA</option>
+                                </select>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr >
+                        <th>
+                             <div class="form-group d-flex flex-row ">
+                               <label >U.Negocio</label>
+                                 <select asp-for="U_negocio" name="cboEstado" class="ms-5">
+                                   <option value=1>MINING & METALURGY    </option>
+                                   <option value=2>INFRAESTRUCTURE E&W   </option>
+                                   <option value=3>O&G-FEED & ENGINEERING</option>
+                                   <option value=4>SHARED SERVICES</option>    
+                                   <option value=5>O&G - PROJECTS </option>
+                                   <option value=6>M&M - E&G      </option>
+                                   <option value=7>ANTAMINA FASE VII</option>
+                                 </select>
+                              <span asp-validation-for="U_negocio" class="text-danger"></span>
+                             </div>
+                        </th>
+                        <th>
+                            <div class="form-group d-flex flex-row ms-2 me-5">
+                                <label asp-for="Centro_costo" class="control-label"></label>
+                                <input asp-for="Centro_costo" class="form-control col-sm-1 ms-2" />
+                                <span asp-validation-for="Centro_costo" class="text-danger"></span>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group d-flex flex-row ms-xl-5">
+                                <label>Situacion</label>
+                                <select asp-for="Rco_situacion_aprobado" id="CboSituacion" class="ms-2">
+                                    <option value=1>PENDIENTE</option>
+                                    <option value=2>APROBADO </option>
+                                    <option value=2>RECHAZADO</option>
+                                </select>
+                                <span asp-validation-for="Rco_situacion_aprobado" class="text-danger"></span>
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <br /><br /><br /><br />
             <!-- 1ER DIV HORIZONTAL-->
             <div class="d-flex flex-row">
                 <div class="form-group d-flex flex-row me-3">
@@ -40,7 +137,7 @@
                         <option value=7>AM EMPRESA</option>
                     </select>
                 </div>
-                 <div class="d-flex flex-row ms-xl-5">
+                <div class="d-flex flex-row ms-xl-5">
                     <span>Prioridad </span>
                     <select name="cboEstado" class="ms-2">
                         <option value=1>MUY ALTA</option>
@@ -125,10 +222,10 @@
                         <th>Cantidad</th>
                         <th>Codigo Proveedor</th>
                         <th>Proveedor</th>
-                        <th>SUstento</th>
+                        <th>Sustento</th>
                     </tr>
                 </thead>
-            </table>
+                </table>
 
             </div>
             
@@ -139,11 +236,9 @@
                 <thead>
                     <tr>
                         <th>Item</th>
-                        <th>Codigo</th>
-                        <th>Descripcion</th>
-                        <th>Det.</th>
-                        <th>Unidad</th>
-                       
+                        <th>Nombre Archivo</th>
+                        <th>P</th>
+                        <th>Codigo Archivo</th>
                     </tr>
                 </thead>
             </table>
