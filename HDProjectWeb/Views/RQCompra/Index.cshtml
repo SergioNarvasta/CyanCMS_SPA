@@ -1,12 +1,9 @@
 ﻿@model PaginacionRespuesta<RQCompraCab>
-
 @{
     ViewData["Title"] = "Requerimiento de Compra";
 }
-
-<h2>Requerimiento de Compra</h2> <br/>
+<h2>Requerimiento de Compra</h2><div id="">@ViewBag.periodo</div> <div id="periodo"> </div><br/>
 <!--   <script type="text/javascript" src="/js/site.js"></script> -->
-
 <div class="d-flex flex-row"> 
    <div> 
        <span>Campo Selec. </span>
@@ -14,7 +11,7 @@
    </div>
     <a class="btn btn-primary ms-5" asp-action=" ">Filtrar</a>
     <a class="btn btn-primary ms-5" asp-action="Crear">Nuevo</a>
-    <a class="btn btn-danger ms-5" asp-action=" ">Salir</a>
+    <a class="btn btn-danger ms-5" asp-controller="Home" asp-action="Index">Salir</a>
 </div>
 <br />
 <div class="d-flex flex-row ">
@@ -32,15 +29,16 @@
     </button>
     <script>
     $(function () {
-      $('ul.lista_ano li').click(function (e) {
-                $("#muestra_ano").text("Año: " );
-
+      $('ul.selec_ano li').click(function (e) {
+                $("#muestra_ano").text(this.id);      
+                $("#periodo").text(this.id);
        });
     });
     $(function () {
       $('ul.selec_mes li').click(function (e) {
-                $("#muestra_mes").text("Mes: " + this.id + document.getElementById('item_ano').innerText);
-
+                $("#muestra_mes").text(this.id);
+                $("#periodo").text("-");
+                $("#periodo").text(this.id);
       });
     });
     </script>
@@ -51,25 +49,25 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Seleccione Periodo</h4> 
-                    <div id="muestra_ano" class="ms-3"></div>
-                    <div id="muestra_mes" class="ms-3"></div>
+                    <div id="muestra_ano" class="ms-3 text-black"></div>
+                    <div id="muestra_mes" class="ms-3 text-black"></div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body d-flex flex-row justify-content-md-center">
                     <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
                     <div> 
-                        <ul class="lista_ano list-group list-unstyled"> 
-                            <li id="item_ano" class="list-group-item-action">2021</li>
-                            <li id="item_ano" class="list-group-item-action">2022</li>
+                        <ul class="selec_ano list-group list-unstyled"> 
+                            <li id="2021" class="list-group-item-action">2021</li>
+                            <li id="2022" class="list-group-item-action">2022</li>
                         </ul>
                     </div>
                     <div class="ms-5">
                         <ul class="selec_mes list-group list-unstyled">
-                            <li class="list-group-item-action">SETIEMBRE</li>
-                            <li class="list-group-item-action">OCTUBRE</li>
-                            <li class="list-group-item-action">NOVIEMBRE</li>
-                            <li class="list-group-item-action">DICIEMBRE</li>
+                            <li id="09" class="list-group-item-action">SETIEMBRE</li>
+                            <li id="10" class="list-group-item-action">OCTUBRE</li>
+                            <li id="11" class="list-group-item-action">NOVIEMBRE</li>
+                            <li id="12" class="list-group-item-action">DICIEMBRE</li>
                         </ul>
                     </div>
                 </div>
@@ -87,7 +85,7 @@
 </div>
 <br/>
     
-<div class="table-responsive" style="width=100%" >
+<div class="table-responsive" style="width:100%" >
 <table class="table table-bordered table-hover" >
     <thead class="table-primary">
         <tr>

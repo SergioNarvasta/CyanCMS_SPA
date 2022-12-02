@@ -12,18 +12,22 @@ namespace HDProjectWeb.Controllers
     {
         private readonly IRepositorioRQCompra repositorioRQCompra;
         private readonly IServicioPeriodo servicioPeriodo;
+        public string periodo;
         public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo) 
         {
             this.repositorioRQCompra = repositorioRQCompra;
             this.servicioPeriodo     = servicioPeriodo;
+            this.periodo = servicioPeriodo.ObtenerPeriodo();
         } 
         public IActionResult Crear()
         {
+            ViewBag.periodo = periodo;
             return View();
         }    
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
-            var periodo    = servicioPeriodo.ObtenerPeriodo();
+            //var periodo    = servicioPeriodo.ObtenerPeriodo();
+            ViewBag.periodo = periodo;
             var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
             var respuesta = new PaginacionRespuesta<RQCompraCab>

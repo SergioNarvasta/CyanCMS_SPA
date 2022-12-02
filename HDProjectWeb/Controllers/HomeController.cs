@@ -16,7 +16,6 @@ namespace HDProjectWeb.Controllers
             _logger = logger;
             this.servicioPeriodo = servicioPeriodo;
         }
-
         public IActionResult Index()
         {
             ViewBag.periodo = servicioPeriodo.ObtenerPeriodo();
