@@ -5,11 +5,13 @@
 <h2>Requerimiento de Compra</h2><div id="">@ViewBag.periodo</div> <div id="periodo"> </div><br/>
 <!--   <script type="text/javascript" src="/js/site.js"></script> -->
 <div class="d-flex flex-row"> 
-   <div> 
-       <span>Campo Selec. </span>
-       <input class="ms-2" type="text" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
-   </div>
-    <a class="btn btn-primary ms-5" asp-action=" ">Filtrar</a>
+    <form action="RQCompra/Index" method="get">
+        <div class="d-flex flex-row">
+            <span>Campo Selec. </span>
+            <input class="ms-2 input border" type="search" name="txtbuscarRQ" id="buscarRQ" placeholder="Filtrar ..." />
+        </div>
+        <button type="submit" class="btn btn-primary ms-5">Filtrar</button>
+    </form>   
     <a class="btn btn-primary ms-5" asp-action="Crear">Nuevo</a>
     <a class="btn btn-danger ms-5" asp-controller="Home" asp-action="Index">Salir</a>
 </div>

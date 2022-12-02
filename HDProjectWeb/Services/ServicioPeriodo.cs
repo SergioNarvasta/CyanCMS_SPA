@@ -22,7 +22,8 @@ namespace HDProjectWeb.Services
         {
             int mes = DateTime.Now.Month;
             int ano = DateTime.Now.Year;
-            return ano.ToString()+mes.ToString();
+            //return ano.ToString()+mes.ToString();
+            return "202210";
         }  
         public string Compañia()
         {
