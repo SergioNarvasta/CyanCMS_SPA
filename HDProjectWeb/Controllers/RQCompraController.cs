@@ -12,12 +12,14 @@ namespace HDProjectWeb.Controllers
     {
         private readonly IRepositorioRQCompra repositorioRQCompra;
         private readonly IServicioPeriodo servicioPeriodo;
+        private string periodo_dinamic = null;
       
         public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo) 
         {
             this.repositorioRQCompra = repositorioRQCompra;
             this.servicioPeriodo     = servicioPeriodo;
         }
+
         [HttpGet]
         public IActionResult Crear()
         {
@@ -25,11 +27,21 @@ namespace HDProjectWeb.Controllers
             ViewBag.periodo = periodo;
             return View();
         }
+        [HttpPost]
+        public void ActualizaPeriodo(string periodo) 
+        {
+          periodo_dinamic = periodo;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
         {
-            var periodo    = servicioPeriodo.ObtenerPeriodo();
-            ViewBag.periodo = periodo;
+            var periodo = servicioPeriodo.ObtenerPeriodo();
+            if (periodo_dinamic is not null)
+            {
+                periodo = periodo_dinamic;
+            }           
+            ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);
             var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
             var respuesta = new PaginacionRespuesta<RQCompraCab>
@@ -43,6 +55,7 @@ namespace HDProjectWeb.Controllers
 
             return View(respuesta);
         }
+
         [HttpGet]
         public async Task<IActionResult> Editar(string Rco_Numero)
         {
