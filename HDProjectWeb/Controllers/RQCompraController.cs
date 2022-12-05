@@ -17,17 +17,19 @@ namespace HDProjectWeb.Controllers
         {
             this.repositorioRQCompra = repositorioRQCompra;
             this.servicioPeriodo     = servicioPeriodo;
-        } 
+        }
+        [HttpGet]
         public IActionResult Crear()
         {
             var periodo = servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo;
             return View();
-        }    
+        }
+        [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
         {
             var periodo    = servicioPeriodo.ObtenerPeriodo();
-            //ViewBag.periodo = periodo;
+            ViewBag.periodo = periodo;
             var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
             var respuesta = new PaginacionRespuesta<RQCompraCab>

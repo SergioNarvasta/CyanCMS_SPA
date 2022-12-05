@@ -9,8 +9,7 @@ namespace HDProjectWeb.Services
         string Compañia();
         Task<string> ObtenerCompañia(string codcia);
         string ObtenerPeriodo();
-    }
-    
+    }  
     public class ServicioPeriodo :IServicioPeriodo
     {
         private readonly string connectionString;
