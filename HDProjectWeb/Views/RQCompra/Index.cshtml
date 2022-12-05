@@ -5,7 +5,7 @@
 <script>
     $(function () {
       $('ul.selec_ano li').click(function (e) {
-                $("#periodo").text(this.id);      
+                $("#muestra_ano").text(this.id);      
                 $("#periodo").text(this.id);
        });
     });
@@ -16,12 +16,20 @@
                 $("#periodo").text(this.id);
       });
     });
+    function Test(){
+        var objAno = document.getElementById("muestra_ano").innerText;
+        var objMes = document.getElementById("muestra_mes").innerText;
+
+        var objperiodo = document.getElementById("div_periodo");
+        objperiodo.value =objAno +"-"objMes;
+
+    }
 </script >
-<div class="d-flex flex-row align-items-center">
-    <h2 class="d-flex justify-content-center">Requerimiento de Compra</h2> <div id="periodo" class="ms-4" style="color:blue">@ViewBag.periodo</div><br />
+<div class="d-flex flex-row align-items-center justify-content-center">
+    <h2 class="">Requerimiento de Compra</h2> <label id="div_periodo" class="ms-4" style="color:blue">@ViewBag.periodo</label><br />
 </div>  
 <!--   <script type="text/javascript" src="/js/site.js"></script> -->
-<div class="d-flex flex-row"> 
+<div class="d-flex flex-row ms-5"> 
     <form action="RQCompra/Index" method="get">
         <div class="d-flex flex-row">
             <span>Campo Selec. </span>
@@ -33,8 +41,8 @@
     <a class="btn btn-danger ms-5" asp-controller="Home" asp-action="Index">Salir</a>
 </div>
 <br />
-<div class="d-flex flex-row ">
-   <div>
+<div class="d-flex flex-row ms-5">
+    <div style="width:10%">
       <span>Estado :</span>
       <select name="cboEstado">
          <option value=2>Todos</option>
@@ -42,56 +50,58 @@
          <option value=0>Anulados</option>
       </select>
     </div>
-    <!-- Button to Open the Modal -->
+    <!-- Button Modal -->
     <button type="button" class="btn btn-primary ms-4 me-4" data-bs-toggle="modal" data-bs-target="#myModal">
         Cambiar Periodo
     </button>   
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
+    <!--  Modal -->
+    <div class="modal" id="myModal" >
         <div class="modal-dialog">
             <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Seleccione Periodo</h4> 
-                    <label for="muestra_ano"></label>
-                    <div id="muestra_ano" class="ms-3 text-black"></div>
-                    <label for="muestra_mes"></label>
-                    <div id="muestra_mes" class="ms-3 text-black"></div>                   
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body d-flex flex-row justify-content-md-center">
-                    <!-- Insercion de JQuery  -->
-                    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-                    <div style="cursor:pointer"> 
-                        <ul class="selec_ano list-group list-unstyled"> 
-                            <li id="2021" class="list-group-item-action">2021</li>
-                            <li id="2022" class="list-group-item-action">2022</li>
-                        </ul>
+                <form  asp-action="ActualizaPeriodo" method="post"> 
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Seleccione Periodo</h4>
+                        <label class="form-label" for="muestra_ano"></label>
+                        <div  id="muestra_ano" name="ano" class="ms-3 text-black " ></div> 
+                        <label class="form-label" for="muestra_mes"></label>
+                        <div  id="muestra_mes" name="mes" class="ms-3 text-black " ></div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="ms-5" style="cursor:pointer">
-                        <ul class="selec_mes list-group list-unstyled">
-                            <li id="09" class="list-group-item-action">SETIEMBRE</li>
-                            <li id="10" class="list-group-item-action">OCTUBRE</li>
-                            <li id="11" class="list-group-item-action">NOVIEMBRE</li>
-                            <li id="12" class="list-group-item-action">DICIEMBRE</li>
-                        </ul>
+                    <!-- Modal body -->
+                    <div class="modal-body d-flex flex-row justify-content-md-center">
+                        <!-- Insercion de JQuery  -->
+                        <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+                        <div style="cursor:pointer">
+                            <ul class="selec_ano list-group list-unstyled">
+                                <li id="2021" class="list-group-item-action">2021</li>
+                                <li id="2022" class="list-group-item-action">2022</li>
+                            </ul>
+                        </div>
+                        <div class="ms-5" style="cursor:pointer">
+                            <ul class="selec_mes list-group list-unstyled">
+                                <li id="09" class="list-group-item-action">SETIEMBRE</li>
+                                <li id="10" class="list-group-item-action">OCTUBRE</li>
+                                <li id="11" class="list-group-item-action">NOVIEMBRE</li>
+                                <li id="12" class="list-group-item-action">DICIEMBRE</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button onclick="Test()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>              
             </div>
         </div>
     </div>
-
-<span class="ms-xl-5">Cantidad de Registros :  @Model.CantidadRegistros </span>
+    <div class="position-relative" style="width:70%">
+        <span class="ms-xl-5 position-absolute end-0 text-">Cantidad de Registros : @Model.CantidadRegistros </span>
+    </div>
+   
 </div>
 <br/>
-    
+<!-- Table -->
 <div class="table-responsive" style="width:100%" >
 <table class="table table-bordered table-hover" >
     <thead class="table-primary">
@@ -225,5 +235,36 @@
 </table>
 </div>
 <partial name="_paginacion" />
-<a class="btn btn-success" asp-action=" ">Configuracion</a>
+<!-- Button Modal -->
+<button type="button" class="btn btn-success ms-4 me-4" data-bs-toggle="modal" data-bs-target="#myModalConfig">
+    Configuracion
+</button>
+<!--  Modal -->
+<div class="modal" id="myModalConfig">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="" method="post">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Parametros de Configuracion</h4>
+                    <label class="form-label" for="muestra_ano"></label>
+                    <div id="muestra_ano" name="ano" class="ms-3 text-black "></div>
+                    <label class="form-label" for="muestra_mes"></label>
+                    <div id="muestra_mes" name="mes" class="ms-3 text-black "></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body d-flex flex-row justify-content-md-center">
+                    <label>Tabla :</label>
+                    <input class="ms-3" type="text" placeholder="Tabla en bd ..."/>
+                    
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button onclick="Test()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 

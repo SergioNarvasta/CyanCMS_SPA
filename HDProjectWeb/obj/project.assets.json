@@ -10542,11 +10542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\HDProjectWeb\\HDProjectWeb.csproj",
+      "projectUniqueName": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\HDProjectWeb.csproj",
       "projectName": "HDProjectWeb",
-      "projectPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\HDProjectWeb\\HDProjectWeb.csproj",
+      "projectPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\HDProjectWeb.csproj",
       "packagesPath": "C:\\Users\\snarvasta\\.nuget\\packages\\",
-      "outputPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\HDProjectWeb\\obj\\",
+      "outputPath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

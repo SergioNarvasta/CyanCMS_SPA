@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using HDProjectWeb.Models;
+using HDProjectWeb.Validaciones;
 using HDProjectWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -28,9 +29,10 @@ namespace HDProjectWeb.Controllers
             return View();
         }
         [HttpPost]
-        public void ActualizaPeriodo(string periodo) 
+        public IActionResult ActualizaPeriodo(ValidacionPeriodo validacionPeriodo) 
         {
-          periodo_dinamic = periodo;
+            periodo_dinamic = validacionPeriodo.Ano+validacionPeriodo.Mes;
+            return View();
         }
 
         [HttpGet]

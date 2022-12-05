@@ -4,7 +4,7 @@
     {
         public int Pagina { get; set; } = 1;
         public int RecordsporPagina { get; set; } = 5;
-        public int CantidadRegistros { get; set; }
+        public int CantidadRegistros { get; set; } = 0;
         //  266 / 5
         public int CantidadPaginas => (int)Math.Ceiling((double)CantidadRegistros / RecordsporPagina);
         public string BaseURL { get; set; }

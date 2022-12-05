@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ylJ4Lz/VtlQGYCM5DL3bFnsoJ2dA36U6FcyS8G7lzgdlix64el8JRi2kAxo6nbMxlX/ruh3zbKP126cHWSXLgw==",
+  "dgSpecHash": "PD8elT73kudAkdkVjHSNEhSoBzsFNbHSxhu2uRwR10mcdNfNbWg7efuoxe9XBBjGov9yLIL+wveHSx/4G+XlKw==",
   "success": true,
-  "projectFilePath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\REQ_COMPRA\\HDProjectWeb\\HDProjectWeb.csproj",
+  "projectFilePath": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\HDProjectWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\snarvasta\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\snarvasta\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
