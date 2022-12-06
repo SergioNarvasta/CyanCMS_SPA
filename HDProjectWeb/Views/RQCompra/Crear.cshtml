@@ -4,18 +4,42 @@
     ViewData["Title"] = "Registrar Req Compra";
 }
 <h2 class="text-center">TITULO PRINCIPAL </h2>
+<script>
+    function Agregar() {
+        alert("Si termino funcion");
+        console.log("SI termino");
+    }
+
+    $(document).ready(function(){
+	   $('#btn_adicionar').click(function(){
+		
+        var cont = 0;
+        var item = '00' + (cont + 1).toString;
+        var cod = 999900000018;
+        var des = "<input type='"'text'"' />";
+        var det = "<button id='"'btn_Detalle'"'  class='"'btn btn-outline-success'"'>+</button>";
+        var uni = "UND";
+        var cant = "<input type='"'text'"' value='"'0.0'"' />";
+        var codprv = "00000000";
+        var prov = "<input type='"'text'"' />";
+       
+        var fila = "<tr><td></td><td>" + item + "</td><td>" + cod + "</td><td>" + des + "</td><td>" + det + "</td><td>" + uni + "</td><td>" + cant + "</td><td>" + codprv + "</td><td>" + prov + "</td> </tr>";
+        $('#tblProductos tr:first').after(fila);
+        console.log(cont);
+        cont = cont+1;
+        });
+    });
+  
+</script>
 <br />
 <div class="d-flex w-25 justify-content-center">
     <div class="col-md-4">
         <form asp-action="Crear">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>           
             <table>
                 <tbody class="m-2">
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th><th></th>
+                        <th></th><th></th><th></th><th></th>
                         <th>
                             <div class="form-group ">
                                 <input type="submit" value="Registrar" class="btn btn-primary" />
@@ -213,12 +237,14 @@
             <br /><br />
             <!-- TABLA PRODUCTOS -->
             <div class="table">
-                <table class="table table-bordered table-hover">
+                <table  class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                        <th> <button id="btn_adicionar" onclick="alert('Hello'')" type="button" class="btn btn-outline-success">+</button> </th>
                         <th>Item</th>
                         <th>Codigo</th>
-                        <th colspan="2">Descripcion</th>
+                        <th>Descripcion</th>
                         <th>Det.</th>
                         <th>Unidad</th>
                         <th>Cantidad</th>
@@ -227,6 +253,7 @@
                         <th>Sustento</th>
                     </tr>
                 </thead>
+                    <tbody id="tblProductos" class="table table-bordered"> </tbody>
                 </table>
             </div>
             <!-- TABLA ADJUNTOS-->
