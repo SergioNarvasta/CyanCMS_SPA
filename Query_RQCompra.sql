@@ -108,6 +108,8 @@ SET
 	rco_indval = @Rco_Categorizado
 Where rco_numrco=@Rco_Numero
 
+
+
 --Ejecutar desde Dapper  Actualizar()
 EXEC PA_HD_WEB_RQ_RQCompraCab_Update @Rco_Numero=@Rco_numero ,@Rco_Fec_Registro=@Rco_fec_registro ,@Rco_Motivo =@Rco_motivo,
 @U_Negocio =@U_negocio, @Centro_Costo=Centro_costo, @Rco_Situacion_Aprobado=@Rco_situacion_aprobado,

@@ -8,8 +8,8 @@ namespace HDProjectWeb.Services
     {
         //Interface Obtener para la clase diseñada de vista RQComp
         Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion);
-        Task<RQCompraEd> ObtenerporCodigo(string Rco_numero);
-        Task Actualizar(RQCompraEd rQCompraEd);
+        Task<RQCompra> ObtenerporCodigo(string Rco_numero);
+        Task Actualizar(RQCompra rQCompraEd);
         Task<int> ContarRegistros(string periodo);
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
@@ -103,7 +103,7 @@ ORDER BY A.rco_feccre DESC
             return await connection.ExecuteScalarAsync<int>(
                 "SELECT COUNT(*) FROM REQUERIMIENTO_COMPRA_RCO WHERE ano_codano+ mes_codmes=@periodo ", new { periodo });
         }
-        public async Task Actualizar(RQCompraEd rQCompraEd)
+        public async Task Actualizar(RQCompra rQCompraEd)
         {
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync(@"PA_HD_WEB_RQ_RQCompraCab_Update @Rco_Numero=@Rco_numero ,@Rco_Fec_Registro=@Rco_fec_registro ,@Rco_Motivo =@Rco_motivo,
@@ -111,10 +111,10 @@ ORDER BY A.rco_feccre DESC
                             @Rco_Prioridad =@Rco_prioridad,  @Rco_Justificacion=Rco_justificacion , @Rco_Reembolso =@Rco_reembolso,
                             @Rco_Presupuesto =@Rco_presupuesto,@Rco_Categorizado = @Rco_categorizado,  @Rco_Disciplina = @Rco_disciplina", rQCompraEd);
         }
-        public async Task<RQCompraEd> ObtenerporCodigo(string Rco_numero) 
+        public async Task<RQCompra> ObtenerporCodigo(string Rco_numero) 
         {
             using var connection = new SqlConnection(connectionString);
-            return await connection.QueryFirstOrDefaultAsync<RQCompraEd>(@"SELECT  rco_numrco,rco_fecreg ,rco_motivo,ung_codung,cco_codcco,dis_coddis,
+            return await connection.QueryFirstOrDefaultAsync<RQCompra>(@"SELECT  rco_numrco,rco_fecreg ,rco_motivo,ung_codung,cco_codcco,dis_coddis,
 	                                            rco_sitrco,rco_priori,rco_obspri,rco_rembls,rco_presup,rco_indval
                                                 FROM REQUERIMIENTO_COMPRA_RCO    WHERE rco_numrco = @Rco_numero ",new {Rco_numero});
         }

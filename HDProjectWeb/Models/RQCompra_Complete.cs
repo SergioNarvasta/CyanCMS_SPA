@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HDProjectWeb.Models
 {
-    public class RQCompra
+    public class RQCompra_Complete
     {
-        //Class Purchase requirement
+        //Class Purchase requirement Requerimiento_Compra_RCO
 
         [Required(ErrorMessage = "Campo obligatorio")]//Campo Requerido
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]

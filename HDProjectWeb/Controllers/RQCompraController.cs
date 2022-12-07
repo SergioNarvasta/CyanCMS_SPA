@@ -42,7 +42,7 @@ namespace HDProjectWeb.Controllers
             if (periodo_dinamic is not null)
             {
                 periodo = periodo_dinamic;
-            }           
+            }
             ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);
             var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
@@ -70,7 +70,7 @@ namespace HDProjectWeb.Controllers
         }
 
         [HttpPost]
-        public  async Task<IActionResult> Editar(RQCompraEd rQCompraEd)
+        public  async Task<IActionResult> Editar(RQCompra rQCompraEd)
         {
            //var usuarioid=servicioPeriodo.ObtenerPeriodo(); //ObtenerUsuarioId
            await repositorioRQCompra.Actualizar(rQCompraEd);
