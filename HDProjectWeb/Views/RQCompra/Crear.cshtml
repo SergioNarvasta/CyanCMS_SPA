@@ -54,7 +54,7 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="ms-xl-5">Fecha_Reg</label>
-                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" />
+                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" value="@ViewBag.fecha" />
                                 <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
                             </div>
                         </th>
@@ -161,7 +161,7 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-5 me-5">
                                 <label  class="control-label ms-2 me-2">Resumen</label>
-                                <input  class="form-control form-control-sm col-sm-4" />
+                                <input asp-for="Rco_glorco" class="form-control form-control-sm col-sm-4" />
                                 <span   class="text-danger"></span>
                             </div>
                         </th>
@@ -177,7 +177,7 @@
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <input class="ms-5" type="checkbox" id="chkCategorizado" />
+                                <input  class="ms-5" type="checkbox" id="chkCategorizado" />
                                 <span class="ms-2">Categorizado</span>
                             </div>
                             
@@ -218,7 +218,7 @@
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <input class="ms-5" type="checkbox" id="chkCategorizado" />
+                                <input class="ms-5" type="checkbox" id="chkCuadroComp" />
                                 <span class="ms-2">Cuadro Comparativo</span>
                             </div>
                         </th>

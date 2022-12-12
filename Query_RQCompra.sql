@@ -71,7 +71,7 @@ Left Join DISCIPLINAS_DIS     E on a.cia_codcia=e.cia_codcia and a.dis_coddis=e.
 Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.suc_codsuc=f.suc_codsuc and a.rco_numrco=f.rco_numrco and f.anm_codanm='0'
 Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
 Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
-Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=@periodo
+Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=202211
 and isnull(a.rco_flgmig,'0')='0'
 ORDER BY A.rco_feccre DESC
 --and isnull(rco_indest,'0')='1'

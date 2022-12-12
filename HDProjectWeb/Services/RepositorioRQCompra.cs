@@ -11,6 +11,7 @@ namespace HDProjectWeb.Services
         Task<RQCompra> ObtenerporCodigo(string Rco_numero);
         Task Actualizar(RQCompra rQCompraEd);
         Task<int> ContarRegistros(string periodo);
+        Task Crear(RQCompra rQCompra);
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
@@ -23,7 +24,11 @@ namespace HDProjectWeb.Services
         public async Task Crear(RQCompra rQCompra)
         {
             using var connection = new SqlConnection(connectionString);
-            var id = await connection.QuerySingleAsync<string>("");
+            await connection.ExecuteAsync (@" PA_HD_WEB_RQ_Registra_Cabecera @cia_codcia = @cia_codcia, @suc_codsuc = @suc_codsuc, @rco_numrco = @rco_numrco, @tin_codtin = @tin_codtin
+                                        ,@s10_usuario = @s10_usuario, @rco_motivo = @rco_motivo, @cco_codcco = @cco_codcco,@rco_sitrco = @rco_sitrco, @rco_sitlog = @rco_sitlog
+                                        ,@ano_codano = @ano_codano, @mes_codmes = @mes_codmes, @rco_indest = @rco_indest, @rco_usucre = @rco_usucre , @rco_tiprco = @rco_tiprco
+                                        ,@rco_codusu = @rco_codusu, @ung_codung = @ung_codung, @rco_indcie = @rco_indcie, @rco_indval = @rco_indval , @rco_priori = @rco_priori
+                                        ,@rco_rembls = @rco_rembls, @rco_presup = @rco_presup, @adi_codadi = @adi_codadi",rQCompra);
         }
         public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion) 
         {

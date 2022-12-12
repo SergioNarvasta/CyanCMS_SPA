@@ -25,9 +25,31 @@ namespace HDProjectWeb.Controllers
         public IActionResult Crear()
         {
             var periodo = servicioPeriodo.ObtenerPeriodo();
+            var date = DateTime.Now;
             ViewBag.periodo = periodo;
+            ViewBag.fecha = date;    
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Crear(RQCompra rQCompra)
+        {
+            /*if (!ModelState.IsValid)
+            {
+                return View(rQCompra);
+            }*/
+            rQCompra.Cia_codcia = servicioPeriodo.Compañia();
+            rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
+            rQCompra.Ano_codano = servicioPeriodo.Ano();
+            rQCompra.Mes_codmes = servicioPeriodo.Mes();
+            rQCompra.S10_usuario = servicioPeriodo.User();
+            rQCompra.Rco_usucre = servicioPeriodo.Usuario_Cre();
+            rQCompra.Rco_codusu = servicioPeriodo.CodUser();
+
+            await repositorioRQCompra.Crear(rQCompra);
+            return View();
+        }
+
         [HttpPost]
         public IActionResult ActualizaPeriodo(ValidacionPeriodo validacionPeriodo) 
         {
