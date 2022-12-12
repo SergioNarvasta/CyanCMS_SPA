@@ -1,6 +1,8 @@
 using HDProjectWeb.Data;
+using HDProjectWeb.Models;
 using HDProjectWeb.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,24 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddTransient<IRepositorioRQCompra, RepositorioRQCompra>();
 builder.Services.AddTransient<IServicioPeriodo, ServicioPeriodo>(); //  Agregamos los servicios creados
 builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
+builder.Services.AddTransient<IUserStore<Usuario>,UsuarioStore>();
+builder.Services.AddIdentityCore<Usuario>(opciones =>
+{
+    opciones.Password.RequireDigit = false;
+    opciones.Password.RequireLowercase = false;
+    opciones.Password.RequireLowercase = false;
+    opciones.Password.RequireNonAlphanumeric = false;
+});
+
+//COnfiguracion de Servicios para leer Cookies
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
+}).AddCookie(IdentityConstants.ApplicationScheme);
+
+builder.Services.AddTransient<SignInManager<Usuario>>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
