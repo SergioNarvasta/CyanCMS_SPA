@@ -63,7 +63,7 @@ namespace HDProjectWeb.Services
         }
         public string User()
         {
-            string user = "Sistemas";
+            string user = "OSIS";
             return user;
         }
         public string CodUser()

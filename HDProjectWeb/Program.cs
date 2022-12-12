@@ -12,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddTransient<IRepositorioRQCompra, RepositorioRQCompra>();
 builder.Services.AddTransient<IServicioPeriodo, ServicioPeriodo>(); //  Agregamos los servicios creados
+builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();

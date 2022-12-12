@@ -34,10 +34,10 @@ namespace HDProjectWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Crear(RQCompra rQCompra)
         {
-            /*if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(rQCompra);
-            }*/
+            }
             rQCompra.Cia_codcia = servicioPeriodo.Compañia();
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
