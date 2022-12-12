@@ -19,7 +19,8 @@ namespace HDProjectWeb.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Registro()
+       
+        public async Task<IActionResult> Login()
         {
             return View();
         }

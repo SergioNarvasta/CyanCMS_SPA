@@ -20,17 +20,17 @@ builder.Services.AddIdentityCore<Usuario>(opciones =>
 {
     opciones.Password.RequireDigit = false;
     opciones.Password.RequireLowercase = false;
-    opciones.Password.RequireLowercase = false;
     opciones.Password.RequireNonAlphanumeric = false;
 });
 
 //COnfiguracion de Servicios para leer Cookies
+/*
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
     options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
     options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
-}).AddCookie(IdentityConstants.ApplicationScheme);
+}).AddCookie(IdentityConstants.ApplicationScheme);*/
 
 builder.Services.AddTransient<SignInManager<Usuario>>();
 

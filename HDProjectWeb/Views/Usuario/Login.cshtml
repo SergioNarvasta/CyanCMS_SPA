@@ -1,0 +1,35 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>
+    Inicia Sesion
+</h1>
+<form id="account" method="post" novalidate="novalidate">
+
+
+    <div class="form-floating">
+        <input class="form-control" autocomplete="username" aria-required="true" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="">
+        <label class="form-label" for="Input_Email">Email</label>
+        <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-floating">
+        <input class="form-control" autocomplete="current-password" aria-required="true" type="password" data-val="true" data-val-required="The Password field is required." id="Input_Password" name="Input.Password">
+        <label class="form-label" for="Input_Password">Password</label>
+        <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+    </div>
+    <div>
+        <div class="checkbox">
+            <label class="form-label" for="Input_RememberMe">
+                <input class="form-check-input" type="checkbox" data-val="true" data-val-required="The Remember me? field is required." id="Input_RememberMe" name="Input.RememberMe" value="true">
+                Remember me?
+            </label>
+        </div>
+    </div>
+    <div>
+        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+    </div>
+    
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8BXir3FwPllKn37bQ6K11hujgcmZCtDUIeEXBdo6iBNIdKLhXcoWBaWP5WB6hPwEH5D2FOF34YrZpjPKvcODBJq4iF0_M21DTQZGxBn-3W654n7diTLYyRW2H2r37ranozte8u1DTJtL2CoWg08mqFY"><input name="Input.RememberMe" type="hidden" value="false">
+</form>

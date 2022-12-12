@@ -24,8 +24,7 @@ namespace HDProjectWeb.Services
         }
 
         public void Dispose()
-        {
-            
+        {            
         }
 
         public Task<Usuario> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
@@ -75,7 +74,7 @@ namespace HDProjectWeb.Services
 
         public Task<string> GetUserNameAsync(Usuario user, CancellationToken cancellationToken)
         {
-            return Task.FromResult(user.User);
+            return Task.FromResult(user.Nombre);
         }
 
         public Task<bool> HasPasswordAsync(Usuario user, CancellationToken cancellationToken)
