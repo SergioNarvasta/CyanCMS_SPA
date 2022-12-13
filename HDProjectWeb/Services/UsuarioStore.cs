@@ -83,7 +83,7 @@ namespace HDProjectWeb.Services
         }
 
         public Task SetEmailAsync(Usuario user, string email, CancellationToken cancellationToken)
-        {
+        {    
             throw new NotImplementedException();
         }
 

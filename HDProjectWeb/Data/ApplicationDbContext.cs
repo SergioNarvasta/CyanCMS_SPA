@@ -6,11 +6,17 @@ namespace HDProjectWeb.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        private readonly string connectionString;
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IConfiguration configuration)
             : base(options)
         {
+            connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        public DbSet<HDProjectWeb.Models.RQCompraCab> RQCompraCab { get; set; }
-   
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+
     }
 }
