@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HDProjectWeb.Controllers
 {
@@ -38,6 +39,7 @@ namespace HDProjectWeb.Controllers
             {
                 return View(rQCompra);
             }
+         
             rQCompra.Cia_codcia = servicioPeriodo.Compañia();
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
@@ -57,6 +59,7 @@ namespace HDProjectWeb.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
         {
