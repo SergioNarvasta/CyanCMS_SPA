@@ -17,6 +17,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddTransient<IRepositorioRQCompra, RepositorioRQCompra>();
 builder.Services.AddTransient<IServicioPeriodo, ServicioPeriodo>(); //  Agregamos los servicios creados
 builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
+builder.Services.AddTransient<IServicioUsuario,ServicioUsuario>();
 builder.Services.AddTransient<IUserStore<Usuario>,UsuarioStore>();
 builder.Services.AddIdentityCore<Usuario>(opciones =>
 {

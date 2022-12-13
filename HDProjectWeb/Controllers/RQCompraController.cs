@@ -14,12 +14,14 @@ namespace HDProjectWeb.Controllers
     {
         private readonly IRepositorioRQCompra repositorioRQCompra;
         private readonly IServicioPeriodo servicioPeriodo;
+        private readonly IServicioUsuario servicioUsuario;
         private string periodo_dinamic = null;
       
-        public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo) 
+        public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo,IServicioUsuario servicioUsuario) 
         {
             this.repositorioRQCompra = repositorioRQCompra;
             this.servicioPeriodo     = servicioPeriodo;
+            this.servicioUsuario = servicioUsuario;
         }
 
         [HttpGet]
@@ -63,6 +65,7 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
         {
+            var user = servicioUsuario.ObtenerCodUsuario();
             var periodo = servicioPeriodo.ObtenerPeriodo();
             if (periodo_dinamic is not null)
             {

@@ -19,7 +19,7 @@ namespace HDProjectWeb.Services
             if(httpContext.User.Identity.IsAuthenticated)
             {
                 var idClaim = httpContext.User
-                             .Claims.Where(x => x.Type == ClaimTypes.Name).FirstOrDefault();
+                             .Claims.Where(x => x.Type == ClaimTypes.Email).FirstOrDefault();
                 var Cod = idClaim.Value.ToString();
                 return Cod;
             }
