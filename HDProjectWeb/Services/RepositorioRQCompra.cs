@@ -9,9 +9,9 @@ namespace HDProjectWeb.Services
         //Interface Obtener para la clase diseñada de vista RQComp
         Task<RQCompra> ObtenerporCodigo(string Rco_numero);
         Task Actualizar(RQCompra rQCompraEd);
-        Task<int> ContarRegistros(string periodo);
         Task Crear(RQCompra rQCompra);
         Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion, string CodAuxUser);
+        Task<int> ContarRegistros(string periodo, string CodUser);
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
@@ -97,16 +97,19 @@ Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.s
 Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
 Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
 Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=@periodo
-and isnull(a.rco_flgmig,'0')='0' AND A.S10_USUARIO = @CodAuxUser
+and isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodAuxUser
 ORDER BY A.rco_feccre DESC
                                        OFFSET {paginacion.RecordsASaltar }
                                        ROWS FETCH NEXT {paginacion.RecordsPorPagina } ROWS ONLY", new {periodo,CodAuxUser});
         }
-        public async Task<int> ContarRegistros(string periodo)
+        public async Task<int> ContarRegistros(string periodo,string CodUser)
         {
             using var connection = new SqlConnection(connectionString);
             return await connection.ExecuteScalarAsync<int>(
-                "SELECT COUNT(*) FROM REQUERIMIENTO_COMPRA_RCO WHERE ano_codano+ mes_codmes=@periodo ", new { periodo });
+                @"SELECT COUNT(*) FROM REQUERIMIENTO_COMPRA_RCO A
+                Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.suc_codsuc=f.suc_codsuc and a.rco_numrco=f.rco_numrco and f.anm_codanm='0'
+                LEFT JOIN SYS_TABLA_USUARIOS_S10 G ON F.s10_usuario =G.S10_USUARIO
+                WHERE ano_codano+mes_codmes=@periodo AND  G.S10_USUARIO = @CodUser", new { periodo,CodUser });
         }
         public async Task Actualizar(RQCompra rQCompraEd)
         {

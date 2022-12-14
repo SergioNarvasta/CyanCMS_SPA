@@ -9,6 +9,7 @@ namespace HDProjectWeb.Services
         string Ano();
         string Compañia();
         string Mes();
+        string NroReq();
         Task<string> ObtenerCompañia(string codcia);
         string ObtenerPeriodo();
         string Sucursal();
@@ -53,6 +54,14 @@ namespace HDProjectWeb.Services
         {
             string ano = DateTime.Now.Year.ToString();
             return ano;
+        }
+        public string NroReq()
+        {
+            Random rnd = new Random();
+            string _base = "RQ";
+            string Random = rnd.Next().ToString();
+            string NroReq = (_base+ Random).Remove(10,(_base + Random).Length-10);
+            return NroReq;
         }
     }
 }

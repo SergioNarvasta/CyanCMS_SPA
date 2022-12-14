@@ -568,3 +568,4 @@ D:\Docs_Sergio\Z_PROYECTOS WEB\1.Req_Compra_HD\HDProjectWeb\obj\Debug\net6.0\ref
 D:\Docs_Sergio\Z_PROYECTOS WEB\1.Req_Compra_HD\HDProjectWeb\obj\Debug\net6.0\HDProjectWeb.pdb
 D:\Docs_Sergio\Z_PROYECTOS WEB\1.Req_Compra_HD\HDProjectWeb\obj\Debug\net6.0\HDProjectWeb.genruntimeconfig.cache
 D:\Docs_Sergio\Z_PROYECTOS WEB\1.Req_Compra_HD\HDProjectWeb\obj\Debug\net6.0\ref\HDProjectWeb.dll
+D:\Docs_Sergio\Z_PROYECTOS WEB\1.Req_Compra_HD\HDProjectWeb\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll

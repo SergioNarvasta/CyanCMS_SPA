@@ -47,7 +47,7 @@
                         <th class="col-sm-4">
                             <div class="form-group d-flex flex-row me-5">
                                 <label class="me-2">Requerimiento</label>
-                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 " />
+                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 " value="@ViewBag.Rco_numrco" />
                                 <span asp-validation-for="Rco_numrco" class="text-danger"></span>
                             </div>
                         </th>
@@ -154,14 +154,14 @@
                         <th>
                             <div class="form-group d-flex flex-row me-5">
                                 <label asp-for="S10_usuario" class="control-label me-2"></label>
-                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" />
+                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" value="@ViewBag.S10_usuario" />
                                 <span asp-validation-for="S10_usuario" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-5 me-5">
                                 <label  class="control-label ms-2 me-2">Resumen</label>
-                                <input asp-for="Rco_glorco" class="form-control form-control-sm col-sm-4" />
+                                <input asp-for="Rco_glorco" class="form-control form-control-sm col-sm-4" value="" />
                                 <span   class="text-danger"></span>
                             </div>
                         </th>
@@ -271,7 +271,7 @@
                     <a class="btn btn-danger">ELiminar</a>
                 </div>              
             </div> <br />
-            <p style="color:red">Nombre Objeto</p>
+            <p style="color:red">View_RQCompra/Crear </p>
         </form>
     </div>
 </div>

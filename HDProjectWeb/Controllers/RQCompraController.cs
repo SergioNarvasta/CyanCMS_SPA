@@ -31,6 +31,8 @@ namespace HDProjectWeb.Controllers
             var date = DateTime.Now;
             ViewBag.periodo = periodo;
             ViewBag.fecha = date;    
+            ViewBag.S10_usuario = servicioUsuario.ObtenerCodUsuario();
+            ViewBag.Rco_numrco = servicioPeriodo.NroReq();
             return View();
         }
 
@@ -71,10 +73,9 @@ namespace HDProjectWeb.Controllers
                 periodo = periodo_dinamic;
             }
             ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);
-            string user = servicioUsuario.ObtenerCodUsuario();
-            string CodAuxUser = servicioUsuario.ObtenerCodAuxUsuario(user);
-            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodAuxUser);
-            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
+            string CodUser = servicioUsuario.ObtenerCodUsuario();
+            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser);
+            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
             var respuesta = new PaginacionRespuesta<RQCompraCab>
             {
                 Elementos = rQCompra,
