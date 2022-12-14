@@ -30,7 +30,7 @@ namespace HDProjectWeb.Controllers
             var periodo = servicioPeriodo.ObtenerPeriodo();
             var date = DateTime.Now;
             ViewBag.periodo = periodo;
-            ViewBag.fecha = date;    
+            ViewBag.fecha = date.ToString("yyyy-MM-ddThh:mm");    
             ViewBag.S10_usuario = servicioUsuario.ObtenerCodUsuario();
             ViewBag.Rco_numrco = servicioPeriodo.NroReq();
             return View();
@@ -39,11 +39,7 @@ namespace HDProjectWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Crear(RQCompra rQCompra)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(rQCompra);
-            }
-         
+           /* if (!ModelState.IsValid){ return View(rQCompra); }*/       
             rQCompra.Cia_codcia = servicioPeriodo.Compañia();
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
