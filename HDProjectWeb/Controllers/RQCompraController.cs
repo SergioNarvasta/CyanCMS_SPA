@@ -46,9 +46,9 @@ namespace HDProjectWeb.Controllers
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
             rQCompra.Mes_codmes = servicioPeriodo.Mes();
-            rQCompra.S10_usuario = servicioPeriodo.User();
-            rQCompra.Rco_usucre = servicioPeriodo.Usuario_Cre();
-            rQCompra.Rco_codusu = servicioPeriodo.CodUser();
+            rQCompra.S10_usuario = servicioUsuario.ObtenerCodUsuario();
+            rQCompra.Rco_usucre = servicioUsuario.ObtenerCodUsuario();
+            rQCompra.Rco_codusu = servicioUsuario.ObtenerCodUsuario();
 
             await repositorioRQCompra.Crear(rQCompra);
             return View();
@@ -65,14 +65,15 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
         {
-            var user = servicioUsuario.ObtenerCodUsuario();
             var periodo = servicioPeriodo.ObtenerPeriodo();
             if (periodo_dinamic is not null)
             {
                 periodo = periodo_dinamic;
             }
             ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);
-            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel);
+            string user = servicioUsuario.ObtenerCodUsuario();
+            string CodAuxUser = servicioUsuario.ObtenerCodAuxUsuario(user);
+            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodAuxUser);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo);
             var respuesta = new PaginacionRespuesta<RQCompraCab>
             {

@@ -7,11 +7,11 @@ namespace HDProjectWeb.Services
     public interface IRepositorioRQCompra
     {
         //Interface Obtener para la clase diseñada de vista RQComp
-        Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion);
         Task<RQCompra> ObtenerporCodigo(string Rco_numero);
         Task Actualizar(RQCompra rQCompraEd);
         Task<int> ContarRegistros(string periodo);
         Task Crear(RQCompra rQCompra);
+        Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion, string CodAuxUser);
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
@@ -30,7 +30,7 @@ namespace HDProjectWeb.Services
                                         ,@rco_codusu = @rco_codusu, @ung_codung = @ung_codung, @rco_indcie = @rco_indcie, @rco_indval = @rco_indval , @rco_priori = @rco_priori
                                         ,@rco_rembls = @rco_rembls, @rco_presup = @rco_presup, @adi_codadi = @adi_codadi",rQCompra);
         }
-        public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion) 
+        public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion,string CodAuxUser) 
         {
             using var connection = new SqlConnection(connectionString);
             return await connection.QueryAsync<RQCompraCab>(@$"Select 
@@ -97,10 +97,10 @@ Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.s
 Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
 Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
 Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=@periodo
-and isnull(a.rco_flgmig,'0')='0'
+and isnull(a.rco_flgmig,'0')='0' AND A.S10_USUARIO = @CodAuxUser
 ORDER BY A.rco_feccre DESC
                                        OFFSET {paginacion.RecordsASaltar }
-                                       ROWS FETCH NEXT {paginacion.RecordsPorPagina } ROWS ONLY", new {periodo});
+                                       ROWS FETCH NEXT {paginacion.RecordsPorPagina } ROWS ONLY", new {periodo,CodAuxUser});
         }
         public async Task<int> ContarRegistros(string periodo)
         {

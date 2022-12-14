@@ -1,18 +1,23 @@
-﻿using System.Security.Claims;
+﻿using Dapper;
+using System.Data.SqlClient;
+using System.Security.Claims;
 
 namespace HDProjectWeb.Services
 {
     public interface IServicioUsuario
     {
+        string ObtenerCodAuxUsuario(string CodUser);
         string ObtenerCodUsuario();
     }
     public class ServicioUsuario : IServicioUsuario
     {
         private readonly HttpContext httpContext;
+        private readonly string connectionString;
 
-        public ServicioUsuario(IHttpContextAccessor httpContextAccessor)
+        public ServicioUsuario(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             httpContext = httpContextAccessor.HttpContext;
+            connectionString = configuration.GetConnectionString("DefaultConnection");
         }
         public string ObtenerCodUsuario()
         {
@@ -28,5 +33,12 @@ namespace HDProjectWeb.Services
                 throw new ApplicationException("El usuario no esta autenticado");
             }
         }
+        public string ObtenerCodAuxUsuario( string CodUser)
+        {
+            using var connection = new SqlConnection(connectionString);
+            return connection.QuerySingle<string>(@"SELECT AUX_CODAUX FROM SYS_TABLA_USUARIOS_S10 
+                          WHERE S10_USUARIO = @CodUser", new { CodUser });
+        }
+
     }
 }

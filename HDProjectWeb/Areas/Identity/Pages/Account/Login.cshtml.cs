@@ -65,7 +65,7 @@ namespace HDProjectWeb.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            
+            [Display(Name = "Usuario")]
             public string Email { get; set; }
 
             /// <summary>
@@ -74,6 +74,7 @@ namespace HDProjectWeb.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name ="Token")]
             public string Password { get; set; }
 
             /// <summary>
