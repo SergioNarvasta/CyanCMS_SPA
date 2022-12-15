@@ -44,7 +44,7 @@ namespace HDProjectWeb.Controllers
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
             rQCompra.Mes_codmes = servicioPeriodo.Mes();
-            rQCompra.S10_usuario = servicioUsuario.ObtenerCodUsuario();
+            rQCompra.S10_usuario = servicioUsuario.CodUsuario();
             rQCompra.Rco_usucre = servicioUsuario.ObtenerCodUsuario();
             rQCompra.Rco_codusu = servicioUsuario.ObtenerCodUsuario();
 

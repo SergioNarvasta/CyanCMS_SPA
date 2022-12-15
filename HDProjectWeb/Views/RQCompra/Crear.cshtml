@@ -3,28 +3,28 @@
 @{
     ViewData["Title"] = "Registrar Req Compra";
 }
-<script>
+<head>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+            function agregarFila(){
+                var cont = 0;
+                var item = '00' + (cont + 1).toString();
+                var cod = '<input type="text"  value="999900000018" />';
+                var des = '<input />';
+                var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success">+</button>';
+                var uni = "UND";
+                var cant = '<input type="text"  value="0.0" />';
+                var codprv = "00000000";
+                var prov = '<input type="text" placeholder="proveedor" />';
+                var sust = '<input type="text" placeholder="sustento.." />';
 
-    $(document).ready(function(){
-	   $('#btn_adicionar').click(function(){
-		
-        var cont = 0;
-        var item = '00' + (cont + 1).toString;
-        var cod = 999900000018;
-        var des = "<input type='"'text'"' />";
-        var det = "<button id='"'btn_Detalle'"'  class='"'btn btn-outline-success'"'>+</button>";
-        var uni = "UND";
-        var cant = "<input type='"'text'"' value='"'0.0'"' />";
-        var codprv = "00000000";
-        var prov = "<input type='"'text'"' />";
-       
-        var fila = "<tr><td></td><td>" + item + "</td><td>" + cod + "</td><td>" + des + "</td><td>" + det + "</td><td>" + uni + "</td><td>" + cant + "</td><td>" + codprv + "</td><td>" + prov + "</td> </tr>";
-        $('#tblProductos tr:first').after(fila);
-        console.log(cont);
-        cont = cont+1;
-        });
-    });
-</script>
+                var fila = "<tr><td></td><td>" + item + "</td><td>" + cod + "</td><td>" + des + "</td><td>" + det + "</td><td>" + uni + "</td><td>" + cant + "</td><td>" + codprv + "</td><td>" + prov + "</td><td>" + sust + "</td> </tr>";
+
+                $('#tblProductos tbody').append(fila);
+            }
+    </script>
+</head>
 <h2 class="text-center">TITULO PRINCIPAL </h2>
 <br />
 <div class="d-flex w-25 justify-content-center">
@@ -67,36 +67,39 @@
                         </th>-->
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <span>Estado </span>
+                                <label>Estado </label>
                                 <select asp-for="Rco_indest" name="cboEstado" class="ms-2">
-                                    <option value=1>VIGENTE</option>
-                                    <option value=0>ANULADO</option>
+                                    <option value="1">VIGENTE</option>
+                                    <option value="0">ANULADO</option>
                                 </select>
+                                <span asp-validation-for="Rco_indest" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <span>Tipo_Req </span>
+                                <label>Tipo_Req </label>
                                 <select asp-for="Rco_tiprco" name="cboTipo" class="ms-2">
-                                    <option value=1>COMPRA REGULAR</option>
-                                    <option value=2>CERTIF. CONFORMIDAD</option>
-                                    <option value=3>ADENDA CONTRATO</option>
-                                    <option value=4>CLS CONSULTOR</option>
-                                    <option value=5>CLS EMPRESA</option>
-                                    <option value=6>AM CONSULTOR</option>
-                                    <option value=7>AM EMPRESA</option>
+                                    <option value="1">COMPRA REGULAR</option>
+                                    <option value="2">CERTIF. CONFORMIDAD</option>
+                                    <option value="3">ADENDA CONTRATO</option>
+                                    <option value="4">CLS CONSULTOR</option>
+                                    <option value="5">CLS EMPRESA</option>
+                                    <option value="6">AM CONSULTOR</option>
+                                    <option value="7">AM EMPRESA</option>
                                 </select>
+                                <span asp-validation-for="Rco_tiprco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <span>Prioridad </span>
+                                <label>Prioridad </label>
                                 <select asp-for="Rco_priori" name="cboPrioridad" class="ms-2">
-                                    <option value=1>MUY ALTA</option>
-                                    <option value=2>ALTA</option>
-                                    <option value=3>MEDIA</option>
-                                    <option value=4>BAJA</option>
+                                    <option value="1">MUY ALTA</option>
+                                    <option value="2">ALTA</option>
+                                    <option value="3">MEDIA</option>
+                                    <option value="4">BAJA</option>
                                 </select>
+                                <span asp-validation-for="Rco_priori" class="text-danger"></span>
                             </div>
                         </th>
                     </tr>
@@ -106,13 +109,13 @@
                              <div class="form-group d-flex flex-row ">
                                <label >U.Negocio</label>
                                  <select asp-for="Ung_codung" name="cboUNegocio" class="ms-4">
-                                   <option value=1>MINING & METALURGY    </option>
-                                   <option value=2>INFRAESTRUCTURE E&W   </option>
-                                   <option value=3>O&G-FEED & ENGINEERING</option>
-                                   <option value=4>SHARED SERVICES</option>    
-                                   <option value=5>O&G - PROJECTS </option>
-                                   <option value=6>M&M - E&G      </option>
-                                   <option value=7>ANTAMINA FASE VII</option>
+                                   <option value="01">MINING & METALURGY    </option>
+                                   <option value="02">INFRAESTRUCTURE E&W   </option>
+                                   <option value="03">O&G-FEED & ENGINEERING</option>
+                                   <option value="04">SHARED SERVICES</option>    
+                                   <option value="05">O&G - PROJECTS </option>
+                                   <option value="06">M&M - E&G      </option>
+                                   <option value="07">ANTAMINA FASE VII</option>
                                  </select>
                               <span asp-validation-for="Ung_codung" class="text-danger"></span>
                              </div>
@@ -128,16 +131,16 @@
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="">Situacion</label>
                                 <select asp-for="Rco_sitrco" id="CboSituacion" class="ms-2">
-                                    <option value=1>PENDIENTE</option>
-                                    <option value=2>APROBADO </option>
-                                    <option value=2>RECHAZADO</option>
+                                    <option value="1">PENDIENTE</option>
+                                    <option value="2">APROBADO </option>
+                                    <option value="3">RECHAZADO</option>
                                 </select>
                                 <span asp-validation-for="Rco_sitrco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <input class="form-check-input ms-5" type="checkbox" id="chkOCAprobado" />
+                                <input class="form-check-input ms-5" type="checkbox" id="chkOCAprobado" value="1"/>
                                 <label class="form-check-label ms-2">OC Aprobado</label>
                             </div>
                         </th>
@@ -169,8 +172,8 @@
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label >Presupuesto</label>
                                 <select asp-for="Rco_presup" id="CboPresupuesto" class="ms-2">
-                                    <option value=1> SI </option>
-                                    <option value=2> NO </option>
+                                    <option value="1"> SI </option>
+                                    <option value="0"> NO </option>
                                 </select>
                                 <span asp-validation-for="Rco_presup" class="text-danger"></span>
                             </div>
@@ -209,8 +212,8 @@
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label>Reembolso</label>
                                 <select asp-for="Rco_rembls" id="CboReembolso" class="ms-3">
-                                    <option value=1> SI </option>
-                                    <option value=2> NO </option>
+                                    <option value="1"> SI </option>
+                                    <option value="0"> NO </option>
                                 </select>
                                 <span asp-validation-for="Rco_rembls" class="text-danger"></span>
                             </div>
@@ -230,12 +233,12 @@
             </table>
             <br /><br />
             <!-- TABLA PRODUCTOS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <div class="table">
-                <table  class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                        <th> <button id="btn_adicionar" type="button" class="btn btn-outline-success">+</button> </th>
+                <table id="tblProductos" class="table table-bordered ">
+                <thead class="table-primary">
+                    <tr>                        
+                        <th> <button onclick="agregarFila()" id="btn_adicionar" type="button" class="btn btn-outline-success">+</button> </th>
                         <th>Item</th>
                         <th>Codigo</th>
                         <th>Descripcion</th>
@@ -247,9 +250,11 @@
                         <th>Sustento</th>
                     </tr>
                 </thead>
-                    <tbody id="tblProductos" class="table table-bordered"> </tbody>
+                    <tbody class="table table-bordered"> </tbody>
+                   
                 </table>
             </div>
+           
             <!-- TABLA ADJUNTOS-->
             <br /><br /><br /><br />
             <span class="justify-content-center">ADJUNTOS</span>

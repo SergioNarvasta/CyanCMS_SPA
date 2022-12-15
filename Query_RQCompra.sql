@@ -85,7 +85,7 @@ LEFT JOIN SYS_TABLA_USUARIOS_S10 G ON F.s10_usuario =G.S10_USUARIO
  WHERE ano_codano+mes_codmes=@periodo AND  G.S10_USUARIO = @CodUser
 
  -- WHERE ano_codano+mes_codmes=202210 AND  G.S10_USUARIO ='LUNAP'
-/*
+
 GO
 
 
@@ -138,5 +138,3 @@ Left Join sys_tabla_usuarios_s10            G on f.s10_usuario=g.s10_usuario
 Where RCO_NUMRCO ='CC09352204'
 
 
-
-*/

@@ -3,12 +3,12 @@
     ViewData["Title"] = "Requerimiento de Compra";
 }
 <script>
-    $(function () {
+  
       $('ul.selec_ano li').click(function (e) {
                 $("#muestra_ano").text(this.id);      
                 $("#periodo").text(this.id);
        });
-    });
+   
     $(function () {
       $('ul.selec_mes li').click(function (e) {
                 $("#muestra_mes").text(this.id);
@@ -16,7 +16,12 @@
                 $("#periodo").text(this.id);
       });
     });
-   
+   function Test(){
+       var mes = document.getElementById("muestra_ano");
+       var vmes = mes.innerText();
+       console.log(vmes);
+      }
+
 </script >
 <div class="d-flex flex-row align-items-center justify-content-center">
     <h2 class="">Requerimiento de Compra</h2> <label id="div_periodo" class="ms-4" style="color:blue">@ViewBag.periodo</label><br />

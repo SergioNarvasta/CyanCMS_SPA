@@ -52,7 +52,7 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracter")]
-        public string Rco_indest { get; set; } = "1";      /***View****/
+        public string Rco_indest { get; set; }      /***View****/
 
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
@@ -69,7 +69,7 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
-        public string Ung_codung { get; set; } = "";     /***View****/
+        public string Ung_codung { get; set; }      /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")] //Campo Requerido
         public short Rco_indcie { get; set; } = 0;
@@ -91,12 +91,12 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
-        public string Rco_priori { get; set; } = "1";     /***View****/
+        public string Rco_priori { get; set; }      /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
 
-        public string Rco_tiprco { get; set; } = " ";         /***View****/
+        public string Rco_tiprco { get; set; }        /***View****/
 
         public string Rco_glorco { get; set; } //Resumen
 

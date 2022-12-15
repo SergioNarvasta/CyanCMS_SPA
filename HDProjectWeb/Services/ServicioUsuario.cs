@@ -6,6 +6,7 @@ namespace HDProjectWeb.Services
 {
     public interface IServicioUsuario
     {
+        string CodUsuario();
         string ObtenerCodAuxUsuario(string CodUser);
         string ObtenerCodUsuario();
     }
@@ -38,6 +39,10 @@ namespace HDProjectWeb.Services
             using var connection = new SqlConnection(connectionString);
             return connection.QuerySingle<string>(@"SELECT AUX_CODAUX FROM SYS_TABLA_USUARIOS_S10 
                           WHERE S10_USUARIO = @CodUser", new { CodUser });
+        }
+        public string CodUsuario()
+        {
+            return "ALCAH2";
         }
 
     }
