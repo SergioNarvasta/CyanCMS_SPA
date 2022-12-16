@@ -77,7 +77,7 @@ and isnull(a.rco_flgmig,'0')='0' AND G.s10_usuario='LUNAP'
 ORDER BY A.rco_feccre DESC
 --and isnull(rco_indest,'0')='1'
 --V_HD_REQUERIMIENTO_COMPRA_CAB
-
+/*
 --SELECT*FROM SYS_TABLA_USUARIOS_S10
 SELECT COUNT(*) FROM REQUERIMIENTO_COMPRA_RCO A
 Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.suc_codsuc=f.suc_codsuc and a.rco_numrco=f.rco_numrco and f.anm_codanm='0'
@@ -137,4 +137,4 @@ SELECT*FROM APROBAC_REQCOM_APROBACIONES_ARA F --On a.cia_codcia=f.cia_codcia and
 Left Join sys_tabla_usuarios_s10            G on f.s10_usuario=g.s10_usuario
 Where RCO_NUMRCO ='CC09352204'
 
-
+*/

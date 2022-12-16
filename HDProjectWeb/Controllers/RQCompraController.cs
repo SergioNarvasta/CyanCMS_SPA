@@ -47,21 +47,40 @@ namespace HDProjectWeb.Controllers
             rQCompra.S10_usuario = servicioUsuario.CodUsuario();
             rQCompra.Rco_usucre = servicioUsuario.ObtenerCodUsuario();
             rQCompra.Rco_codusu = servicioUsuario.ObtenerCodUsuario();
-
             await repositorioRQCompra.Crear(rQCompra);
             return View();
         }
 
         [HttpPost]
-        public IActionResult ActualizaPeriodo(ValidacionPeriodo validacionPeriodo) 
+        public async Task<IActionResult> Index(string periodo,string busqueda,string estado) 
         {
-            periodo_dinamic = validacionPeriodo.Ano+validacionPeriodo.Mes;
-            return View();
+            if (periodo.Length ==0 )
+            {
+                periodo = servicioPeriodo.ObtenerPeriodo();
+            }
+            if (busqueda.Length == 0)
+            {
+                busqueda = "";
+            }
+            ViewBag.periodo = periodo.Remove(4, 2) + "-" + periodo.Remove(0, 4);
+            PaginacionViewModel paginacionViewModel=new PaginacionViewModel();
+            string CodUser = servicioUsuario.ObtenerCodUsuario();
+            var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser);
+            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
+            var respuesta = new PaginacionRespuesta<RQCompraCab>
+            {
+                Elementos = rQCompra,
+                Pagina = paginacionViewModel.Pagina,
+                RecordsporPagina = paginacionViewModel.RecordsPorPagina,
+                CantidadRegistros = totalRegistros,
+                BaseURL = Url.Action()
+            };
+            return View(respuesta);            
         }
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel, string Search)
+        public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
             var periodo = servicioPeriodo.ObtenerPeriodo();
             if (periodo_dinamic is not null)
