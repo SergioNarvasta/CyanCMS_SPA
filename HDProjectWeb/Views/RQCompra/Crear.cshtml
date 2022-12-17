@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Registrar Req Compra";
 }
+
 <head>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -12,17 +13,37 @@
                 var item = '00' + (cont + 1).toString();
                 var cod = '<input type="text"  value="999900000018" />';
                 var des = '<input />';
-                var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success">+</button>';
+                var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#ModalDetPrd">+</button>' +
+                    ' <div class="modal" id="ModalDetPrd"> ' +
+                      ' <div class="modal-dialog"> '+
+                         ' <div class="modal-content"> '+
+                           ' <div class="modal-header"> ' +
+                               '<h4 class="modal-title" > Especificaciones de producto </h4> ' +
+                           ' </div> ' +
+                           ' <div class="modal-body d-flex flex-column justify-content-center" > ' +
+                              ' <label>Producto: 999900000018 </label> ' +
+                              ' <textarea class="col-5 mt-2" style="width:350px;height:200px" > </textarea> ' +
+                           ' </div> ' +
+                           ' <div class="modal-footer" > ' +
+                             ' <button onclick="" type = "button" class="btn btn-danger" data-bs-dismiss="modal" > Retornar </button> ' +
+                           ' </div> ' +
+                        ' </div> ' +
+                      ' </div> ' +
+                    ' </div> ';
                 var uni = "UND";
                 var cant = '<input type="text"  value="0.0" />';
                 var codprv = "00000000";
-                var prov = '<input type="text" placeholder="proveedor" />';
-                var sust = '<input type="text" placeholder="sustento.." />';
-
+                var prov = '<input type="text" placeholder="Proveedor" />';
+                var sust = '<input type="text" placeholder="Sustento.." />';
                 var fila = "<tr><td></td><td>" + item + "</td><td>" + cod + "</td><td>" + des + "</td><td>" + det + "</td><td>" + uni + "</td><td>" + cant + "</td><td>" + codprv + "</td><td>" + prov + "</td><td>" + sust + "</td> </tr>";
-
                 $('#tblProductos tbody').append(fila);
             }
+
+        function colocaEstado(){
+            var combo = document.getElementById("cbo_estado");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_estado").val(selected);
+        }
     </script>
 </head>
 <h2 class="text-center">TITULO PRINCIPAL </h2>
@@ -36,9 +57,18 @@
                     <tr>
                         <th></th><th></th><th></th><th></th>
                         <th>
-                            <div class="form-group ">
-                                <input type="submit" value="Registrar" class="btn btn-primary" />
-                                <a asp-action="Index" class="btn btn-warning ms-3">Volver</a>
+                            <div class="form-group d-flex flex-row">
+                                <button type="submit" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+                                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+                                    </svg> Registrar
+                                </button>
+                                <a asp-action="Index" class="btn btn-danger ms-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+                                    </svg>
+                                    Volver
+                                </a>
                             </div>
                         </th>
                     </tr>
@@ -68,11 +98,11 @@
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Estado </label>
-                                <select asp-for="Rco_indest" name="cboEstado" class="ms-2">
+                                <select id="cbo_estado" class="ms-2" onclick="colocaEstado()">
                                     <option value="1">VIGENTE</option>
                                     <option value="0">ANULADO</option>
                                 </select>
-                                <span asp-validation-for="Rco_indest" class="text-danger"></span>
+                                
                             </div>
                         </th>
                         <th>
@@ -226,9 +256,23 @@
                         </th>
                         <th>
                             <a class="btn btn-primary">TDR</a>
-                            <a class="btn btn-primary ms-2">Enviar Mail</a>
+                            <a class="btn btn-primary ms-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at-fill me-1" viewBox="0 0 16 16">
+                                    <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z" />
+                                    <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z" />
+                                </svg> 
+                                Enviar Mail
+                            </a>
                         </th>
-                     </tr>                   
+                     </tr>
+                    <!-- 5TA FILA CAMPOS A ENVIAR-->
+                    <tr>
+                        <th> 
+                            <label>Estado</label>
+                            <input id="input_estado" asp-for="Rco_indest" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_indest" class="text-danger"></span>
+                        </th>
+                    </tr>
                 </tbody>
             </table>
             <br /><br />
@@ -237,12 +281,18 @@
             <div class="table">
                 <table id="tblProductos" class="table table-bordered ">
                 <thead class="table-primary">
-                    <tr>                        
-                        <th> <button onclick="agregarFila()" id="btn_adicionar" type="button" class="btn btn-outline-success">+</button> </th>
+                    <tr>
+                            <th>
+                                <button onclick="agregarFila()" id="btn_adicionar" type="button" class="btn btn-outline-success" style="border:0px">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                </button>
+                            </th>
                         <th>Item</th>
                         <th>Codigo</th>
                         <th>Descripcion</th>
-                        <th>Det.</th>
+                        <th>Detalle</th>
                         <th>Unidad</th>
                         <th>Cantidad</th>
                         <th>Codigo Proveedor</th>
@@ -259,7 +309,7 @@
             <span class="justify-content-center">ADJUNTOS</span>
             <div class="">
                 <table class="table table-bordered table-hover">
-                <thead>
+                <thead class="table-primary">
                     <tr>
                         <th>Item</th>
                         <th>Nombre Archivo</th>
@@ -272,7 +322,10 @@
             </div>
             <div class="">
                 <div class="">
-                    <a class="btn btn-danger">ELiminar</a>
+                    <a class="btn btn-danger"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill me-1" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg>
+Eliminar</a>
                 </div>              
             </div> <br />
             <p style="color:red">View_RQCompra/Crear </p>

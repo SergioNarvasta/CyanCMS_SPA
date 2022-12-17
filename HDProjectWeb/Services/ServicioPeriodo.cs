@@ -6,29 +6,56 @@ namespace HDProjectWeb.Services
 {
     public interface IServicioPeriodo
     {
+        Task ActualizaPeriodo(string periodo);
         string Ano();
         string Compañia();
         string Mes();
         string NroReq();
         Task<string> ObtenerCompañia(string codcia);
-        string ObtenerPeriodo();
+        Task<string> ObtenerPeriodo();
+        Task SetPeriodo();
         string Sucursal();
-
     }  
     public class ServicioPeriodo :IServicioPeriodo
     {
         private readonly string connectionString;
-        public ServicioPeriodo(IConfiguration configuration)
+        private readonly IServicioUsuario servicioUsuario;
+        public ServicioPeriodo(IConfiguration configuration,IServicioUsuario servicioUsuario)
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
+            this.servicioUsuario = servicioUsuario;
         }
-        public string ObtenerPeriodo()
+        public async Task SetPeriodo()
         {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
             int mes = DateTime.Now.Month;
             int ano = DateTime.Now.Year;
-            //return ano.ToString()+mes.ToString();
-            return "202210";
-        }  
+            string periodo = ano.ToString() + mes.ToString();
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync(@"UPDATE AspNetUsers SET ActivePeriod = @periodo 
+                     WHERE Email = @CodUser", new { codUser,periodo });
+        }
+        public async Task<string> ObtenerPeriodo()
+        {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
+            using var connection = new SqlConnection(connectionString);
+            var periodo = await connection.QuerySingleAsync<string>(@"SELECT ActivePeriod 
+                         FROM AspNetUsers WHERE Email = @codUser", new {codUser });
+            if (periodo is null)
+            {
+                await SetPeriodo();
+                return periodo = await connection.QuerySingleAsync<string>(@"SELECT ActivePeriod 
+                         FROM AspNetUsers WHERE Email = @CodUser", new { codUser });
+            }else
+            return periodo;
+        }
+        public async Task ActualizaPeriodo(string periodo)
+        {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync(@"UPDATE AspNetUsers SET ActivePeriod = @periodo 
+                     WHERE Email = @CodUser", new { codUser, periodo });
+        }
         public string Compañia()
         {
             string cia = "01";

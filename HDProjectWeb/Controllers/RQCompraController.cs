@@ -7,6 +7,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace HDProjectWeb.Controllers
 {
@@ -15,8 +16,8 @@ namespace HDProjectWeb.Controllers
         private readonly IRepositorioRQCompra repositorioRQCompra;
         private readonly IServicioPeriodo servicioPeriodo;
         private readonly IServicioUsuario servicioUsuario;
-        private string periodo_dinamic = null;
-      
+        public string[] stringArray = new string[2];
+
         public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo,IServicioUsuario servicioUsuario) 
         {
             this.repositorioRQCompra = repositorioRQCompra;
@@ -52,43 +53,61 @@ namespace HDProjectWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string periodo,string busqueda,string estado) 
+        public async Task<IActionResult> Index(string periodo,string busqueda,string estado,string orden) 
         {
-            if (periodo.Length ==0 )
+            if(periodo is not null)
             {
-                periodo = servicioPeriodo.ObtenerPeriodo();
+               await servicioPeriodo.ActualizaPeriodo(periodo);
             }
-            if (busqueda.Length == 0)
-            {
-                busqueda = "";
-            }
+            orden ??= " A.rco_feccre ";
+            periodo = await servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo.Remove(4, 2) + "-" + periodo.Remove(0, 4);
-            PaginacionViewModel paginacionViewModel=new PaginacionViewModel();
+            PaginacionViewModel paginacionViewModel = new PaginacionViewModel();
             string CodUser = servicioUsuario.ObtenerCodUsuario();
             var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
-            var respuesta = new PaginacionRespuesta<RQCompraCab>
+            string estado1, estado2;
+            if (busqueda is not null)
             {
-                Elementos = rQCompra,
-                Pagina = paginacionViewModel.Pagina,
-                RecordsporPagina = paginacionViewModel.RecordsPorPagina,
-                CantidadRegistros = totalRegistros,
-                BaseURL = Url.Action()
-            };
-            return View(respuesta);            
+                if(estado == "2")
+                {
+                     estado1 = "1"; estado2 = "0";
+                }else{
+                    estado1 = estado; estado2 = estado;
+                }
+                var bus_rQCompra = await repositorioRQCompra.BusquedaMultiple(periodo, paginacionViewModel, CodUser, busqueda, estado1,estado2);
+                var bus_totalRegistros = await repositorioRQCompra.ContarRegistrosBusqueda(periodo, CodUser, busqueda, estado1, estado2);
+                var respuesta = new PaginacionRespuesta<RQCompraCab>
+                {
+                    Elementos = bus_rQCompra,
+                    Pagina = paginacionViewModel.Pagina,
+                    RecordsporPagina = paginacionViewModel.RecordsPorPagina,
+                    CantidadRegistros = bus_totalRegistros,
+                    BaseURL = Url.Action()
+                };
+                return View(respuesta);
+            }
+            else
+            {
+                var respuesta = new PaginacionRespuesta<RQCompraCab>
+                {
+                    Elementos = rQCompra,
+                    Pagina = paginacionViewModel.Pagina,
+                    RecordsporPagina = paginacionViewModel.RecordsPorPagina,
+                    CantidadRegistros = totalRegistros,
+                    BaseURL = Url.Action()
+                };
+                return View(respuesta);
+            }                        
         }
 
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
-            var periodo = servicioPeriodo.ObtenerPeriodo();
-            if (periodo_dinamic is not null)
-            {
-                periodo = periodo_dinamic;
-            }
-            ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);
             string CodUser = servicioUsuario.ObtenerCodUsuario();
+            string periodo = await servicioPeriodo.ObtenerPeriodo();
+            ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);         
             var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
             var respuesta = new PaginacionRespuesta<RQCompraCab>

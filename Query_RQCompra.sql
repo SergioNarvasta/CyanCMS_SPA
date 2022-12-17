@@ -73,8 +73,9 @@ Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.s
 Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
 Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
 Where A.cia_codcia=1 AND A.suc_codsuc=1 AND A.ano_codano+ mes_codmes=202210
-and isnull(a.rco_flgmig,'0')='0' AND G.s10_usuario='LUNAP'
+and isnull(a.rco_flgmig,'0')='0' AND G.s10_usuario='LUNAP' AND A.rco_numrco LIKE'%@busqueda%'--and g.S10_CODUSU='ALCAH2'
 ORDER BY A.rco_feccre DESC
+
 --and isnull(rco_indest,'0')='1'
 --V_HD_REQUERIMIENTO_COMPRA_CAB
 /*

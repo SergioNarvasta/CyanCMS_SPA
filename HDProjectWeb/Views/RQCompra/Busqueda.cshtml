@@ -42,80 +42,24 @@
       var selected = combo.options[combo.selectedIndex].value;
        $("#filtro_estado").val(selected);
       }
-    function resetColorThead() {
-        var thead = document.getElementById("Thead");
-        thead.style.backgroundColor = "#87CEFA";
-    }
-    function ordenRco_numrco() {
-        $("#filtro_orden").val("A.Rco_numrco");
-        resetColorThead();
-        var celda = document.getElementById("th_Rco_numrco");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    function ordenRco_fec_registro() {
-        $("#filtro_orden").val("A.Rco_fec_registro");
-        resetColorThead();
-        var celda = document.getElementById("th_Rco_fec_registro");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    function ordenAux_nomaux() {
-        $("#filtro_orden").val("D.aux_nomaux");
-        resetColorThead();
-        var celda = document.getElementById("th_Aux_nomaux");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    function ordenUng_deslar() {
-        $("#filtro_orden").val("B.ung_deslar");
-        resetColorThead();
-        var celda = document.getElementById("th_Ung_deslar");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    function ordenCco_codcco() {
-        $("#filtro_orden").val("A.cco_codcco");
-        resetColorThead();
-        var celda = document.getElementById("th_Cco_codcco");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-
-    function ordenRco_sitrco() {
-        $("#filtro_orden").val("A.rco_sitrco");
-        resetColorThead();
-        var celda = document.getElementById("th_Rco_sitrco");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    function ordenRco_priori() {
-        $("#filtro_orden").val("A.rco_priori");
-        resetColorThead();
-        var celda = document.getElementById("th_Rco_priori");
-        celda.style.backgroundColor = "#0000FF";
-        $("#btn_filtrar").click();
-    }
-    
 </script >
 
 <div class="d-flex flex-row align-items-center justify-content-center">
     <h2 class="">Requerimiento de Compra</h2> 
     <label id="label_periodo" class="ms-4" style="color:blue;display:''">@ViewBag.periodo</label><br />
     <input id="input_periodo" type="text" class="ms-4" style="width:72px;color:blue;display:none;border: 1px solid white"/>
-    <form asp-action="Index" method="post">
+    <form asp-controller="RQCompra" asp-action="Busqueda" method="post">
         <input id="form_periodo" class="ms-4" style="width:60px;display:none" name="periodo" type="text" />
         <button id="btn_actualiza" type="submit" class="btn btn-outline-success" style="display:none ">ActualizaPeriodo</button>
     </form>
 </div>  
 <div class="d-flex flex-row ms-5">
-    <form asp-controller="RQCompra" asp-action="Index" method="post">
+    <form asp-controller="RQCompra" asp-action="Busqueda" method="post">
         <div class="d-flex flex-row">
             <span>Campo Selec.(NroReq) </span>
             <input id="filtro_busqueda" type="text" name="busqueda" placeholder="Filtrar ..." class="ms-2"/>
             <input id="filtro_periodo"  type="text" name="periodo" style="width:60px;display:''" class="ms-4"/>
             <input id="filtro_estado"   type="text" name="estado"  value="2" style="width:30px;display:none" class="ms-4"/>
-            <input id="filtro_orden"    type="text" name="orden" style="width:100px;display:''" class="ms-4" />
             <button id="btn_filtrar" type="submit" class="btn btn-primary ms-5">Filtrar</button>
         </div>        
     </form>   
@@ -177,37 +121,37 @@
 <!-- Table -->
 <div class="table-responsive" style="width:100%" >
 <table class="table table-bordered table-hover" >
-        <thead id="Thead" style="background-color:#87CEFA">
+    <thead class="table-primary">
         <tr>
             <th>   </th>
-            <th onclick="ordenRco_numrco()" id="th_Rco_numrco" style="cursor:pointer">
+            <th>
                 Nº Req
             </th>
-            <th onclick="ordenRco_fec_registro()" id="th_Rco_fec_registro" style="cursor:pointer">
+            <th>
               Fecha Registro
             </th>         
             <th>
                Originador
-            </th>
-            <th onclick="ordenAux_nomaux()" id="th_Aux_nomaux" style="cursor:pointer">
+            </th>         
+            <th>
                Solicitante
             </th>
             <th>
                 Motivo
-            </th>
-            <th onclick="ordenUng_deslar()" id="th_Ung_deslar" style="cursor:pointer">
+            </th>                 
+            <th>
                 Unidad Negocio
-            </th>
-                <th onclick="ordenCco_codcco()" id="th_Cco_codcco" style="cursor:pointer">
+            </th>           
+            <th>
                Centro Costo
             </th>
             <th>
                 Disciplina
             </th>
-            <th onclick="ordenRco_sitrco()" id="th_Rco_sitrco" style="cursor:pointer">
+            <th>
                Situacion Req
             </th>
-                <th onclick="ordenRco_priori()" id="th_Rco_priori" style="cursor:pointer">
+            <th>
                Prioridad Req
             </th>
             <th>
