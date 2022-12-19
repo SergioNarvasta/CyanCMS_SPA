@@ -16,7 +16,6 @@ namespace HDProjectWeb.Controllers
         private readonly IRepositorioRQCompra repositorioRQCompra;
         private readonly IServicioPeriodo servicioPeriodo;
         private readonly IServicioUsuario servicioUsuario;
-        public string[] stringArray = new string[2];
 
         public RQCompraController(IRepositorioRQCompra repositorioRQCompra,IServicioPeriodo servicioPeriodo,IServicioUsuario servicioUsuario) 
         {
@@ -59,13 +58,15 @@ namespace HDProjectWeb.Controllers
             {
                await servicioPeriodo.ActualizaPeriodo(periodo);
             }
-            orden ??= " A.rco_feccre ";
+            if (orden is not null)
+            {
+                await servicioPeriodo.ActualizaOrden(orden);
+            }
+            orden =await servicioPeriodo.ObtenerOrden();
             periodo = await servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo.Remove(4, 2) + "-" + periodo.Remove(0, 4);
             PaginacionViewModel paginacionViewModel = new PaginacionViewModel();
-            string CodUser = servicioUsuario.ObtenerCodUsuario();
-            var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser);
-            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
+            string CodUser = servicioUsuario.ObtenerCodUsuario();        
             string estado1, estado2;
             if (busqueda is not null)
             {
@@ -89,6 +90,8 @@ namespace HDProjectWeb.Controllers
             }
             else
             {
+                var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser, orden);
+                var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
                 var respuesta = new PaginacionRespuesta<RQCompraCab>
                 {
                     Elementos = rQCompra,
@@ -105,10 +108,11 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
+            string orden = await servicioPeriodo.ObtenerOrden();
             string CodUser = servicioUsuario.ObtenerCodUsuario();
             string periodo = await servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);         
-            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser);
+            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser,orden);
             var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
             var respuesta = new PaginacionRespuesta<RQCompraCab>
             {

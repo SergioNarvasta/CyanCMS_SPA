@@ -6,13 +6,16 @@ namespace HDProjectWeb.Services
 {
     public interface IServicioPeriodo
     {
+        Task ActualizaOrden(string orden);
         Task ActualizaPeriodo(string periodo);
         string Ano();
         string Compañia();
         string Mes();
         string NroReq();
         Task<string> ObtenerCompañia(string codcia);
+        Task<string> ObtenerOrden();
         Task<string> ObtenerPeriodo();
+        Task SetOrden();
         Task SetPeriodo();
         string Sucursal();
     }  
@@ -55,6 +58,36 @@ namespace HDProjectWeb.Services
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync(@"UPDATE AspNetUsers SET ActivePeriod = @periodo 
                      WHERE Email = @CodUser", new { codUser, periodo });
+        }
+        public async Task SetOrden()
+        {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
+            string orden = "1";
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync(@"UPDATE AspNetUsers SET ActiveOrder = @orden 
+                     WHERE Email = @CodUser", new { codUser, orden });
+        }
+        public async Task<string> ObtenerOrden()
+        {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
+            using var connection = new SqlConnection(connectionString);
+            var orden = await connection.QuerySingleAsync<string>(@"SELECT ActiveOrder 
+                         FROM AspNetUsers WHERE Email = @codUser", new { codUser });
+            if (orden is null)
+            {
+                await SetOrden();
+                return orden = await connection.QuerySingleAsync<string>(@"SELECT ActiveOrder 
+                         FROM AspNetUsers WHERE Email = @CodUser", new { codUser });
+            }
+            else
+                return orden;
+        }
+        public async Task ActualizaOrden(string orden)
+        {
+            string codUser = servicioUsuario.ObtenerCodUsuario();
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync(@"UPDATE AspNetUsers SET ActiveOrder = @orden 
+                     WHERE Email = @CodUser", new { codUser, orden });
         }
         public string Compañia()
         {
