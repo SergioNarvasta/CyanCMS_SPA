@@ -20,8 +20,7 @@ namespace HDProjectWeb.Controllers
         {
             return View();
         }
-       
-        public async Task<IActionResult> Login(LoginViewModel modelo)
+               /*public async Task<IActionResult> Login(LoginViewModel modelo)
         {
             if(!ModelState.IsValid)
             {
@@ -38,7 +37,7 @@ namespace HDProjectWeb.Controllers
                 ModelState.AddModelError(String.Empty, "Nombre de usuario o token incorrecto");
                 return View(modelo);
             }       
-        }
+        } */
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);

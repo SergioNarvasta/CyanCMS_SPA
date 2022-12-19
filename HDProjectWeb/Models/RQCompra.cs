@@ -100,5 +100,6 @@ namespace HDProjectWeb.Models
 
         public string Rco_glorco { get; set; } //Resumen
 
+        public string Dis_coddis { get; set; } //Disciplina
     }
 }

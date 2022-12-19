@@ -4,12 +4,10 @@
     ViewData["Title"] = "Requerimiento de Compra";
 }
 <script>
-    window.onload
     $('ul.selec_ano li').click(function (e) {
                 $("#muestra_ano").text(this.id);      
                 $("#periodo").text(this.id);
-       });
-   
+       });  
     $(function () {
       $('ul.selec_mes li').click(function (e) {
                 $("#muestra_mes").text(this.id);

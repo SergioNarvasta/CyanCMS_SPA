@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Registrar Req Compra";
 }
-
 <head>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-            function agregarFila(){
+        function agregarFila(){
                 var cont = 0;
                 var item = '00' + (cont + 1).toString();
                 var cod = '<input type="text"  value="999900000018" />';
@@ -44,6 +43,36 @@
             var selected = combo.options[combo.selectedIndex].value;
             $("#input_estado").val(selected);
         }
+        function colocaTipo() {
+            var combo = document.getElementById("cbo_tipo");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_tipo").val(selected);
+        }
+        function colocaPrioridad() {
+            var combo = document.getElementById("cbo_prioridad");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_prioridad").val(selected);
+        }
+        function colocaUnegocio() {
+            var combo = document.getElementById("cbo_unegocio");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_unegocio").val(selected);
+        }
+        function colocaSituacion() {
+            var combo = document.getElementById("cbo_situacion");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_situacion").val(selected);
+        }
+        function colocaPresup() {
+            var combo = document.getElementById("cbo_presup");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_presup").val(selected);
+        }
+        function colocaReembls() {
+            var combo = document.getElementById("cbo_reembls");
+            var selected = combo.options[combo.selectedIndex].value;
+            $("#input_reembls").val(selected);
+        }
     </script>
 </head>
 <h2 class="text-center">TITULO PRINCIPAL </h2>
@@ -75,15 +104,15 @@
                     <!-- 1RA FILA HORIZONTAL-->
                     <tr class="mb-5">
                         <th class="col-sm-4">
-                            <div class="form-group d-flex flex-row me-5">
-                                <label class="me-2">Requerimiento</label>
-                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 " value="@ViewBag.Rco_numrco" />
+                            <div class="form-group d-flex flex-row me-2">
+                                <label class="me-2">Requerimien </label>
+                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 " value="@ViewBag.Rco_numrco" style="width:100px"/>
                                 <span asp-validation-for="Rco_numrco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
-                                <label class="ms-xl-5">Fecha_Reg</label>
+                                <label class="ms-0">Fecha_Reg</label>
                                 <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" value="@ViewBag.fecha" />
                                 <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
                             </div>
@@ -98,17 +127,16 @@
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Estado </label>
-                                <select id="cbo_estado" class="ms-2" onclick="colocaEstado()">
+                                <select id="cbo_estado" class="ms-4" onclick="colocaEstado()">
                                     <option value="1">VIGENTE</option>
                                     <option value="0">ANULADO</option>
-                                </select>
-                                
+                                </select>                  
                             </div>
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Tipo_Req </label>
-                                <select asp-for="Rco_tiprco" name="cboTipo" class="ms-2">
+                                <select id="cbo_tipo" class="ms-2" onclick="colocaTipo()">
                                     <option value="1">COMPRA REGULAR</option>
                                     <option value="2">CERTIF. CONFORMIDAD</option>
                                     <option value="3">ADENDA CONTRATO</option>
@@ -116,20 +144,19 @@
                                     <option value="5">CLS EMPRESA</option>
                                     <option value="6">AM CONSULTOR</option>
                                     <option value="7">AM EMPRESA</option>
+                                    <option value="8">SOLICITUD SERVICIO AC/AD</option>
                                 </select>
-                                <span asp-validation-for="Rco_tiprco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Prioridad </label>
-                                <select asp-for="Rco_priori" name="cboPrioridad" class="ms-2">
+                                <select id="cbo_prioridad" class="ms-2" onclick="colocaPrioridad()">
                                     <option value="1">MUY ALTA</option>
                                     <option value="2">ALTA</option>
                                     <option value="3">MEDIA</option>
                                     <option value="4">BAJA</option>
-                                </select>
-                                <span asp-validation-for="Rco_priori" class="text-danger"></span>
+                                </select>                               
                             </div>
                         </th>
                     </tr>
@@ -138,7 +165,7 @@
                         <th>
                              <div class="form-group d-flex flex-row ">
                                <label >U.Negocio</label>
-                                 <select asp-for="Ung_codung" name="cboUNegocio" class="ms-4">
+                                 <select id="cbo_unegocio" class="ms-4" onclick="colocaUnegocio()">
                                    <option value="01">MINING & METALURGY    </option>
                                    <option value="02">INFRAESTRUCTURE E&W   </option>
                                    <option value="03">O&G-FEED & ENGINEERING</option>
@@ -147,25 +174,23 @@
                                    <option value="06">M&M - E&G      </option>
                                    <option value="07">ANTAMINA FASE VII</option>
                                  </select>
-                              <span asp-validation-for="Ung_codung" class="text-danger"></span>
                              </div>
                         </th>
                         <th>
-                            <div class="form-group d-flex flex-row ms-2 me-5">
-                                <label class="control-label">Centro_Costo</label>
-                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-2" />
+                            <div class="form-group d-flex flex-row ms-5 me-5">
+                                <label class="control-label">C.Costo</label>
+                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:120px" />
                                 <span asp-validation-for="Cco_codcco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="">Situacion</label>
-                                <select asp-for="Rco_sitrco" id="CboSituacion" class="ms-2">
+                                <select id="cbo_situacion" class="ms-2" onclick="colocaSituacion()">
                                     <option value="1">PENDIENTE</option>
                                     <option value="2">APROBADO </option>
                                     <option value="3">RECHAZADO</option>
                                 </select>
-                                <span asp-validation-for="Rco_sitrco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
@@ -186,8 +211,8 @@
                     <tr class="mb-lg-5">
                         <th>
                             <div class="form-group d-flex flex-row me-5">
-                                <label asp-for="S10_usuario" class="control-label me-2"></label>
-                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" value="@ViewBag.S10_usuario" />
+                                <label asp-for="S10_usuario" class="control-label me-3"></label>
+                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" value="@ViewBag.S10_usuario" style="width:100px" />
                                 <span asp-validation-for="S10_usuario" class="text-danger"></span>
                             </div>
                         </th>
@@ -201,11 +226,11 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label >Presupuesto</label>
-                                <select asp-for="Rco_presup" id="CboPresupuesto" class="ms-2">
+                                <select id="cbo_presup" class="ms-2" onclick="colocaPresup()">
                                     <option value="1"> SI </option>
                                     <option value="0"> NO </option>
                                 </select>
-                                <span asp-validation-for="Rco_presup" class="text-danger"></span>
+                             
                             </div>
                         </th>
                         <th>
@@ -234,18 +259,19 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label  class="control-label">Disciplina</label>
-                                <input asp-for="Rco_motivo" class="form-control ms-3" />
-                                <span asp-validation-for="Rco_motivo" class="text-danger"></span>
+                                <input asp-for="Dis_coddis" class="form-control ms-3" style="width:40px" value="01" />
+                                <span asp-validation-for="Dis_coddis" class="text-danger"></span>
+                                
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label>Reembolso</label>
-                                <select asp-for="Rco_rembls" id="CboReembolso" class="ms-3">
+                                <select id="cbo_reembls" class="ms-3" onclick="colocaReembls()">
                                     <option value="1"> SI </option>
                                     <option value="0"> NO </option>
                                 </select>
-                                <span asp-validation-for="Rco_rembls" class="text-danger"></span>
+                               
                             </div>
                         </th>
                         <th>
@@ -266,11 +292,36 @@
                         </th>
                      </tr>
                     <!-- 5TA FILA CAMPOS A ENVIAR-->
-                    <tr>
+                    <tr style="display:none">
                         <th> 
                             <label>Estado</label>
                             <input id="input_estado" asp-for="Rco_indest" type="text" value="1" style="width:20px" />
                             <span asp-validation-for="Rco_indest" class="text-danger"></span>
+                        
+                            <label>Tipo</label>
+                            <input id="input_tipo" asp-for="Rco_tiprco" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_tiprco" class="text-danger"></span>
+                      
+                            <label>Prioridad</label>
+                            <input id="input_prioridad" asp-for="Rco_priori" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_priori" class="text-danger"></span>
+                        
+                            <label>UNG</label>
+                            <input id="input_unegocio" asp-for="Ung_codung" type="text" value="01" style="width:30px" />
+                            <span asp-validation-for="Ung_codung" class="text-danger"></span>
+                        </th>
+                        <th>
+                            <label>Situacion</label>
+                            <input id="input_situacion" asp-for="Rco_sitrco" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_sitrco" class="text-danger"></span>
+
+                            <label>Presup</label>
+                            <input id="input_presup" asp-for="Rco_presup" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_presup" class="text-danger"></span>
+
+                            <label>Reembls</label>
+                            <input id="input_reembls" asp-for="Rco_rembls" type="text" value="1" style="width:20px" />
+                            <span asp-validation-for="Rco_rembls" class="text-danger"></span>
                         </th>
                     </tr>
                 </tbody>
@@ -311,6 +362,13 @@
                 <table class="table table-bordered table-hover">
                 <thead class="table-primary">
                     <tr>
+                        <th>
+                            <button onclick="" id="btn_adicionar_adj" type="button" class="btn btn-outline-success" style="border:0px">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                </svg>
+                            </button>
+                        </th>
                         <th>Item</th>
                         <th>Nombre Archivo</th>
                         <th>P</th>

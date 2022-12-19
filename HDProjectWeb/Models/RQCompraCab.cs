@@ -5,9 +5,9 @@ namespace HDProjectWeb.Models
 {
     public class RQCompraCab
     {
-        //Model for View Index
-        [Key]
-        public string Rco_numero { get; set; } 
+     //Model for View Index
+     [Key]
+     public string Rco_numero { get; set; } 
      public DateTime Rco_fec_registro { get; set; } = DateTime.Now;
      public string Usuario_origen { get; set; }
      public string User_solicita { get; set; } 
