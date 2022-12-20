@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using HDProjectWeb.Models;
+using HDProjectWeb.Models.Helps;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.Data.SqlClient;
 
@@ -16,6 +17,7 @@ namespace HDProjectWeb.Services
   
         Task<int> ContarRegistrosBusqueda(string periodo, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<RQCompraCab>> BusquedaMultiple(string periodo, PaginacionViewModel paginacion, string CodUser, string busqueda, string estado1, string estado2);
+        Task<IEnumerable<Disciplina>> ObtenerDisciplina();
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
@@ -709,6 +711,11 @@ namespace HDProjectWeb.Services
             return await connection.QueryFirstOrDefaultAsync<RQCompra>(@"SELECT  rco_numrco,rco_fecreg ,rco_motivo,ung_codung,cco_codcco,dis_coddis,
 	                                            rco_sitrco,rco_priori,rco_obspri,rco_rembls,rco_presup,rco_indval
                                                 FROM REQUERIMIENTO_COMPRA_RCO    WHERE rco_numrco = @Rco_numero ",new {Rco_numero});
+        }
+        public async Task<IEnumerable<Disciplina>> ObtenerDisciplina()
+        {
+            using var connection = new SqlConnection(connectionString);
+            return await connection.QueryAsync<Disciplina>(@"SELECT CIA_CODCIA,DIS_CODDIS,DIS_DESLAR FROM DISCIPLINAS_DIS Where CIA_CODCIA =1");
         }
 
     }

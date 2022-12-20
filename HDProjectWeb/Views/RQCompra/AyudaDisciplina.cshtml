@@ -1,0 +1,36 @@
+﻿@using HDProjectWeb.Models.Helps;
+@model ListadoDisciplina<Disciplina>
+
+<div class="modal" tabindex="-1" role="dialog" id="Modal_Dis">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detalle</h4>            
+            </div>
+            <div class="modal-body d-flex justify-content-md-center" id="modalDetalle">
+                <table id="Detalle" class="table table-striped dataTable no-footer" role="grid" style="width: 100%">
+                    <thead class="bg-info">
+                        <tr role="row">
+                            <th scope="col">Compañia</th>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Descripcion</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Elementos)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Cia_codcia)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Dis_coddis)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Dis_deslar)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button onclick="" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

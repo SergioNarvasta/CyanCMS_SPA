@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using HDProjectWeb.Models.Helps;
 
 namespace HDProjectWeb.Controllers
 {
@@ -122,8 +123,17 @@ namespace HDProjectWeb.Controllers
                 CantidadRegistros = totalRegistros,
                 BaseURL = Url.Action()
             };
-
             return View(respuesta);
+        }
+        [HttpGet]
+        public async Task<IActionResult> AyudaDisciplina()
+        {
+            var Disciplina = await repositorioRQCompra.ObtenerDisciplina();
+            var Data = new ListadoDisciplina<Disciplina>
+            {
+                Elementos = Disciplina
+            };
+            return PartialView(Data);
         }
 
         [HttpGet]

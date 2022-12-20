@@ -73,6 +73,58 @@
             var selected = combo.options[combo.selectedIndex].value;
             $("#input_reembls").val(selected);
         }
+        function AyudaDisciplina() {
+            $.ajax({
+                ache: false,
+                async: true,
+                url: '/RQCompra/AyudaDisciplina',
+                data: {},
+                datatype:"html",
+                type: 'POST',
+                success: function (result) {  
+                    $('#Modal_Dis').html();
+                    $('#Modal_Dis').html(result);
+                }                
+            })
+        }
+
+        /*$('#myModal').html('');
+        $('#myModal').html();
+        $('#Modal_Dis').modal('show');*/
+         function partialView() {
+            var laURLDeLaVista = '@Url.Action("AyudaDisciplina", "RQCompra")';
+                $.ajax({
+                    cache: false,
+                    async: true,
+                    type: "GET",
+                    url: laURLDeLaVista,
+                    data: {},
+                    success: function (response) {
+                        $('#resultado').html('');
+                        $('#resultado').html(response);
+                    }
+                });
+            }
+       //LLamada de Partial view con JQUery
+        $('btn_showMod').on('click', function () {
+            $("#div_modal").dialog({
+                autoOpen: true,
+                position: { my: "center", at: "top+350", of: window },
+                width: 1000,
+                resizable: false,
+                title: 'Add User Form',
+                modal: true,
+                open: function () {
+                    $(this).load('@Url.Action("AyudaDisciplina", "RQCompra")');
+                }           
+            });
+            console.log("OK");
+            return false;
+        });
+        $('btn_showModal').on('click', function () {
+            console.log("OK"); 
+        });
+        //data-bs-toggle="modal" data-bs-target="#Modal_Dis"
     </script>
 </head>
 <h2 class="text-center">TITULO PRINCIPAL </h2>
@@ -260,8 +312,9 @@
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label  class="control-label">Disciplina</label>
                                 <input asp-for="Dis_coddis" class="form-control ms-3" style="width:40px" value="01" />
-                                <span asp-validation-for="Dis_coddis" class="text-danger"></span>
-                                
+                                <span asp-validation-for="Dis_coddis" class="text-danger"></span>                              
+                                <a id="btn_showModal" asp-controller="RQCompra" asp-action="AyudaDisciplina" class="btn btn-outline-success ">+ </a>
+                                <div id="div_modal"> </div>
                             </div>
                         </th>
                         <th>
@@ -270,8 +323,7 @@
                                 <select id="cbo_reembls" class="ms-3" onclick="colocaReembls()">
                                     <option value="1"> SI </option>
                                     <option value="0"> NO </option>
-                                </select>
-                               
+                                </select>                               
                             </div>
                         </th>
                         <th>
