@@ -5,7 +5,18 @@
         /* 
           {
           }
-        
+        -- INPUT PARA SUBIR ARCHIVO 
+        <div class="form-group" style="width:300px">               
+                    <div class="input-group d-flex flex-row" >
+                        <label class="input-group-btn">
+                            <span class="btn btn-file" >
+                               <input accept=".jpg,.png,.jpeg,.gif" class="hidden" name="banner" type="file" id="banner" style="width:90px">
+                            </span>
+                        </label>
+                        <input class="form-control" id="banner_captura" readonly="readonly" name="banner_captura" type="text" value="" style="width:100px">
+                    </div>
+          </div> 
+
                 //replace(/\s+/g, '') elimina todos los espacios en JS
 
 

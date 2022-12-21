@@ -13,6 +13,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\agregar.png",
+      "PackagePath": "staticwebassets\\img\\agregar.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\agregar2.png",
+      "PackagePath": "staticwebassets\\img\\agregar2.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\agregar24.png",
+      "PackagePath": "staticwebassets\\img\\agregar24.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\buscar.png",
+      "PackagePath": "staticwebassets\\img\\buscar.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\cambiar1.png",
+      "PackagePath": "staticwebassets\\img\\cambiar1.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\cambiar2.png",
+      "PackagePath": "staticwebassets\\img\\cambiar2.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\mas.png",
+      "PackagePath": "staticwebassets\\img\\mas.png"
+    },
+    {
+      "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\img\\salir.png",
+      "PackagePath": "staticwebassets\\img\\salir.png"
+    },
+    {
       "Id": "D:\\Docs_Sergio\\Z_PROYECTOS WEB\\1.Req_Compra_HD\\HDProjectWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

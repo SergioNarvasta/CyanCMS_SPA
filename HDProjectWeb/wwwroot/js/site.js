@@ -26,6 +26,7 @@ function colocaPeriodo() {
         Objinput.style.display = '';
         $("#form_periodo").val(valueano + valuemes);
         $("#filtro_periodo").val(valueano + valuemes);
+        $("#btn_filtrar").click();
     }
     else {
         alert("Porfavor seleccione Año y Mes !!");
@@ -150,8 +151,17 @@ function agregarFilaAdj() {
     var cont = 0;
     var item = '00' + (cont + 1).toString();
     var name = '<input type="text" />';
-    var file = '<input />';
-    var codfile = '<input type="text" />';
+    var file = ' <div class="form-group" style="width:300px"> '+              
+        ' <div class="input-group d-flex flex-row" > ' +
+        '               <label class="input-group-btn"> ' +
+        '                  <span class="btn btn-file" > ' +
+        '                    <input accept=".pdf,.doc,.docx" class="hidden" name="banner" type="file" id="banner" style="width:90px"> ' +
+        '                </span> ' +
+        '           </label> ' +
+        '          <input onchange="coloca_nomb()" class="form-control" id="banner_captura" readonly="readonly" name="banner_captura" type="text" value="" style="width:100px"> ' +
+        '     </div> ' +
+        '</div > ';
+    var codfile = '<input id="nomb_file" type="text" />';
     var fila = "<tr><td></td><td>" + item + "</td><td>" + name + "</td><td>" + file + "</td><td>" + codfile + "</td> </tr>";
     cont++;
     $('#tblAdjuntos tbody').append(fila);
@@ -251,7 +261,25 @@ function abrir_modal_disci() {
     $("#btn_abrir_modal_disci").click();
 
 }
+//JQUERY Para subir archivo
+$(document).on('change', '.btn-file :file', function () {
+    var input = $(this);
+    var numFiles = input.get(0).files ? input.get(0).files.length : 1;
+    var label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+});
+$(document).ready(function () {
+    $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+        var input = $(this).parents('.input-group').find(':text');
+        var log = numFiles > 1 ? numFiles + ' files selected' : label;
+        if (input.length) { input.val(log); } else { if (log) alert(log); }
+    });
+});
 
-
+function coloca_nomb() {
+    var combo = document.getElementById("banner_captura");
+    var selected = combo.innerHTML;
+    $("#nomb_file").val(selected);
+}
 
 
