@@ -147,7 +147,7 @@
 @foreach (var item in Model.Elementos) {
         <tr>
             <td>
-               <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Rco_numero">Editar</a>
+                 @Html.ActionLink("Editar","Editar","RQCompra",new{ item.Rco_numero})
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rco_numero)
@@ -213,17 +213,17 @@
 </div>
 <partial name="_paginacion" />
 <!-- Button Modal -->
-<button type="button" class="btn btn-success ms-4 me-4" data-bs-toggle="modal" data-bs-target="#ModalDetPrd">
+<button type="button" class="btn btn-success ms-4 me-4" data-bs-toggle="modal" data-bs-target="#ModalConfig">
     Configuracion
 </button>
-<div class="modal" id="ModalDetPrd">
+<div class="modal" id="ModalConfig">
     <div class="modal-dialog">
         <div class="modal-content">            
                 <div class="modal-header">
                     <h4 class="modal-title">Especificaciones de producto</h4>                                   
                 </div>
                 <div class="modal-body d-flex flex-column justify-content-center">
-                  <label>Producto: 999900000018</label>                 
+                  <label>label</label>                 
                   <textarea class="col-5 mt-2" style="width:350px;height:200px"> </textarea>
                 </div>
                 <div class="modal-footer">

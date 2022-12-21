@@ -275,11 +275,19 @@ $(document).ready(function () {
         if (input.length) { input.val(log); } else { if (log) alert(log); }
     });
 });
-
 function coloca_nomb() {
     var combo = document.getElementById("banner_captura");
     var selected = combo.innerHTML;
     $("#nomb_file").val(selected);
 }
+
+window.onload = function() {
+    alert('Evento Load ');
+    var valor = document.getElementById("input_prioridad");
+    var combo = document.getElementById("cbo_prioridad");
+    combo.options[combo.selectedIndex].value = valor.innerHTML;
+    console.log(valor.innerHTML);
+};
+
 
 

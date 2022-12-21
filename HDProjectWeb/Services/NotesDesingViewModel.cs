@@ -3,8 +3,7 @@
     public class NotesDesingViewModel
     {
         /* 
-          {
-          }
+          {}
         -- INPUT PARA SUBIR ARCHIVO 
         <div class="form-group" style="width:300px">               
                     <div class="input-group d-flex flex-row" >

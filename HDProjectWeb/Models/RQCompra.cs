@@ -16,11 +16,11 @@ namespace HDProjectWeb.Models
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(10, ErrorMessage = "El campo no debe de tener mas de 10 caracteres")]
         public string Rco_numrco { get; set; }         /***View****/
-        public DateTime Rco_fec_registro { get; set; } = DateTime.Now; /***View****/
+        public DateTime Rco_fec_registro { get; set; }  /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
-        public string Tin_codtin { get; set; } = "01";/***Vacio****/
+        public string Tin_codtin { get; set; }       /***Vacio****/
 
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(6, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]

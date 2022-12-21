@@ -66,7 +66,7 @@ namespace HDProjectWeb.Controllers
             orden =await servicioPeriodo.ObtenerOrden();
             periodo = await servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo.Remove(4, 2) + "-" + periodo.Remove(0, 4);
-            PaginacionViewModel paginacionViewModel = new PaginacionViewModel();
+            PaginacionViewModel paginacionViewModel = new();
             string CodUser = servicioUsuario.ObtenerCodUsuario();        
             string estado1, estado2;
             if (busqueda is not null)
@@ -104,7 +104,6 @@ namespace HDProjectWeb.Controllers
                 return View(respuesta);
             }                        
         }
-
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
@@ -140,11 +139,17 @@ namespace HDProjectWeb.Controllers
         public async Task<IActionResult> Editar(string Rco_Numero)
         {
             var rQCompra = await repositorioRQCompra.ObtenerporCodigo(Rco_Numero);
-           /* if(rQCompra is null)
+            if(rQCompra is null)
             {
                 return RedirectToAction("NoEncontrado","Home");   
-            }*/
-            return View(rQCompra);
+            }
+            var periodo = servicioPeriodo.ObtenerPeriodo();
+            ViewBag.periodo = periodo;
+            ViewBag.Rco_Numero = rQCompra.Rco_numrco;
+            ViewBag.fecha = rQCompra.Rco_fec_registro.ToString("yyyy-MM-ddThh:mm");
+            ViewBag.S10_usuario = servicioUsuario.ObtenerCodUsuario();
+
+            return View("Crear",rQCompra);
         }
 
         [HttpPost]
