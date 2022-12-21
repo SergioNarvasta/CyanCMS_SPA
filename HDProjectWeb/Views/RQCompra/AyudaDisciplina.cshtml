@@ -1,26 +1,33 @@
 ﻿@using HDProjectWeb.Models.Helps;
 @model ListadoDisciplina<Disciplina>
-
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        $('tr#tr_dis').click(function (e) {   
+                console.log($(this).text());
+       }); 
+    });
+</script>
 <div class="modal" tabindex="-1" role="dialog" id="Modal_Dis">
     <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Detalle</h4>            
+                <h4 class="modal-title">Detalle</h4>    
+                <input id="muestra_dis" type="text" style="width:50px"/>
             </div>
             <div class="modal-body d-flex justify-content-md-center" id="modalDetalle">
                 <table id="Detalle" class="table table-striped dataTable no-footer" role="grid" style="width: 100%">
                     <thead class="bg-info">
                         <tr role="row">
-                            <th >Compañia</th>
                             <th >Codigo</th>
                             <th >Descripcion</th>                        
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="cursor:pointer">
                         @foreach (var item in Model.Elementos)
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Cia_codcia)</td>
+                            <tr id="tr_dis">
                                 <td>@Html.DisplayFor(modelItem => item.Dis_coddis)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Dis_deslar)</td>
                             </tr>
