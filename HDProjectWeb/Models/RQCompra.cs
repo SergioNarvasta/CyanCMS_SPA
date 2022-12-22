@@ -28,6 +28,7 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
+        [Display(Name = "Motivo")]
         public string Rco_motivo { get; set; }    /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
@@ -60,6 +61,7 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")] 
         [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
+        [Display( Name = "Usuario")]
         public string S10_usuario { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido

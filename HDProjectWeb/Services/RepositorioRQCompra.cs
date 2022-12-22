@@ -710,7 +710,7 @@ namespace HDProjectWeb.Services
             using var connection = new SqlConnection(connectionString);
             return await connection.QueryFirstOrDefaultAsync<RQCompra>(@" SELECT  A.rco_numrco,A.rco_fecreg ,A.rco_motivo,A.ung_codung,A.cco_codcco ,D.CCO_DESLAR as cco_deslar,A.dis_coddis,A.rco_sitrco,A.rco_priori,
 	              A.rco_obspri,A.rco_rembls,A.rco_presup,A.rco_indest,A.rco_tiprco,Cast(A.rco_indval as bit)as rco_indval,B.DIS_DESLAR as dis_deslar,
-	              Cast(Isnull((
+	              A.s10_usuario,A.rco_glorco,Cast(Isnull((
                              Select count(*) as CCC_TotFil From CUADRO_COMPARATIVO_COMPRAS_CCC X 
                              Left Join Solicitud_Compra_Scc Y on x.cia_codcia=y.cia_codcia and x.suc_codsuc=y.suc_codsuc and x.scc_numscc=y.scc_numscc 
                              Where x.cia_codcia=a.cia_codcia and x.suc_codsuc=a.suc_codsuc and y.rco_numrco=a.rco_numrco and y.scc_indest='1' 

@@ -33,7 +33,7 @@
                         <th class="col-sm-4">
                             <div class="form-group d-flex flex-row me-2">
                                 <label class="me-2">Requerimien </label>
-                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4"/>
+                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 "  style="width:225px"/>
                                 <span asp-validation-for="Rco_numrco" class="text-danger"></span>
                             </div>
                         </th>
@@ -141,7 +141,7 @@
                         <th>
                             <div class="form-group d-flex flex-row me-5">
                                 <label asp-for="S10_usuario" class="control-label me-3"></label>
-                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" />
+                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4 ms-xl-4" style="width:228px" />
                                 <span asp-validation-for="S10_usuario" class="text-danger"></span>
                             </div>
                         </th>
@@ -178,16 +178,16 @@
                         </th>
                     </tr>
                      <!-- 4TA FILA HORIZONTAL-->
-                     <tr>
+                    <tr style="height:80px">
                         <th>
                             <div class="form-group d-flex flex-row">
                                 <label asp-for="Rco_motivo" class="control-label"></label>
-                                <input asp-for="Rco_motivo" class="form-control ms-3" />
+                                <textarea asp-for="Rco_motivo" class="form-control ms-xl-5" type="text" style="height:80px;width:225px" ></textarea>
                                 <span asp-validation-for="Rco_motivo" class="text-danger"></span>
                             </div>
                          </th>
-                        <th>
-                            <div class="form-group d-flex flex-row ms-xl-5">
+                        <th >
+                            <div class="form-group d-flex flex-row ms-xl-5" style="margin-bottom:40px">
                                 <label class="control-label">Disciplina</label>
                                 <input id="input_cod_disci" onclick="abrir_modal_disci()" asp-for="Dis_coddis" class="form-control ms-2" style="width:50px" />
                                 <span asp-validation-for="Dis_coddis" class="text-danger"></span>
@@ -220,7 +220,7 @@
                             </div>
                         </th>
                         <th>
-                            <div class="form-group d-flex flex-row ms-xl-5">
+                            <div class="form-group d-flex flex-row ms-xl-5" style="margin-bottom:40px">
                                 <label>Reembolso</label>
                                 <select asp-for="Rco_rembls" id="cbo_reembls" class="ms-3" onclick="colocaReembls()">
                                     <option value="1"> SI </option>
@@ -229,9 +229,10 @@
                             </div>
                         </th>
                         <th>
-                            <div class="d-flex flex-row ms-xl-5">
-                                <input asp-for="Ccc_numero" class="ms-5" type="checkbox" id="chkCuadroComp" />
-                                <span class="ms-2">Cuadro Comparativo</span>
+                            <div class="d-flex flex-row ms-xl-5" style="margin-bottom:40px">
+                                <input asp-for="Ccc_numero" class="form-check-input ms-5" type="checkbox" id="chkCuadroComp" />
+                                <label class="form-check-label ms-2">Cuadro Comparativo</label>
+                                <span asp-validation-for="Ccc_numero"></span>
                             </div>
                         </th>
                         <th>
@@ -246,7 +247,7 @@
                         </th>
                      </tr>
                     <!-- 5TA FILA CAMPOS A ENVIAR-->
-                    <tr style="display:''">
+                    <tr style="display:none">
                         <th> 
                             <label>Estado</label>
                             <input id="input_estado" asp-for="Rco_indest" type="text" style="width:20px" />
