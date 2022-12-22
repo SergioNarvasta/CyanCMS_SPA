@@ -12,20 +12,23 @@ namespace HDProjectWeb.Services
         Task<RQCompra> ObtenerporCodigo(string Rco_numero);
         Task Actualizar(RQCompra rQCompraEd);
         Task Crear(RQCompra rQCompra);
-        Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion, string CodAuxUser,string orden);
-        Task<int> ContarRegistros(string periodo, string CodUser);
+        Task<IEnumerable<RQCompraCab>> Obtener(string periodo, PaginacionViewModel paginacion, string CodAuxUser,string orden, string estado1, string estado2);
+        Task<int> ContarRegistros(string periodo, string CodUser, string estado1, string estado2);
   
         Task<int> ContarRegistrosBusqueda(string periodo, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<RQCompraCab>> BusquedaMultiple(string periodo, PaginacionViewModel paginacion, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<Disciplina>> ObtenerDisciplina();
+        Task<IEnumerable<CentroCosto>> ObtenerCentroCosto();
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
         private readonly string connectionString;
+        private readonly IServicioPeriodo servicioPeriodo;
 
-        public RepositorioRQCompra(IConfiguration configuration)
+        public RepositorioRQCompra(IConfiguration configuration,IServicioPeriodo servicioPeriodo)
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
+            this.servicioPeriodo = servicioPeriodo;
         }
         public async Task Crear(RQCompra rQCompra)
         {
@@ -36,7 +39,7 @@ namespace HDProjectWeb.Services
                                         ,@rco_codusu = @rco_codusu, @ung_codung = @ung_codung, @rco_indcie = @rco_indcie, @rco_indval = @rco_indval , @rco_priori = @rco_priori
                                         ,@rco_rembls = @rco_rembls, @rco_presup = @rco_presup, @adi_codadi = @adi_codadi",rQCompra);
         }
-        public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion,string CodUser,string orden) 
+        public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion,string CodUser,string orden,string estado1,string estado2) 
         {
             using var connection = new SqlConnection(connectionString);
             return orden switch
@@ -106,10 +109,11 @@ namespace HDProjectWeb.Services
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
              AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser 
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.rco_numrco DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "2" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -175,11 +179,11 @@ namespace HDProjectWeb.Services
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
              AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser 
-             
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.rco_fecreg  DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "3" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -245,10 +249,11 @@ namespace HDProjectWeb.Services
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
              AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser 
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY D.aux_nomaux DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "4" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -313,11 +318,12 @@ namespace HDProjectWeb.Services
              Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
-             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser        
+             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser    
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY B.ung_deslar DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "5" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -382,11 +388,12 @@ namespace HDProjectWeb.Services
              Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
-             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser              
+             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser  
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.cco_codcco DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "6" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -452,10 +459,11 @@ namespace HDProjectWeb.Services
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
              AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser 
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.rco_sitrco DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 "7" => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -520,11 +528,12 @@ namespace HDProjectWeb.Services
              Left Join sys_tabla_usuarios_s10          G on f.s10_usuario=g.s10_usuario
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
-             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser              
+             AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser    
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.rco_priori DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
                 _   => await connection.QueryAsync<RQCompraCab>(@$"Select 
                 a.rco_numrco as Rco_Numero,             
             	a.rco_fecreg as Rco_Fec_Registro, 
@@ -590,11 +599,11 @@ namespace HDProjectWeb.Services
              Left Join tipo_requisicion_tir            H On h.cia_codcia = a.cia_codcia And h.rco_tiprco = a.rco_tiprco
              Where A.cia_codcia=1 AND A.suc_codsuc=1 AND Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2) =@periodo
              AND isnull(a.rco_flgmig,'0')='0' AND G.S10_USUARIO = @CodUser 
-             
+             AND A.rco_indest in(@estado1,@estado2)
              ORDER BY A.Rco_fec_registro DESC 
                 OFFSET {paginacion.RecordsASaltar}
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
-                ROWS ONLY", new { periodo, CodUser }),
+                ROWS ONLY", new { periodo, CodUser ,estado1, estado2 }),
             };
         }
         public async Task<IEnumerable<RQCompraCab>> BusquedaMultiple(string periodo, PaginacionViewModel paginacion, string CodUser,string busqueda,string estado1,string estado2)
@@ -672,7 +681,7 @@ namespace HDProjectWeb.Services
                 ROWS FETCH NEXT {paginacion.RecordsPorPagina} 
                 ROWS ONLY", new { periodo, CodUser, busqueda, estado1, estado2 });         
         }  
-        public async Task<int> ContarRegistros(string periodo,string CodUser)
+        public async Task<int> ContarRegistros(string periodo,string CodUser, string estado1, string estado2)
         {
             using var connection = new SqlConnection(connectionString);
             return await connection.ExecuteScalarAsync<int>(
@@ -680,7 +689,8 @@ namespace HDProjectWeb.Services
                 Left Join APROBAC_REQCOM_APROBACIONES_ARA F On a.cia_codcia=f.cia_codcia and a.suc_codsuc=f.suc_codsuc and a.rco_numrco=f.rco_numrco and f.anm_codanm='0'
                 LEFT JOIN SYS_TABLA_USUARIOS_S10 G ON F.s10_usuario =G.S10_USUARIO
                 WHERE Cast(YEAR(A.rco_fecreg) as char(4))+ Substring('0'+ltrim(Cast(MONTH(A.rco_fecreg)as char(2))),len(ltrim(Cast(MONTH(A.rco_fecreg)as char(2)))),2)=@periodo
-                AND  G.S10_USUARIO = @CodUser", new { periodo,CodUser });
+                AND  G.S10_USUARIO = @CodUser 
+                AND A.rco_indest in(@estado1,@estado2) ", new { periodo,CodUser, estado1, estado2 });
         }
         public async Task<int> ContarRegistrosBusqueda(string periodo, string CodUser, string busqueda, string estado1,string estado2)
         {
@@ -697,7 +707,7 @@ namespace HDProjectWeb.Services
                 AND A.rco_numrco LIKE '%'+@busqueda+'%' OR D.aux_nomaux LIKE '%'+@busqueda+'%' OR B.ung_deslar LIKE '%'+@busqueda+'%' OR rtrim(A.cco_codcco)+ rtrim(C.cco_deslar) LIKE '%'+@busqueda+'%'",
                 new { periodo, CodUser, busqueda, estado1,estado2 });
         }
-        public async Task Actualizar(RQCompra rQCompraEd)
+        public async Task Actualizar(RQCompra rQCompraEd)            
         {
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync(@"PA_HD_WEB_RQ_RQCompraCab_Update @Rco_Numero=@Rco_numero ,@Rco_Fec_Registro=@Rco_fec_registro ,@Rco_Motivo =@Rco_motivo,
@@ -728,9 +738,17 @@ namespace HDProjectWeb.Services
         }
         public async Task<IEnumerable<Disciplina>> ObtenerDisciplina()
         {
+            string cia = servicioPeriodo.Compañia();
             using var connection = new SqlConnection(connectionString);
-            return await connection.QueryAsync<Disciplina>(@"SELECT CIA_CODCIA,DIS_CODDIS,DIS_DESLAR FROM DISCIPLINAS_DIS Where CIA_CODCIA =1");
+            return await connection.QueryAsync<Disciplina>(@"SELECT CIA_CODCIA,DIS_CODDIS,DIS_DESLAR FROM DISCIPLINAS_DIS 
+                                                             WHERE CIA_CODCIA =@cia", new { cia });
         }
-
+        public async Task<IEnumerable<CentroCosto>> ObtenerCentroCosto()
+        {
+            string cia = servicioPeriodo.Compañia();
+            using var connection = new SqlConnection(connectionString);
+            return await connection.QueryAsync<CentroCosto>(@"SELECT CIA_CODCIA,CCO_CODCCO,CCO_DESLAR FROM CENTRO_COSTO_CCO 
+                                                             WHERE CIA_CODCIA =@cia AND CCO_INDEST=1 AND CCO_INDCOS=0", new { cia });
+        }
     }
 }

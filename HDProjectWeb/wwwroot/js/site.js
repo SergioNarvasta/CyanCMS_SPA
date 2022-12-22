@@ -33,9 +33,10 @@ function colocaPeriodo() {
         $("#btn_modal").click();
     }
 }
-function colocaEstado() {
-    var combo = document.getElementById("cbo_estado");
+function cambiaEstado() {
+    var combo = document.getElementById("cbo_cambiaEst");
     var selected = combo.options[combo.selectedIndex].value;
+    console.log(selected);
     $("#filtro_estado").val(selected);
 }
 function resetColorThead() {
@@ -259,6 +260,21 @@ $(document).ready(function () {
 });
 function abrir_modal_disci() {
     $("#btn_abrir_modal_disci").click();
+}
+//JQuery para Ayuda Centro de Costo
+$(document).ready(function () {
+    $('tr#tr_cco').click(function (e) {
+        var tr_data = $(this).text().trim();
+        var cod = tr_data.substring(0,5);
+        var des = tr_data.substring(5, tr_data.length).trim();
+        console.log("-Codigo:" + cod + "-Desc:" + des+"Leng"+tr_data.length);
+        $("#input_cod_cco").val(cod);
+        $("#input_des_cco").val(des);
+        $("#btn_cerrar_modal_cco").click();
+    });
+});
+function abrir_modal_cco() {
+    $("#btn_abrir_modal_cco").click();
 }
 //JQUERY Para subir archivo
 $(document).on('change', '.btn-file :file', function () {

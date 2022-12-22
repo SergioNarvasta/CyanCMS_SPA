@@ -18,7 +18,7 @@
             <span>Busqueda : </span>
             <input id="filtro_busqueda" type="text" name="busqueda" placeholder="Filtrar ..." class="ms-2"/>
             <input id="filtro_periodo"  type="text" name="periodo" style="width:60px;display:none" class="ms-4"/>
-            <input id="filtro_estado"   type="text" name="estado"  value="2" style="width:30px;display:none" class="ms-4"/>
+            <input id="filtro_estado"   type="text" name="estado"  value="2" style="width:30px;display:''" class="ms-4"/>
             <input id="filtro_orden"    type="text" name="orden" style="width:100px;display:none" class="ms-4" />
             <button id="btn_filtrar" type="submit" class="btn btn-primary ms-5"><img class="me-1" src="/img/buscar.png"/>Filtrar</button>
         </div>        
@@ -30,7 +30,7 @@
 <div class="d-flex flex-row ms-5">
     <div style="width:10%">
       <span>Estado :</span>
-      <select id="cbo_estado" onclick="colocaEstado()">
+      <select id="cbo_cambiaEst" onclick="cambiaEstado()">
          <option value="2">Todos</option>
          <option value="1">Vigentes</option>
          <option value="0">Anulados</option>

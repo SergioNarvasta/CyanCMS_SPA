@@ -46,7 +46,6 @@ namespace HDProjectWeb.Controllers
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
             rQCompra.Mes_codmes = servicioPeriodo.Mes();
-            rQCompra.S10_usuario = servicioUsuario.CodUsuario();
             rQCompra.Rco_usucre = servicioUsuario.ObtenerCodUsuario();
             rQCompra.Rco_codusu = servicioUsuario.ObtenerCodUsuario();
             await repositorioRQCompra.Crear(rQCompra);
@@ -70,14 +69,16 @@ namespace HDProjectWeb.Controllers
             PaginacionViewModel paginacionViewModel = new();
             string CodUser = servicioUsuario.ObtenerCodUsuario();        
             string estado1, estado2;
-            if (busqueda is not null)
+            if (estado == "2")
             {
-                if(estado == "2")
-                {
-                     estado1 = "1"; estado2 = "0";
-                }else{
-                    estado1 = estado; estado2 = estado;
-                }
+                estado1 = "1"; estado2 = "0";
+            }
+            else
+            {
+                estado1 = estado; estado2 = estado;
+            }
+            if (busqueda is not null)
+            {               
                 var bus_rQCompra = await repositorioRQCompra.BusquedaMultiple(periodo, paginacionViewModel, CodUser, busqueda, estado1,estado2);
                 var bus_totalRegistros = await repositorioRQCompra.ContarRegistrosBusqueda(periodo, CodUser, busqueda, estado1, estado2);
                 var respuesta = new PaginacionRespuesta<RQCompraCab>
@@ -92,8 +93,8 @@ namespace HDProjectWeb.Controllers
             }
             else
             {
-                var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser, orden);
-                var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
+                var rQCompra = await repositorioRQCompra.Obtener(periodo, paginacionViewModel, CodUser, orden, estado1, estado2);
+                var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser, estado1, estado2);
                 var respuesta = new PaginacionRespuesta<RQCompraCab>
                 {
                     Elementos = rQCompra,
@@ -109,12 +110,21 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(PaginacionViewModel paginacionViewModel)
         {
+            string estado1, estado2,estado="2";
+            if (estado == "2")
+            {
+                estado1 = "1"; estado2 = "0";
+            }
+            else
+            {
+                estado1 = estado; estado2 = estado;
+            }
             string orden = await servicioPeriodo.ObtenerOrden();
             string CodUser = servicioUsuario.ObtenerCodUsuario();
             string periodo = await servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo =  periodo.Remove(4,2)+"-"+periodo.Remove(0,4);         
-            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser,orden);
-            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser);
+            var rQCompra   = await repositorioRQCompra.Obtener(periodo,paginacionViewModel,CodUser, orden,  estado1, estado2);
+            var totalRegistros = await repositorioRQCompra.ContarRegistros(periodo, CodUser, estado1, estado2);
             var respuesta = new PaginacionRespuesta<RQCompraCab>
             {
                 Elementos = rQCompra,
@@ -135,7 +145,16 @@ namespace HDProjectWeb.Controllers
             };
             return PartialView(Data);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> AyudaCentroCosto()
+        {
+            var Obj = await repositorioRQCompra.ObtenerCentroCosto();
+            var Data = new ListadoCentroCosto<CentroCosto>
+            {
+                Elementos = Obj
+            };
+            return PartialView(Data);
+        }
         [HttpGet]
         public async Task<IActionResult> Editar(string Rco_Numero)
         {

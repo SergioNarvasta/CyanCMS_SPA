@@ -106,10 +106,34 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-5 me-5">
                                 <label class="control-label">C.Costo</label>
-                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:60px" />
+                                <input id="input_cod_cco" onclick="abrir_modal_cco()" asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:60px" />
                                 <span asp-validation-for="Cco_codcco" class="text-danger"></span>
-                                <input type="text" asp-for="Cco_deslar" style="width:270px" class="ms-1"/>
-                                <span asp-validation-for="Cco_deslar" class="text-danger"></span>                                
+                                <input id="input_des_cco" type="text" asp-for="Cco_deslar" style="width:270px" class="ms-1"/>
+                                <span asp-validation-for="Cco_deslar" class="text-danger"></span>   
+                                <!-- Modal con Ayuda -->
+                                <button id="btn_abrir_modal_cco" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Cco">+ </button>
+                                <a asp-action="AyudaCentroCosto" class="btn btn-outline-primary" style="display:none"> Cco</a>
+                                <div class="modal" id="Modal_Cco">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title ms-5">Centro de costo</h4>
+                                            </div>
+                                            <div class="modal-body" style="cursor:pointer">
+                                                <table class="table table-bordered ms-4 table-hover">
+                                                    <tr class="table-primary">
+                                                        <th>Codigo</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                    <partial name="_AyudaCentroCosto">
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="btn_cerrar_modal_cco" type="button" class="btn btn-danger" data-bs-dismiss="modal">Retornar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </th>
                         <th>
@@ -193,7 +217,7 @@
                                 <span asp-validation-for="Dis_coddis" class="text-danger"></span>
                                 <input id="input_des_disci" asp-for="Dis_deslar" class="ms-1" style="width:280px" />
                                 <span asp-validation-for="Dis_deslar" class="text-danger"></span>                               
-                                
+                                <!-- Modal con Ayuda -->
                                 <button id="btn_abrir_modal_disci" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Dis">+ </button>
                                 <a   asp-action="AyudaDisciplina" class="btn btn-outline-primary" style="display:none" > Dis</a>
                                 <div class="modal" id="Modal_Dis">
