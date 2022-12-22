@@ -28,13 +28,14 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public IActionResult Crear()
         {
+            RQCompra crear = new();
             var periodo = servicioPeriodo.ObtenerPeriodo();
             var date = DateTime.Now;
-            ViewBag.periodo = periodo;
-            ViewBag.fecha = date.ToString("yyyy-MM-ddThh:mm");    
-            ViewBag.S10_usuario = servicioUsuario.ObtenerCodUsuario();
-            ViewBag.Rco_numrco = servicioPeriodo.NroReq();
-            return View();
+            ViewBag.periodo = periodo;              
+            crear.Rco_fec_registro = date;
+            
+            //Enviar la clase con sus atributos
+            return View(crear);
         }
 
         [HttpPost]
@@ -145,10 +146,6 @@ namespace HDProjectWeb.Controllers
             }
             var periodo = servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo;
-            ViewBag.Rco_Numero = rQCompra.Rco_numrco;
-            ViewBag.fecha = rQCompra.Rco_fec_registro.ToString("yyyy-MM-ddThh:mm");
-            ViewBag.S10_usuario = servicioUsuario.ObtenerCodUsuario();
-
             return View("Crear",rQCompra);
         }
 

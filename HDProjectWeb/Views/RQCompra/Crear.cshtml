@@ -33,14 +33,14 @@
                         <th class="col-sm-4">
                             <div class="form-group d-flex flex-row me-2">
                                 <label class="me-2">Requerimien </label>
-                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4 " value="@ViewBag.Rco_numrco" style="width:100px"/>
+                                <input asp-for="Rco_numrco" class="form-control form-control-sm col-sm-4"/>
                                 <span asp-validation-for="Rco_numrco" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="ms-0">Fecha_Reg</label>
-                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" value="@ViewBag.fecha" />
+                                <input asp-for="Rco_fec_registro" class="form-control form-control-sm ms-2" style="width:330px" />
                                 <span asp-validation-for="Rco_fec_registro" class="text-danger"></span>
                             </div>
                         </th>
@@ -54,7 +54,7 @@
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Estado </label>
-                                <select id="cbo_estado" class="ms-4" onclick="colocaEstado()" disabled>
+                                <select asp-for="Rco_indest" id="cbo_estado" class="ms-4" onclick="colocaEstado()" disabled>
                                     <option value="1">VIGENTE</option>
                                     <option value="0">ANULADO</option>
                                 </select>                  
@@ -63,7 +63,7 @@
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Tipo_Req </label>
-                                <select id="cbo_tipo" class="ms-2" onclick="colocaTipo()">
+                                <select asp-for="Rco_tiprco" id="cbo_tipo" class="ms-2" onclick="colocaTipo()">
                                     <option value="1">COMPRA REGULAR</option>
                                     <option value="2">CERTIF. CONFORMIDAD</option>
                                     <option value="3">ADENDA CONTRATO</option>
@@ -78,7 +78,7 @@
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
                                 <label>Prioridad </label>
-                                <select id="cbo_prioridad" class="ms-2" onclick="colocaPrioridad()">
+                                <select asp-for="Rco_priori" id="cbo_prioridad" class="ms-2" onclick="colocaPrioridad()">
                                     <option value="1">MUY ALTA</option>
                                     <option value="2">ALTA</option>
                                     <option value="3">MEDIA</option>
@@ -92,7 +92,7 @@
                         <th>
                              <div class="form-group d-flex flex-row ">
                                <label >U.Negocio</label>
-                                 <select id="cbo_unegocio" class="ms-4" onclick="colocaUnegocio()">
+                                <select asp-for="Ung_codung" id="cbo_unegocio" class="ms-4" onclick="colocaUnegocio()">
                                    <option value="01">MINING & METALURGY    </option>
                                    <option value="02">INFRAESTRUCTURE E&W   </option>
                                    <option value="03">O&G-FEED & ENGINEERING</option>
@@ -106,14 +106,16 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-5 me-5">
                                 <label class="control-label">C.Costo</label>
-                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:120px" />
+                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:60px" />
                                 <span asp-validation-for="Cco_codcco" class="text-danger"></span>
+                                <input type="text" asp-for="Cco_deslar" style="width:270px" class="ms-1"/>
+                                <span asp-validation-for="Cco_deslar" class="text-danger"></span>                                
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="">Situacion</label>
-                                <select id="cbo_situacion" class="ms-2" onclick="colocaSituacion()" disabled>
+                                <select asp-for="Rco_sitrco" id="cbo_situacion" class="ms-2" onclick="colocaSituacion()" disabled>
                                     <option value="1">PENDIENTE</option>
                                     <option value="2">APROBADO </option>
                                     <option value="3">RECHAZADO</option>
@@ -139,21 +141,21 @@
                         <th>
                             <div class="form-group d-flex flex-row me-5">
                                 <label asp-for="S10_usuario" class="control-label me-3"></label>
-                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" value="@ViewBag.S10_usuario" style="width:100px" />
+                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4" />
                                 <span asp-validation-for="S10_usuario" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-5 me-5">
                                 <label  class="control-label ms-2 me-2">Resumen</label>
-                                <input asp-for="Rco_glorco" class="form-control form-control-sm col-sm-4" value="" />
+                                <input asp-for="Rco_glorco" class="form-control form-control-sm col-sm-4" style="width:330px" />
                                 <span   class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label >Presupuesto</label>
-                                <select id="cbo_presup" class="ms-2" onclick="colocaPresup()">
+                                <select asp-for="Rco_presup" id="cbo_presup" class="ms-2" onclick="colocaPresup()">
                                     <option value="1"> SI </option>
                                     <option value="0"> NO </option>
                                 </select>
@@ -162,15 +164,16 @@
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <input class="form-check-input ms-5" type="checkbox" id="chkCategorizado" />
+                                <input asp-for="Rco_indval" class="form-check-input ms-5" type="checkbox" id="chkCategorizado" />
                                 <label class="form-check-label ms-2">Categorizado</label>
+                                <span asp-validation-for="Rco_indval" class="text-danger"></span>
                             </div>
                         </th>
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="control-label">OCompra</label>
-                                <input asp-for="Cco_codcco" class="form-control form-control-sm col-sm-3 ms-2" />
-                                <span asp-validation-for="Cco_codcco" class="text-danger"></span>
+                                <input asp-for="Occ_numero" class="form-control form-control-sm col-sm-3 ms-2" />
+                                <span asp-validation-for="Occ_numero" class="text-danger"></span>
                             </div>
                         </th>
                     </tr>
@@ -179,7 +182,7 @@
                         <th>
                             <div class="form-group d-flex flex-row">
                                 <label asp-for="Rco_motivo" class="control-label"></label>
-                                <input asp-for="Rco_motivo" class="form-control ms-3" value=" "/>
+                                <input asp-for="Rco_motivo" class="form-control ms-3" />
                                 <span asp-validation-for="Rco_motivo" class="text-danger"></span>
                             </div>
                          </th>
@@ -187,8 +190,9 @@
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label class="control-label">Disciplina</label>
                                 <input id="input_cod_disci" onclick="abrir_modal_disci()" asp-for="Dis_coddis" class="form-control ms-2" style="width:50px" />
-                                <input id="input_des_disci" class="ms-1" style="width:180px" />
-                                <span asp-validation-for="Dis_coddis" class="text-danger"></span> 
+                                <span asp-validation-for="Dis_coddis" class="text-danger"></span>
+                                <input id="input_des_disci" asp-for="Dis_deslar" class="ms-1" style="width:280px" />
+                                <span asp-validation-for="Dis_deslar" class="text-danger"></span>                               
                                 
                                 <button id="btn_abrir_modal_disci" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Dis">+ </button>
                                 <a   asp-action="AyudaDisciplina" class="btn btn-outline-primary" style="display:none" > Dis</a>
@@ -218,7 +222,7 @@
                         <th>
                             <div class="form-group d-flex flex-row ms-xl-5">
                                 <label>Reembolso</label>
-                                <select id="cbo_reembls" class="ms-3" onclick="colocaReembls()">
+                                <select asp-for="Rco_rembls" id="cbo_reembls" class="ms-3" onclick="colocaReembls()">
                                     <option value="1"> SI </option>
                                     <option value="0"> NO </option>
                                 </select>                               
@@ -226,7 +230,7 @@
                         </th>
                         <th>
                             <div class="d-flex flex-row ms-xl-5">
-                                <input class="ms-5" type="checkbox" id="chkCuadroComp" />
+                                <input asp-for="Ccc_numero" class="ms-5" type="checkbox" id="chkCuadroComp" />
                                 <span class="ms-2">Cuadro Comparativo</span>
                             </div>
                         </th>
@@ -262,15 +266,15 @@
                         </th>
                         <th>
                             <label>Situacion</label>
-                            <input id="input_situacion" asp-for="Rco_sitrco" type="text" value="1" style="width:20px" />
+                            <input id="input_situacion" asp-for="Rco_sitrco" type="text" style="width:20px" />
                             <span asp-validation-for="Rco_sitrco" class="text-danger"></span>
 
                             <label>Presup</label>
-                            <input id="input_presup" asp-for="Rco_presup" type="text" value="1" style="width:20px" />
+                            <input id="input_presup" asp-for="Rco_presup" type="text" style="width:20px" />
                             <span asp-validation-for="Rco_presup" class="text-danger"></span>
 
                             <label>Reembls</label>
-                            <input id="input_reembls" asp-for="Rco_rembls" type="text" value="1" style="width:20px" />
+                            <input id="input_reembls" asp-for="Rco_rembls" type="text" style="width:20px" />
                             <span asp-validation-for="Rco_rembls" class="text-danger"></span>
                         </th>
                     </tr>

@@ -23,11 +23,11 @@ namespace HDProjectWeb.Models
         public string Tin_codtin { get; set; }       /***Vacio****/
 
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
-        [MaxLength(6, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
+        [MaxLength(6, ErrorMessage = "El campo no debe de tener mas de 6 caracteres")]
         public string Cco_codcco { get; set; }    /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")]// Requerido
-        [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
+        [MaxLength(200, ErrorMessage = "El campo no debe de tener mas de 200 caracteres")]
         public string Rco_motivo { get; set; }    /***View****/
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
@@ -54,7 +54,6 @@ namespace HDProjectWeb.Models
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracter")]
         public string Rco_indest { get; set; }      /***View****/
 
-
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
         public string Rco_usucre { get; set; }
@@ -78,7 +77,7 @@ namespace HDProjectWeb.Models
         public string Rco_obscie { get; set; } = "";
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido (Categorizado)
-        public short Rco_indval { get; set; } = 1;       /***View****/
+        public Boolean Rco_indval { get; set; }        /***Boolean para CheckBox****/
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
@@ -101,5 +100,10 @@ namespace HDProjectWeb.Models
         public string Rco_glorco { get; set; } //Resumen
 
         public string Dis_coddis { get; set; } //Disciplina
+        public string Dis_deslar { get; set; }
+        public Boolean Ccc_numero { get; set; }
+        public string Occ_numero { get; set; }
+        public string Cco_deslar { get; set; }
+
     }
 }

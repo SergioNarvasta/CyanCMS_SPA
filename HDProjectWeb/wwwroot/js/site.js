@@ -259,7 +259,6 @@ $(document).ready(function () {
 });
 function abrir_modal_disci() {
     $("#btn_abrir_modal_disci").click();
-
 }
 //JQUERY Para subir archivo
 $(document).on('change', '.btn-file :file', function () {
@@ -281,13 +280,13 @@ function coloca_nomb() {
     $("#nomb_file").val(selected);
 }
 
-window.onload = function() {
-    alert('Evento Load ');
-    var valor = document.getElementById("input_prioridad");
-    var combo = document.getElementById("cbo_prioridad");
-    combo.options[combo.selectedIndex].value = valor.innerHTML;
-    console.log(valor.innerHTML);
-};
+/*window.onload = function() {  
+    var obj = document.getElementById("input_prioridad");
+    var valor = obj.innerHTML;
+     document.getElementById("cbo_prioridad").value = valor;
+    console.log(valor+"LOngitud: "+valor.length);
+};*/
+
 
 
 
