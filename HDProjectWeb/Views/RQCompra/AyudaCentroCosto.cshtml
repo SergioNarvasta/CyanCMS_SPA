@@ -1,5 +1,5 @@
 ﻿@using HDProjectWeb.Models.Helps;
-@model ListadoDisciplina<Disciplina>
+@model ListadoCentroCosto<CentroCosto>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -9,7 +9,7 @@
        }); 
     });
 </script>
-<div class="modal" tabindex="-1" role="dialog" id="Modal_Dis">
+<div class="modal" tabindex="-1" role="dialog" id="Modal_Cco">
     <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header">
@@ -27,9 +27,9 @@
                     <tbody style="cursor:pointer">
                         @foreach (var item in Model.Elementos)
                         {
-                            <tr id="tr_dis">
-                                <td>@Html.DisplayFor(modelItem => item.Dis_coddis)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Dis_deslar)</td>
+                            <tr id="tr_Cco">
+                                <td>@Html.DisplayFor(modelItem => item.Cco_codcco)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Cco_deslar)</td>
                             </tr>
                         }
                     </tbody>

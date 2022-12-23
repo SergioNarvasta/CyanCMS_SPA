@@ -8,6 +8,7 @@ namespace HDProjectWeb.Services
     {
         string ObtenerCodAuxUsuario(string CodUser);
         string ObtenerCodUsuario();
+        string ObtenerNombreUsuario(string Codaux);
     }
     public class ServicioUsuario : IServicioUsuario
     {
@@ -38,6 +39,12 @@ namespace HDProjectWeb.Services
             using var connection = new SqlConnection(connectionString);
             return connection.QuerySingle<string>(@"SELECT AUX_CODAUX FROM SYS_TABLA_USUARIOS_S10 
                           WHERE S10_USUARIO = @CodUser", new { CodUser });
+        }
+        public string ObtenerNombreUsuario(string Codaux)
+        {
+            using var connection = new SqlConnection(connectionString);
+            return connection.QuerySingle<string>(@"SELECT TOP 1 S10_NOMUSU FROM SYS_TABLA_USUARIOS_S10 
+            WHERE AUX_CODAUX=@codaux", new { Codaux });
         }
     }
 }

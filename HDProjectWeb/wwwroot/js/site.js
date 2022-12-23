@@ -119,8 +119,11 @@ $(document).on('click', '#btnSaveForm', function (event) {
 });
 /*********  View Crear **************/
 function agregarFila() {
-    var cont = 0;
-    var item = '00' + (cont + 1).toString();
+    var nrows = $("#tblProductos tr").length;
+    //var nColumnas = $("#mi-tabla tr:last td").length;
+    $("#nitems_prd").val(nrows);
+    console.log(nrows);
+    var item = '00' + (nrows).toString();
     var cod = '<input type="text"  value="999900000018" />';
     var des = '<input />';
     var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#ModalDetPrd">+</button>' +
@@ -149,8 +152,11 @@ function agregarFila() {
     $('#tblProductos tbody').append(fila);
 }
 function agregarFilaAdj() {
-    var cont = 0;
-    var item = '00' + (cont + 1).toString();
+    var nrows = $("#tblAdjuntos tr").length;
+    //var nColumnas = $("#mi-tabla tr:last td").length;
+    $("#nitems_adj").val(nrows);
+    console.log(nrows);
+    var item = '00' + (nrows).toString();
     var name = '<input type="text" />';
     var file = ' <div class="form-group" style="width:300px"> '+
                  ' <div class="input-group d-flex flex-row" > ' +
@@ -164,7 +170,6 @@ function agregarFilaAdj() {
                ' </div > ';
     var codfile = '<input id="nomb_file" type="text" />';
     var fila = "<tr><td></td><td>" + item + "</td><td>" + name + "</td><td>" + file + "</td><td>" + codfile + "</td> </tr>";
-    cont++;
     $('#tblAdjuntos tbody').append(fila);
 }
 function colocaEstado() {
@@ -276,6 +281,21 @@ $(document).ready(function () {
 function abrir_modal_cco() {
     $("#btn_abrir_modal_cco").click();
 }
+//JQuery para Ayuda Usuario
+$(document).ready(function () {
+    $('tr#tr_usu').click(function (e) {
+        var tr_data = $(this).text().trim();
+        var cod = tr_data.substring(0, 11).trim();
+        var des = tr_data.substring(11, tr_data.length).trim();
+        console.log("-Codigo:" + cod + "-Desc:" + des + "Leng" + tr_data.length);
+        $("#input_cod_usu").val(cod);
+        $("#input_des_usu").val(des);
+        $("#btn_cerrar_modal_usu").click();
+    });
+});
+function abrir_modal_usu() {
+    $("#btn_abrir_modal_usu").click();
+}
 //JQUERY Para subir archivo
 $(document).on('change', '.btn-file :file', function () {
     var input = $(this);
@@ -344,7 +364,9 @@ function coloca_nomb() {
 
 })(document);
 //https://www.tutofox.com/javascript/buscador-datos-en-la-tabla-con-javascript/#:~:text=El%20buscador%20esta%20hecho%20en,que%20desea%20buscar%20el%20registro.&text=El%20campo%20de%20buscador%20debes,en%20el%20input%20de%20buscador.
- 
+
+
+
 
 
 

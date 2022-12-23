@@ -31,9 +31,12 @@ namespace HDProjectWeb.Controllers
             RQCompra crear = new();
             var periodo = servicioPeriodo.ObtenerPeriodo();
             var date = DateTime.Now;
-            ViewBag.periodo = periodo;              
+            ViewBag.periodo = periodo;
+            string coduser = servicioUsuario.ObtenerCodUsuario();
+            string codaux = servicioUsuario.ObtenerCodAuxUsuario(coduser);
             crear.Rco_fec_registro = date;
-            
+            crear.S10_usuario = codaux;
+            crear.S10_nomusu = servicioUsuario.ObtenerNombreUsuario(codaux);
             //Enviar la clase con sus atributos
             return View(crear);
         }
@@ -41,7 +44,10 @@ namespace HDProjectWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Crear(RQCompra rQCompra)
         {
-           /* if (!ModelState.IsValid){ return View(rQCompra); }*/       
+            if(!ModelState.IsValid)
+            {
+                return View(rQCompra); 
+            }      
             rQCompra.Cia_codcia = servicioPeriodo.Compañia();
             rQCompra.Suc_codsuc = servicioPeriodo.Sucursal();
             rQCompra.Ano_codano = servicioPeriodo.Ano();
@@ -61,7 +67,7 @@ namespace HDProjectWeb.Controllers
             }
             if (orden is not null)
             {
-                await servicioPeriodo.ActualizaOrden(orden);
+               await servicioPeriodo.ActualizaOrden(orden);
             }
             orden =await servicioPeriodo.ObtenerOrden();
             periodo = await servicioPeriodo.ObtenerPeriodo();
