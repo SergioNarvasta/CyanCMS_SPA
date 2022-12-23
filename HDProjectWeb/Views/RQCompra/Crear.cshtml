@@ -8,7 +8,7 @@
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <h2 class="text-center">TITULO PRINCIPAL </h2> <br />
-<div class="" id="Box-Main">
+<div id="Box-Main">
     <div class="col-md-4">
         <form asp-action="Crear">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -363,7 +363,9 @@
                         <th>Sustento</th>
                     </tr>
                 </thead>
-                    <tbody id="tbody_prd" class="table table-bordered"> </tbody>                  
+                    <tbody id="tbody_prd" class="table table-bordered">
+                        <partial name="_DetallesReq">
+                    </tbody>                  
                 </table>
             </div>
            
