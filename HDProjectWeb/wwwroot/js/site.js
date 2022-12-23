@@ -152,16 +152,16 @@ function agregarFilaAdj() {
     var cont = 0;
     var item = '00' + (cont + 1).toString();
     var name = '<input type="text" />';
-    var file = ' <div class="form-group" style="width:300px"> '+              
-        ' <div class="input-group d-flex flex-row" > ' +
-        '               <label class="input-group-btn"> ' +
-        '                  <span class="btn btn-file" > ' +
-        '                    <input accept=".pdf,.doc,.docx" class="hidden" name="banner" type="file" id="banner" style="width:90px"> ' +
-        '                </span> ' +
-        '           </label> ' +
-        '          <input onchange="coloca_nomb()" class="form-control" id="banner_captura" readonly="readonly" name="banner_captura" type="text" value="" style="width:100px"> ' +
-        '     </div> ' +
-        '</div > ';
+    var file = ' <div class="form-group" style="width:300px"> '+
+                 ' <div class="input-group d-flex flex-row" > ' +
+                   ' <label class="input-group-btn"> ' +
+                     ' <span class="btn btn-file"> ' +
+                       ' <input accept=".docx,.doc,.pdf" class="hidden" name="banner" type="file" id="banner" style="width:90px"> ' +
+                     ' </span> ' +
+                   ' </label> ' +
+                   ' <input class="form-control" id="banner_captura" readonly="readonly" name="banner_captura" type="text" value="" style="width:100px"> ' +
+                 ' </div> ' +
+               ' </div > ';
     var codfile = '<input id="nomb_file" type="text" />';
     var fila = "<tr><td></td><td>" + item + "</td><td>" + name + "</td><td>" + file + "</td><td>" + codfile + "</td> </tr>";
     cont++;
@@ -303,6 +303,48 @@ function coloca_nomb() {
     console.log(valor+"LOngitud: "+valor.length);
 };*/
 
+// Busqueda con JS 
+(function (document) {
+    'use strict';
+
+    var LightTableFilter = (function (Arr) {
+
+        var _input;
+
+        function _onInputEvent(e) {
+            _input = e.target;
+            var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+            Arr.forEach.call(tables, function (table) {
+                Arr.forEach.call(table.tBodies, function (tbody) {
+                    Arr.forEach.call(tbody.rows, _filter);
+                });
+            });
+        }
+
+        function _filter(row) {
+            var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+            row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+
+        return {
+            init: function () {
+                var inputs = document.getElementsByClassName('light-table-filter');
+                Arr.forEach.call(inputs, function (input) {
+                    input.oninput = _onInputEvent;
+                });
+            }
+        };
+    })(Array.prototype);
+
+    document.addEventListener('readystatechange', function () {
+        if (document.readyState === 'complete') {
+            LightTableFilter.init();
+        }
+    });
+
+})(document);
+//https://www.tutofox.com/javascript/buscador-datos-en-la-tabla-con-javascript/#:~:text=El%20buscador%20esta%20hecho%20en,que%20desea%20buscar%20el%20registro.&text=El%20campo%20de%20buscador%20debes,en%20el%20input%20de%20buscador.
+ 
 
 
 
