@@ -18,8 +18,8 @@ builder.Services.AddTransient<IRepositorioRQCompra, RepositorioRQCompra>();
 builder.Services.AddTransient<IServicioPeriodo, ServicioPeriodo>(); //  Agregamos los servicios creados
 builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
 builder.Services.AddTransient<IServicioUsuario,ServicioUsuario>();
-builder.Services.AddTransient<IUserStore<Usuario>,UsuarioStore>();
-builder.Services.AddIdentityCore<Usuario>(opciones =>
+builder.Services.AddTransient<IUserStore<_Login>,UsuarioStore>();
+builder.Services.AddIdentityCore<_Login>(opciones =>
 {
     opciones.Password.RequireDigit = false;
     opciones.Password.RequireLowercase = false;

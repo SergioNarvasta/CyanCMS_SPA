@@ -136,12 +136,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/RQCompra/AyudaCentroCosto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQXl1ZGFDZW50cm9Db3N0by5jc2h0bWw=
+[D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/RQCompra/AyudaDisciplina - Copia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQXl1ZGFEaXNjaXBsaW5hIC0gQ29waWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/RQCompra/AyudaDisciplina.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQXl1ZGFEaXNjaXBsaW5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/RQCompra/AyudaUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUlFDb21wcmFcQXl1ZGFVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/RQCompra/Crear.cshtml]
@@ -170,6 +174,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/Shared/_AyudaDisciplina.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BeXVkYURpc2NpcGxpbmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/Shared/_AyudaUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BeXVkYVVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Docs_Sergio/Z_PROYECTOS WEB/1.Req_Compra_HD/HDProjectWeb/Views/Shared/_LoginPartial.cshtml]

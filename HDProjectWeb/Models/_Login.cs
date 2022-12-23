@@ -1,6 +1,6 @@
 ﻿namespace HDProjectWeb.Models
 {
-    public class Usuario
+    public class _Login
     {
         public int Id { get; set; }
         public string CodUser { get; set; }

@@ -166,8 +166,36 @@
                         <th>
                             <div class="form-group d-flex flex-row me-5">
                                 <label asp-for="S10_usuario" class="control-label me-3"></label>
-                                <input asp-for="S10_usuario" class="form-control form-control-sm col-sm-4 ms-xl-4" style="width:228px" />
+                                <input asp-for="S10_usuario" class="form-control form-control-sm ms-2" style="width:70px" />
                                 <span asp-validation-for="S10_usuario" class="text-danger"></span>
+                                <input asp-for="S10_nomusu" class="form-control form-control-sm ms-1" style="width:150px" />
+                                <span asp-validation-for="S10_nomusu" class="text-danger"></span>
+
+                                <!-- Modal con Ayuda -->
+                                <button id="btn_abrir_modal_disci" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Dis">+ </button>
+                                <a asp-action="AyudaDisciplina" class="btn btn-outline-primary" style="display:none"> Dis</a>
+                                <div class="modal" id="Modal_Dis">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title ms-5">Disciplina</h4>
+                                                <input class="form-control light-table-filter" data-table="order-table" type="text" placeholder="Filtrar.." style="width:380px;" />
+                                            </div>
+                                            <div class="modal-body" style="cursor:pointer">
+                                                <table class="table table-bordered ms-4 table-hover order-table">
+                                                    <tr class="table-primary">
+                                                        <th>Codigo</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                    <partial name="_AyudaDisciplina">
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="btn_cerrar_modal_disci" type="button" class="btn btn-danger" data-bs-dismiss="modal">Retornar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </th>
                         <th>

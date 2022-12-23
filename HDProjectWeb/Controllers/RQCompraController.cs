@@ -138,7 +138,7 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> AyudaDisciplina()
         {
-            var Disciplina = await repositorioRQCompra.ObtenerDisciplina();
+            var Disciplina = await repositorioRQCompra.ListaAyudaDisciplina();
             var Data = new ListadoDisciplina<Disciplina>
             {
                 Elementos = Disciplina
@@ -148,10 +148,20 @@ namespace HDProjectWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> AyudaCentroCosto()
         {
-            var Obj = await repositorioRQCompra.ObtenerCentroCosto();
+            var Obj = await repositorioRQCompra.ListaAyudaCentroCosto();
             var Data = new ListadoCentroCosto<CentroCosto>
             {
                 Elementos = Obj
+            };
+            return PartialView(Data);
+        }
+        [HttpGet]
+        public async Task<IActionResult> AyudaUsuario()
+        {
+            var Lista = await repositorioRQCompra.ListaAyudaUsuario();
+            var Data = new ListadoUsuario<Usuario>
+            {
+                Elementos = Lista
             };
             return PartialView(Data);
         }

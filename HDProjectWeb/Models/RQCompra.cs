@@ -61,7 +61,7 @@ namespace HDProjectWeb.Models
 
         [Required(ErrorMessage = "Campo obligatorio")] 
         [MaxLength(30, ErrorMessage = "El campo no debe de tener mas de 30 caracteres")]
-        [Display( Name = "Usuario")]
+        [Display( Name = "Solicitante")]
         public string S10_usuario { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")] // Requerido
@@ -100,12 +100,12 @@ namespace HDProjectWeb.Models
         public string Rco_tiprco { get; set; }        /***View****/
 
         public string Rco_glorco { get; set; } //Resumen
-
         public string Dis_coddis { get; set; } //Disciplina
         public string Dis_deslar { get; set; }
         public Boolean Ccc_numero { get; set; }
         public string Occ_numero { get; set; }
         public string Cco_deslar { get; set; }
+        public string S10_nomusu { get; set; }
 
     }
 }

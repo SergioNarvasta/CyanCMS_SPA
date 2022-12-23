@@ -7,10 +7,10 @@ namespace HDProjectWeb.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly UserManager<Usuario> userManager;
-        private readonly SignInManager<Usuario> signInManager;
+        private readonly UserManager<_Login> userManager;
+        private readonly SignInManager<_Login> signInManager;
 
-        public UsuarioController(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager)    
+        public UsuarioController(UserManager<_Login> userManager, SignInManager<_Login> signInManager)    
         {
             this.userManager = userManager;
             this.signInManager = signInManager;

@@ -7,7 +7,7 @@ namespace HDProjectWeb.Services
 {
     public interface IRepositorioUsuario
     {
-        Task<int> CrearUsuario(Usuario usuario);
+        Task<int> CrearUsuario(_Login usuario);
     }
     public class RepositorioUsuario :IRepositorioUsuario
     {
@@ -18,7 +18,7 @@ namespace HDProjectWeb.Services
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public async Task <int> CrearUsuario (Usuario usuario)
+        public async Task <int> CrearUsuario (_Login usuario)
         {
             using var connection = new SqlConnection(connectionString);
             var id = await connection.QuerySingleAsync<int>(@" "); //INSERT INTO 
