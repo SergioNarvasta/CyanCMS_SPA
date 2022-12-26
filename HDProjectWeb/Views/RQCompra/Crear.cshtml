@@ -366,9 +366,8 @@
                 <tbody id="tbody_prd" class="table table-bordered">
                         @if (ViewBag.estado != "1")
                         {
-                            @await Component.InvokeAsync("DetalleReq");
+                            @await Component.InvokeAsync("DetalleReq",ViewBag.Rco_numero);
                         }
-
                 </tbody>                  
                 </table>
             </div>

@@ -182,6 +182,7 @@ namespace HDProjectWeb.Controllers
             }
             var periodo = servicioPeriodo.ObtenerPeriodo();
             ViewBag.periodo = periodo;
+            ViewBag.Rco_numero = Rco_Numero;
             return View("Crear",rQCompra);
         }
 

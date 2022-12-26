@@ -19,6 +19,7 @@ builder.Services.AddTransient<IServicioPeriodo, ServicioPeriodo>(); //  Agregamo
 builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
 builder.Services.AddTransient<IServicioUsuario,ServicioUsuario>();
 builder.Services.AddTransient<IUserStore<_Login>,UsuarioStore>();
+builder.Services.AddTransient<IDetalleReqService,DetalleReqService>();
 builder.Services.AddIdentityCore<_Login>(opciones =>
 {
     opciones.Password.RequireDigit = false;
