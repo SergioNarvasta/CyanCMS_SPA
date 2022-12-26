@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DetalleReq>
+
+   
+@foreach (var product in Model)
+{
+    <tr>
+        <td>@product.Item</td>
+        <td>@product.Descri</td>
+        <td>@product.Codigo</td>
+        <td>@product.Glosa</td>
+        <td>@product.Unidad</td>
+        <td>@product.Cantidad</td>
+        <td>@product.Codprov</td>
+        <td>@product.Nomprov</td>
+    </tr>
+    
+}

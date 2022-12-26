@@ -362,10 +362,14 @@
                         <th>Proveedor</th>
                         <th>Sustento</th>
                     </tr>
-                </thead>
-                    <tbody id="tbody_prd" class="table table-bordered">
-                        <partial name="_DetallesReq">
-                    </tbody>                  
+                </thead> 
+                <tbody id="tbody_prd" class="table table-bordered">
+                        @if (ViewBag.estado != "1")
+                        {
+                            @await Component.InvokeAsync("DetalleReq");
+                        }
+
+                </tbody>                  
                 </table>
             </div>
            

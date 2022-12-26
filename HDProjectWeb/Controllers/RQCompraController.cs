@@ -37,6 +37,7 @@ namespace HDProjectWeb.Controllers
             crear.Rco_fec_registro = date;
             crear.S10_usuario = codaux;
             crear.S10_nomusu = servicioUsuario.ObtenerNombreUsuario(codaux);
+            ViewBag.estado = "1";
             //Enviar la clase con sus atributos
             return View(crear);
         }
