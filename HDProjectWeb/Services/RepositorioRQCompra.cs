@@ -16,7 +16,7 @@ namespace HDProjectWeb.Services
         Task<int> ContarRegistros(string periodo, string CodUser, string estado1, string estado2);  
         Task<int> ContarRegistrosBusqueda(string periodo, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<RQCompraCab>> BusquedaMultiple(string periodo, PaginacionViewModel paginacion, string CodUser, string busqueda, string estado1, string estado2);
-        Task<IEnumerable<Usuario>> ListaAyudaUsuario();
+ 
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
     {
@@ -734,13 +734,6 @@ namespace HDProjectWeb.Services
 	              LEFT JOIN CENTRO_COSTO_CCO D ON A.cia_codcia=D.CIA_CODCIA AND A.cco_codcco=D.CCO_CODCCO   
                   WHERE rco_numrco = @Rco_numero ", new {Rco_numero});
         }
-       
-        
-        public async Task<IEnumerable<Usuario>> ListaAyudaUsuario()
-        {
-            using var connection = new SqlConnection(connectionString);
-            return await connection.QueryAsync<Usuario>(@"SELECT DISTINCT AUX_CODAUX as Codigo,S10_NOMUSU as Descri 
-                                                   FROM SYS_TABLA_USUARIOS_S10 WHERE S10_INDEST=1 AND LEN(AUX_CODAUX)>1 ORDER BY S10_NOMUSU");
-        }
+
     }
 }

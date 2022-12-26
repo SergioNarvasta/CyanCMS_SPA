@@ -143,17 +143,6 @@ namespace HDProjectWeb.Controllers
             return View(respuesta);
         }
       
-       
-        [HttpGet]
-        public async Task<IActionResult> AyudaUsuario()
-        {
-            var Lista = await repositorioRQCompra.ListaAyudaUsuario();
-            var Data = new ListadoUsuario<Usuario>
-            {
-                Elementos = Lista
-            };
-            return PartialView(Data);
-        }
         [HttpGet]
         public async Task<IActionResult> Editar(string Rco_Numero)
         {
