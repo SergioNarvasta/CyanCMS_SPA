@@ -23,7 +23,7 @@ builder.Services.AddTransient<IUserStore<_Login>,UsuarioStore>();
 builder.Services.AddTransient<IDetalleReqService,DetalleReqService>();
 //Servicios para mostrar Ayudas
 builder.Services.AddTransient<ICentroCostoService,CentroCostoService>();
-
+builder.Services.AddTransient<IDisciplinaService,DisciplinaService>();
 builder.Services.AddIdentityCore<_Login>(opciones =>
 {
     opciones.Password.RequireDigit = false;

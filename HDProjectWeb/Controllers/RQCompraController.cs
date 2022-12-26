@@ -142,16 +142,7 @@ namespace HDProjectWeb.Controllers
             };
             return View(respuesta);
         }
-        [HttpGet]
-        public async Task<IActionResult> AyudaDisciplina()
-        {
-            var Disciplina = await repositorioRQCompra.ListaAyudaDisciplina();
-            var Data = new ListadoDisciplina<Disciplina>
-            {
-                Elementos = Disciplina
-            };
-            return PartialView(Data);
-        }
+      
        
         [HttpGet]
         public async Task<IActionResult> AyudaUsuario()
