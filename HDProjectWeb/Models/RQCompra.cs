@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using HDProjectWeb.Models.Helps;
+using System.ComponentModel.DataAnnotations;
 
 namespace HDProjectWeb.Models
 {
@@ -98,7 +99,6 @@ namespace HDProjectWeb.Models
         [MaxLength(1, ErrorMessage = "El campo no debe de tener mas de 1 caracteres")]
 
         public string Rco_tiprco { get; set; }        /***View****/
-
         public string Rco_glorco { get; set; } //Resumen
         public string Dis_coddis { get; set; } //Disciplina
         public string Dis_deslar { get; set; }
@@ -106,6 +106,9 @@ namespace HDProjectWeb.Models
         public string Occ_numero { get; set; }
         public string Cco_deslar { get; set; }
         public string S10_nomusu { get; set; }
+
+        //Atributos para Req Compra Detalle (RCD)
+        public List<DetalleReq> ListaDetalles { get; set; }
 
     }
 }

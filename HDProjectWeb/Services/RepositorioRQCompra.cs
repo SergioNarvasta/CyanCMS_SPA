@@ -37,6 +37,11 @@ namespace HDProjectWeb.Services
                                         ,@rco_codusu = @rco_codusu, @ung_codung = @ung_codung, @rco_indcie = @rco_indcie, @rco_indval = @rco_indval , @rco_priori = @rco_priori
                                         ,@rco_rembls = @rco_rembls, @rco_presup = @rco_presup, @adi_codadi = @adi_codadi",rQCompra);
         }
+        public async Task RegistraDetalle(DetalleReq detalleReq)
+        {
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync(@" ", detalleReq);
+        }
         public async Task<IEnumerable<RQCompraCab>> Obtener(string periodo,PaginacionViewModel paginacion,string CodUser,string orden,string estado1,string estado2) 
         {
             using var connection = new SqlConnection(connectionString);

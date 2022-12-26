@@ -23,7 +23,6 @@ namespace HDProjectWeb.Models.Helps
     {
         Task<IEnumerable<DetalleReq>> GetDetalleReq(string Rco_numero);
     }
-
     public class DetalleReqService : IDetalleReqService
     {
         private readonly string connectionString;
@@ -34,7 +33,7 @@ namespace HDProjectWeb.Models.Helps
         public async Task<IEnumerable<DetalleReq>> GetDetalleReq(string Rco_numero)
         {
             using var connection = new SqlConnection(connectionString);
-            return await connection.QueryAsync<DetalleReq>(@"SELECT  1 as item ,B.prd_codprd as codigo,rcd_desprd as descri,rcd_glorcd as glosa,ume_codume as unidad,
+            return await connection.QueryAsync<DetalleReq>(@"SELECT  RANK() OVER(ORDER BY B.Prd_codprd) item ,B.prd_codprd as codigo,rcd_desprd as descri,rcd_glorcd as glosa,ume_codume as unidad,
 	                                    rcd_canapr as cantidad,J.AUX_CODAUX as codprov, J.AUX_NOMAUX as nomprov
 	                                    FROM REQUERIMIENTO_COMPRA_RCO A
 	                                    LEFT JOIN REQUERIMIENTO_COMPRA_RCD B ON A.cia_codcia=B.cia_codcia AND A.suc_codsuc=B.suc_codsuc AND A.rco_numrco=B.rco_numrco

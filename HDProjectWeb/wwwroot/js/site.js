@@ -104,7 +104,6 @@ function ordenRco_priori() {
     celda.style.backgroundColor = "#0000FF";
     $("#btn_filtrar").click();
 }
-
 //Ejemplo de Jquery
 $(document).on('click', '#btnSaveForm', function (event) {
     var title, input_value, data_id;
@@ -124,10 +123,10 @@ function agregarFila() {
     $("#nitems_prd").val(nrows);
     console.log(nrows);
     var item = '00' + (nrows).toString();
-    var cod = '<input type="text"  value="999900000018" />';
+    var cod = '<input value="999900000018" type="text"/>';
     var des = '<input />';
-    var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#ModalDetPrd">+</button>' +
-        ' <div class="modal" id="ModalDetPrd"> ' +
+    var det = '<button  id="btn_detalle" type="button" class="btn btn-outline-success"  data-bs-toggle="modal" data-bs-target="#ModalDetPrd'+nrows+'">+</button>' +
+        ' <div class="modal" id="ModalDetPrd'+nrows+'"> ' +
         ' <div class="modal-dialog"> ' +
         ' <div class="modal-content"> ' +
         ' <div class="modal-header"> ' +
@@ -144,13 +143,35 @@ function agregarFila() {
         ' </div> ' +
         ' </div> ';
     var uni = "UND";
-    var cant = '<input type="text"  value="0.0" />';
+    var cant = '<input type="number"  value="0.0" />';
     var codprv = "00000000";
     var prov = '<input type="text" placeholder="Proveedor" />';
     var sust = '<input type="text" placeholder="Sustento.." />';
     var fila = "<tr><td></td><td>" + item + "</td><td>" + cod + "</td><td>" + des + "</td><td>" + det + "</td><td>" + uni + "</td><td>" + cant + "</td><td>" + codprv + "</td><td>" + prov + "</td><td>" + sust + "</td> </tr>";
-    $('#tblProductos tbody').append(fila);
+    $('#tblProductos tbody').append(fila);  
 }
+//Agregar Items a Array
+$("#btn_registrar").on("click",function()
+{
+    var DetalleReq = [];
+    var total = 0;
+    $("#tblProductos > tbody > tr").each(function(index,tr){
+       DetalleReq.push(
+         {
+           Codigo:$(this).find("td:nth-child(3)").html().substring(14,26),
+           //$(tr).find('input').eq(2).val() ,
+           Descri:$(tr).find('td:eq(3)').html(),
+           Glosa :$(tr).find('td:eq(4)').text(),
+           Unidad:$(tr).find('td:eq(5)').text(),
+           Cantidad:parseInt($(tr).find('input').eq(6).val()),
+           CodProv:  $(tr).find('input').eq(7).val(),
+           Nombprov: $(tr).find('input').eq(8).val()
+         }   
+       );
+       console.log(DetalleReq);
+    })
+})
+
 function agregarFilaAdj() {
     var nrows = $("#tblAdjuntos tr").length;
     //var nColumnas = $("#mi-tabla tr:last td").length;
@@ -170,7 +191,7 @@ function agregarFilaAdj() {
                ' </div > ';
     var codfile = '<input id="nomb_file" type="text" />';
     var fila = "<tr><td></td><td>" + item + "</td><td>" + name + "</td><td>" + file + "</td><td>" + codfile + "</td> </tr>";
-    $('#tblAdjuntos tbody').append(fila);
+    $('#tblAdjuntos tbody').append(fila);  
 }
 function colocaEstado() {
     var combo = document.getElementById("cbo_estado");

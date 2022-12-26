@@ -56,6 +56,11 @@ namespace HDProjectWeb.Controllers
             rQCompra.Rco_usucre = servicioUsuario.ObtenerCodUsuario();
             rQCompra.Rco_codusu = servicioUsuario.ObtenerCodUsuario();
             await repositorioRQCompra.Crear(rQCompra);
+
+            foreach(DetalleReq detalleReq in rQCompra.ListaDetalles )
+            {
+               //await servicioDetalle.Crear(DetalleReq);
+            }
             return View();
         }
 
