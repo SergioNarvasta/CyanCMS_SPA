@@ -1,5 +1,6 @@
 using HDProjectWeb.Data;
 using HDProjectWeb.Models;
+using HDProjectWeb.Models.Helps;
 using HDProjectWeb.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,6 +21,9 @@ builder.Services.AddTransient<IRepositorioUsuario, RepositorioUsuario>();
 builder.Services.AddTransient<IServicioUsuario,ServicioUsuario>();
 builder.Services.AddTransient<IUserStore<_Login>,UsuarioStore>();
 builder.Services.AddTransient<IDetalleReqService,DetalleReqService>();
+//Servicios para mostrar Ayudas
+builder.Services.AddTransient<ICentroCostoService,CentroCostoService>();
+
 builder.Services.AddIdentityCore<_Login>(opciones =>
 {
     opciones.Password.RequireDigit = false;

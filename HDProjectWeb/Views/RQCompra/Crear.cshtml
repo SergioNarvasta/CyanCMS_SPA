@@ -118,7 +118,7 @@
                                                         <th>Codigo</th>
                                                         <th>Descripcion</th>
                                                     </tr>
-                                                    <partial name="_AyudaCentroCosto">
+                                                    @await Component.InvokeAsync("AyudaCentroCosto")
                                                 </table>
                                             </div>
                                             <div class="modal-footer">

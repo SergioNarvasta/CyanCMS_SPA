@@ -1,5 +1,5 @@
-﻿@model IEnumerable<DetalleReq>
-
+﻿@using HDProjectWeb.Models.Helps;
+@model IEnumerable<DetalleReq>
    
 @foreach (var product in Model)
 {
@@ -13,6 +13,5 @@
         <td>@product.Cantidad</td>
         <td>@product.Codprov</td>
         <td>@product.Nomprov</td>
-    </tr>
-    
+    </tr>    
 }

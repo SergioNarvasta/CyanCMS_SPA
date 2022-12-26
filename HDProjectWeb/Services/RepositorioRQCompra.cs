@@ -17,7 +17,6 @@ namespace HDProjectWeb.Services
         Task<int> ContarRegistrosBusqueda(string periodo, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<RQCompraCab>> BusquedaMultiple(string periodo, PaginacionViewModel paginacion, string CodUser, string busqueda, string estado1, string estado2);
         Task<IEnumerable<Usuario>> ListaAyudaUsuario();
-        Task<IEnumerable<CentroCosto>> ListaAyudaCentroCosto();
         Task<IEnumerable<Disciplina>> ListaAyudaDisciplina();
     }
     public class RepositorioRQCompra:IRepositorioRQCompra
@@ -743,13 +742,7 @@ namespace HDProjectWeb.Services
             return await connection.QueryAsync<Disciplina>(@"SELECT CIA_CODCIA,DIS_CODDIS,DIS_DESLAR FROM DISCIPLINAS_DIS 
                                                              WHERE CIA_CODCIA =@cia", new { cia });
         }
-        public async Task<IEnumerable<CentroCosto>> ListaAyudaCentroCosto()
-        {
-            string cia = servicioPeriodo.Compañia();
-            using var connection = new SqlConnection(connectionString);
-            return await connection.QueryAsync<CentroCosto>(@"SELECT CIA_CODCIA,CCO_CODCCO,CCO_DESLAR FROM CENTRO_COSTO_CCO 
-                                                             WHERE CIA_CODCIA =@cia AND CCO_INDEST=1 AND CCO_INDCOS=0", new { cia });
-        }
+        
         public async Task<IEnumerable<Usuario>> ListaAyudaUsuario()
         {
             using var connection = new SqlConnection(connectionString);

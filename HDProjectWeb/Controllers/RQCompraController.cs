@@ -152,16 +152,7 @@ namespace HDProjectWeb.Controllers
             };
             return PartialView(Data);
         }
-        [HttpGet]
-        public async Task<IActionResult> AyudaCentroCosto()
-        {
-            var Obj = await repositorioRQCompra.ListaAyudaCentroCosto();
-            var Data = new ListadoCentroCosto<CentroCosto>
-            {
-                Elementos = Obj
-            };
-            return PartialView(Data);
-        }
+       
         [HttpGet]
         public async Task<IActionResult> AyudaUsuario()
         {
