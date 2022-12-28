@@ -87,7 +87,8 @@ AND A.rco_numrco LIKE'%TORI%' OR d.aux_nomaux LIKE '%TORI%' OR b.ung_deslar LIKE
 AND A.rco_indest in('1','1')
 ORDER BY A.rco_feccre DESC
 
-SELECT*FROM AspNetRoleClaims
+SELECT A.ocm_corocm,*FROM REQUERIMIENTO_COMPRA_RCO A
+select
 
 --and isnull(rco_indest,'0')='1'
 --V_HD_REQUERIMIENTO_COMPRA_CAB
