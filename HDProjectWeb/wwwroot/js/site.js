@@ -111,7 +111,6 @@ $(document).on('click', '#btnSaveForm', function (event) {
         title = $(this).find('.title').val();
         input_value = $(this).find('.input-value').val();
         data_id = $(this).find('.btn-warning').attr('data-id');
-
         console.log('Valores recogidos:');
         console.log('titulo: ' + title + ', valor: ' + input_value + ', data_id: ' + data_id);
     });
@@ -166,8 +165,7 @@ $("#btn_registrar").on("click",function()
            Cantidad:parseInt($(tr).find('input').eq(6).val()),
            CodProv:  $(tr).find('input').eq(7).val(),
            Nombprov: $(tr).find('input').eq(8).val()
-         }   
-       );
+         });
        console.log(DetalleReq);
     })
 })

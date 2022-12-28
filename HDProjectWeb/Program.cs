@@ -1,5 +1,6 @@
 using HDProjectWeb.Data;
 using HDProjectWeb.Models;
+using HDProjectWeb.Models.Detalles;
 using HDProjectWeb.Models.Helps;
 using HDProjectWeb.Services;
 using Microsoft.AspNetCore.Authorization;

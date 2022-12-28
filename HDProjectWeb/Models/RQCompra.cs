@@ -14,7 +14,7 @@ namespace HDProjectWeb.Models
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
         public string Suc_codsuc { get; set; }
 
-        [Required(ErrorMessage = "Campo obligatorio")]// Requerido
+        //[Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(10, ErrorMessage = "El campo no debe de tener mas de 10 caracteres")]
         public string Rco_numrco { get; set; }         /***View****/
         public DateTime Rco_fec_registro { get; set; }  /***View****/
@@ -23,7 +23,7 @@ namespace HDProjectWeb.Models
         [MaxLength(2, ErrorMessage = "El campo no debe de tener mas de 2 caracteres")]
         public string Tin_codtin { get; set; }       /***Vacio****/
 
-        [Required(ErrorMessage = "Campo obligatorio")]// Requerido
+        //[Required(ErrorMessage = "Campo obligatorio")]// Requerido
         [MaxLength(6, ErrorMessage = "El campo no debe de tener mas de 6 caracteres")]
         public string Cco_codcco { get; set; }    /***View****/
 

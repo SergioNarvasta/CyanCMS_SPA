@@ -19,6 +19,7 @@
                         <th>
                             <div class="form-group d-flex flex-row">
                                 <button id="btn_registrar" type="submit" style="width:120px;height:40px" class="btn btn-primary"><img src="/img/agregar24.png" class="me-1"/>Registrar</button>
+                                <a class="btn btn-primary ms-3" asp-action="Crear" style="width:100px;height:40px"><img src="/img/agregar.png" /> Nuevo</a>
                                 <a asp-action="Index" style="width:100px;height:40px" class="btn btn-danger ms-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
                                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
@@ -100,7 +101,7 @@
                                 <label class="control-label">C.Costo</label>
                                 <input id="input_cod_cco" onclick="abrir_modal_cco()" asp-for="Cco_codcco" class="form-control form-control-sm col-sm-4 ms-4" style="width:60px" />
                                 <span asp-validation-for="Cco_codcco" class="text-danger"></span>
-                                <input id="input_des_cco" type="text" asp-for="Cco_deslar" style="width:270px" class="ms-1"/>
+                                <input id="input_des_cco" type="text" asp-for="Cco_deslar" style="width:270px" class="form-control ms-1"/>
                                 <span asp-validation-for="Cco_deslar" class="text-danger"></span>   
                                 <!-- Modal con Ayuda -->
                                 <button id="btn_abrir_modal_cco" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Cco">+ </button>
@@ -218,7 +219,7 @@
                             <div class="form-group d-flex flex-row">
                                 <label asp-for="Rco_motivo" class="control-label"></label>
                                 <textarea asp-for="Rco_motivo" class="form-control ms-xl-5" type="text" style="height:80px;width:325px" ></textarea>
-                                <span asp-validation-for="Rco_motivo" class="text-danger"></span>
+                                <span asp-validation-for="Rco_motivo" class="text-white"></span>
                             </div>
                          </th>
                         <th >
@@ -226,7 +227,7 @@
                                 <label class="control-label">Disciplina</label>
                                 <input id="input_cod_disci" onclick="abrir_modal_disci()" asp-for="Dis_coddis" class="form-control ms-2" style="width:50px" />
                                 <span asp-validation-for="Dis_coddis" class="text-danger"></span>
-                                <input id="input_des_disci" asp-for="Dis_deslar" class="ms-1" style="width:280px" />
+                                <input id="input_des_disci" asp-for="Dis_deslar" class="form-contro ms-1" style="width:280px" />
                                 <span asp-validation-for="Dis_deslar" class="text-danger"></span>                               
                                 <!-- Modal con Ayuda -->
                                 <button id="btn_abrir_modal_disci" class="btn btn-outline-success" style="display:none" data-bs-toggle="modal" data-bs-target="#Modal_Dis">+ </button>
