@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using HDProjectWeb.Models.Helps;
+using HDProjectWeb.Models.Detalles;
 
 namespace HDProjectWeb.Controllers
 {

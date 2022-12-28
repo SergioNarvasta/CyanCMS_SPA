@@ -1,4 +1,4 @@
-﻿using HDProjectWeb.Models.Helps;
+﻿using HDProjectWeb.Models.Detalles;
 using System.ComponentModel.DataAnnotations;
 
 namespace HDProjectWeb.Models

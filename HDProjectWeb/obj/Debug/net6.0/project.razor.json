@@ -14262,38 +14262,6 @@
         }
       },
       {
-        "HashCode": 1139567566,
-        "Kind": "MVC.ViewComponent",
-        "Name": "__Generated__DetalleReqViewComponentTagHelper",
-        "AssemblyName": "HDProjectWeb",
-        "CaseSensitive": false,
-        "TagMatchingRules": [
-          {
-            "TagName": "vc:detalle-req",
-            "Attributes": [
-              {
-                "Name": "rco_numero"
-              }
-            ]
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "MVC.ViewComponent",
-            "Name": "rco_numero",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Rco_numero"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "__Generated__DetalleReqViewComponentTagHelper",
-          "MVC.ViewComponent.Name": "DetalleReq"
-        }
-      },
-      {
         "HashCode": -957604904,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__AyudaDisciplinaViewComponentTagHelper",
@@ -14325,6 +14293,38 @@
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "__Generated__AyudaUsuarioViewComponentTagHelper",
           "MVC.ViewComponent.Name": "AyudaUsuario"
+        }
+      },
+      {
+        "HashCode": 1139567566,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__DetalleReqViewComponentTagHelper",
+        "AssemblyName": "HDProjectWeb",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:detalle-req",
+            "Attributes": [
+              {
+                "Name": "rco_numero"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "rco_numero",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Rco_numero"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__DetalleReqViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "DetalleReq"
         }
       },
       {
