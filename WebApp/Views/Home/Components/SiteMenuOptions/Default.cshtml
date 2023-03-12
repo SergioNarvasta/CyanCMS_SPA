@@ -2,7 +2,7 @@
 @using Site.Models;
 @model IEnumerable<SiteMenuOptions>
 
-<ul class="navbar-nav flex-grow-1">
+<ul class="navbar-nav flex-grow-1 justify-content-center">
 	@foreach (var opcion in Model)
 	{
 		if (opcion.MenuOptions_Estado == 1)
@@ -15,7 +15,6 @@
 </ul>
 <style>
 	
-
 </style>
 
 <script>
