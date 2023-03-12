@@ -5,7 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<ISliderMainRepository,  SliderMainRepository>();
+builder.Services.AddTransient<ISliderMainRepository,SliderMainRepository>();
+builder.Services.AddTransient<ISiteMenuOptionsRepository,SiteMenuOptionsRepository>();
 
 var app = builder.Build();
 

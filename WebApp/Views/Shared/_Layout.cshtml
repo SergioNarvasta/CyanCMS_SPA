@@ -20,17 +20,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
-                    <ul class="navbar-nav flex-grow-1">
-                        @foreach (var opcion in ViewData["ListaMenuOpciones"] as IEnumerable<SiteMenuOptions>)
-                        {
-                            if (opcion.MenuOptions_Estado == 1)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@opcion.MenuOptions_Nombre</a>
-                                </li>
-                            } 
-                        }     
-                    </ul>
+                    
                 </div>
             </div>
         </nav>

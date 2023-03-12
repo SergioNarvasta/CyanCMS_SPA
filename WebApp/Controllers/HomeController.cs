@@ -18,8 +18,8 @@ namespace Site.Controllers
 
         public IActionResult Index()
         {
-            var list = _siteMenuOptionsRepository.ListaMenuOpciones();
-            ViewData["ListaMenuOpciones"] = list;
+            //var list = _siteMenuOptionsRepository.ListaMenuOpciones();
+            //ViewData["ListaMenuOpciones"] = list;
             return View();
         }
 
