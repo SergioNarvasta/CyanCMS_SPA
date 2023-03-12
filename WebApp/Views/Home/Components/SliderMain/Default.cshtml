@@ -9,9 +9,9 @@
 @foreach( var item in Model)
 {
 	if (item.SliderMain_Estado != 0)
-		{
-			activaScript = 1;
-			<div id="slider-item"  >	
+	{
+		activaScript = 1;
+		<div id="slider-item"  >	
 			<img id="img_slider" />
 			@if (item.SliderMain_Titulo.Length > 0)
 			{
@@ -32,6 +32,16 @@
 	height : 400px;
 	margin-left:10%;
 	border:1px solid black;
+	}
+
+	#slider-item {
+		width: 100%;
+		height: 100%;
+		cursor:pointer;
+	}
+
+	#slider-item :hover{
+	  transform : scale(1.1);
 	}
 
 </style>
