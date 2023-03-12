@@ -13,7 +13,7 @@ namespace HDProjectWeb.Models.Detalles
             _repository = repository;
         }
         public async Task<IViewComponentResult> InvokeAsync()
-        {
+        {  
             var products = await _repository.Listado();
             return View(products);
         }

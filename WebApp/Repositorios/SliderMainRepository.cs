@@ -19,7 +19,9 @@ namespace Site.Repositorios
 
         public async Task<IEnumerable<SliderMain>> Listado() 
         {
-          return await collection.FindAsync( new BsonDocument()).Result.ToListAsync();
+            var list = await collection.FindAsync(new BsonDocument())
+                       .Result.ToListAsync();
+            return list;
         }
 
 

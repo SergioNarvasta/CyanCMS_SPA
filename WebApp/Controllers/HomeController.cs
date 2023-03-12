@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site.Models;
+using Site.Repositorios;
 using System.Diagnostics;
 
 namespace Site.Controllers
@@ -7,14 +8,18 @@ namespace Site.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ISiteMenuOptionsRepository _siteMenuOptionsRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ISiteMenuOptionsRepository siteMenuOptionsRepository)
         {
+            _siteMenuOptionsRepository = siteMenuOptionsRepository;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            var list = _siteMenuOptionsRepository.ListaMenuOpciones();
+            ViewData["ListaMenuOpciones"] = list;
             return View();
         }
 
