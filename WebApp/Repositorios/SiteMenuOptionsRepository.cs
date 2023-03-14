@@ -10,7 +10,7 @@ namespace Site.Repositorios
 
 		public IMongoCollection<SiteMenuOptions> collection;
 		public SiteMenuOptionsRepository() {
-			collection = _repository.database.GetCollection<SiteMenuOptions>("Site_MenuOptions");
+			collection = _repository.database.GetCollection<SiteMenuOptions>("SiteMenuOptions");
 		}
 
 		public async Task<IEnumerable<SiteMenuOptions>> ListaMenuOpciones()
