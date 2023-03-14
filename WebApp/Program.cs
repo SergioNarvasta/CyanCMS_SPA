@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ISliderMainRepository,SliderMainRepository>();
 builder.Services.AddTransient<ISiteMenuOptionsRepository,SiteMenuOptionsRepository>();
 builder.Services.AddTransient<ISliderSecRepository, SliderSecRepository>();
+builder.Services.AddTransient<IContentMainRepository,ContentMainRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

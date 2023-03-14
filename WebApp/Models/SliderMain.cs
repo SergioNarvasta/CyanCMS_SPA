@@ -14,13 +14,10 @@ namespace Site.Models
 
 		public string SliderMain_Titulo { get; set; }
 
-		public string SliderMain_Descripcion { get; set; }
+        public string SliderMain_Descripcion { get; set; }
 
-		public int SliderMain_Estado { get; set; }
-		public int SliderMain_Orden { get; set; }
+        public int SliderMain_Estado { get; set; }
 
-		public string SliderMain_UsuarioPk { get; set; }
-
-		public string SliderMain_Slider { get; set; } // 1 indica que es slider 0 solo mostrara una imagen
-	}
+        public int SliderMain_Orden { get; set; }
+    }
 }

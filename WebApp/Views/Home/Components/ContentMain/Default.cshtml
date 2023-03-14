@@ -1,26 +1,26 @@
 ﻿
 @using Site.Models;
-@model IEnumerable<SliderMain>
+@model IEnumerable<ContentMain>
 @{
 	int activaScript = 0;
 }
 
-<div id="slider-main">
+<div id="content-main">
 @foreach( var item in Model)
 {
-	if (item.SliderMain_Estado != 0)
+	if (item.ContentMain_Estado != 0)
 	{
 		activaScript = 1;
-		<div id="slider-item"  >
+		<div id="contentmain-item"  >
 			<div>
 			   <img id="img_slider" />
-			   @if (item.SliderMain_Titulo.Length > 0)
+			   @if (item.ContentMain_Titulo.Length > 0)
 			   {
-			    <p>@item.SliderMain_Titulo</p>	
+			    <p>@item.ContentMain_Titulo</p>	
 			   }
-			   @if (item.SliderMain_Descripcion.Length > 0)
+			   @if (item.ContentMain_Descripcion.Length > 0)
 			   {
-			   	<p>@item.SliderMain_Descripcion</p>
+			   	<p>@item.ContentMain_Descripcion</p>
 			   }
 		       <div id="File_Base64" data-base64="@item.File_Base64"></div>
 			</div>
@@ -29,13 +29,15 @@
 }
 </div>
 <style>
-	#slider-main {
-	width : 100%;
-	height : 400px;
+	#content-main {
+	width : 50%;
+	height : 300px;
+	margin-left:10%;
+	margin-top:2%;
 	border:1px solid black;
 	}
 
-	#slider-item {
+	#contentmain-item {
 		width: 100%;
 		height: 100%;
 		cursor:pointer;
