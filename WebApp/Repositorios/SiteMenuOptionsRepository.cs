@@ -8,7 +8,7 @@ namespace Site.Repositorios
 	{
 		internal MongoRepository _repository = new MongoRepository();
 
-		public IMongoCollection<SiteMenuOptions> collection;
+		public IMongoCollection<MenuOptions> collection;
 		public SiteMenuOptionsRepository() {
 			collection = _repository.database.GetCollection<SiteMenuOptions>("SiteMenuOptions");
 		}
