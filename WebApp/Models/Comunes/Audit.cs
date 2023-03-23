@@ -1,6 +1,6 @@
 ﻿
 
-namespace CMS.Dominio.Comunes
+namespace Site.Models.Comunes
 {
     public class Audit
     {

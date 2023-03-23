@@ -1,7 +1,7 @@
 ﻿
-using CMS.Dominio.Comunes;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Site.Models.Comunes;
 
 namespace Site.Models
 {
