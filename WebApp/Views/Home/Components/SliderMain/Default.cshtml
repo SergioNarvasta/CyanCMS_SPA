@@ -1,15 +1,19 @@
 ﻿
 @using Site.Models;
 @model IEnumerable<SliderMain>
+@{
+	int activaScript = 0;
+}
 
 <div id="slider-main">
 @foreach( var item in Model)
 {
 	if (item.SliderMain_Estado != 0)
 	{
-		<div id="slider-item" >
+		activaScript = 1;
+		<div id="slider-item"  >
 			<div>
-			<img id="img_slider" src="data:image/jpg;base64,@item.File_Base64F" />
+			   <img id="img_slider" />
 			   @if (item.SliderMain_Titulo.Length > 0)
 			   {
 			    <p>@item.SliderMain_Titulo</p>	
@@ -18,7 +22,7 @@
 			   {
 			   	<p>@item.SliderMain_Descripcion</p>
 			   }
-		       
+		       <div id="File_Base64" data-base64="@item.File_Base64"></div>
 			</div>
 		</div>
 	}
@@ -26,8 +30,9 @@
 </div>
 <style>
 	#slider-main {
-	width : 100%;
+	width : 80%;
 	height : 400px;
+	margin-left:10%;
 	border:1px solid black;
 	}
 
@@ -38,5 +43,15 @@
 	}
 
 </style>
-
+@if (activaScript == 1)
+{
+	<script>
+		var baseStr64 = $('#File_Base64').data("base64");
+		var img_slider = document.getElementById('img_slider');
+		img_slider.setAttribute('src', "data:image/jpg;base64," + baseStr64);
+		if (baseStr64.length >0){
+		console.log("Base 64 leido con exito");
+		}
+	</script>
+}
 

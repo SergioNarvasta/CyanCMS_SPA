@@ -5,13 +5,13 @@
 	int activaScript = 0;
 }
 
-<div id="content_main"> Content Main
+<div id="content-main">
 @foreach( var item in Model)
 {
 	if (item.ContentMain_Estado != 0)
 	{
 		activaScript = 1;
-		<div id="contentmain_item"  >
+		<div id="contentmain-item"  >
 			<div>
 			   <img id="img_slider" />
 			   @if (item.ContentMain_Titulo.Length > 0)
@@ -29,14 +29,15 @@
 }
 </div>
 <style>
-	#content_main {
-	width : 60%;
+	#content-main {
+	width : 50%;
 	height : 300px;
+	margin-left:10%;
 	margin-top:2%;
 	border:1px solid black;
 	}
 
-	#contentmain_item {
+	#contentmain-item {
 		width: 100%;
 		height: 100%;
 		cursor:pointer;

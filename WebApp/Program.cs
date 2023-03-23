@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ISliderMainRepository,SliderMainRepository>();
 builder.Services.AddTransient<ISiteMenuOptionsRepository,SiteMenuOptionsRepository>();
-builder.Services.AddTransient<ISliderSecRepository, SliderSecRepository>();
 builder.Services.AddTransient<IContentMainRepository,ContentMainRepository>();
 
 var app = builder.Build();
