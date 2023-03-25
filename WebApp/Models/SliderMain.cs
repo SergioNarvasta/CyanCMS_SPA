@@ -19,5 +19,7 @@ namespace Site.Models
         public int SliderMain_Estado { get; set; }
 
         public int SliderMain_Orden { get; set; }
+        public string SliderMain_Slider { get; set; }
+        public string Company_Pk { get; set; }
     }
 }
