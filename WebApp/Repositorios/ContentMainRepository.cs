@@ -23,7 +23,12 @@ namespace Site.Repositorios
                        .Result.ToListAsync();
             return list;
         }
-
+        public async Task<IEnumerable<ContentMain>> GetByCompanyPk(string Company_Pk)
+        {
+            return await collection.FindAsync(new BsonDocument 
+               { { "Company_Pk", Company_Pk } })
+                .Result.ToListAsync();
+        }
 
 
     }

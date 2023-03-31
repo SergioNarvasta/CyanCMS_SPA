@@ -3,7 +3,7 @@ using Site.Models.Comunes;
 
 namespace Site.Models
 {
-    public class ContentMain :FileUnit
+    public class ContentMain : FileUnit
     {
         public ObjectId ContentMain_Id { get; set; }
 
