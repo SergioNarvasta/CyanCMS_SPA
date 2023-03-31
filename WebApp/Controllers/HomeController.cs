@@ -2,6 +2,9 @@
 using Site.Models;
 using Site.Interfaces;
 using System.Diagnostics;
+using System.Collections.Generic;
+using MongoDB.Bson;
+using MongoDB.Driver.Linq;
 
 namespace Site.Controllers
 {
@@ -29,9 +32,13 @@ namespace Site.Controllers
 			//var list = _siteMenuOptionsRepository.ListaMenuOpciones();
 			//ViewData["ListaMenuOpciones"] = list;
 			var company_Pk = _configuration["Company_Pk"];
-			var company = _companyRepository.GetByCompanyPk(company_Pk);
-            ViewBag.Company = company;
-            return View();
+			var list = _companyRepository.GetByCompanyPk(company_Pk);
+		    var company = list.Result.ToList().FirstOrDefault();
+            
+            ViewBag.Company_Nombre = company.Company_Nombre;
+            ViewBag.File_Base64 = company.File_Base64;
+
+			return View();
         }
 
         public IActionResult Privacy()

@@ -46,8 +46,8 @@ namespace Site.Repositorios
 		}
 		public async Task<IEnumerable<Company>> GetByCompanyPk(string company_Pk)
 		{
-			return await collection.FindAsync(new BsonDocument
-			   { { "Company_Pk", company_Pk } })
+			return await collection.FindAsync(new BsonDocument 
+            { { "Company_Pk", company_Pk } })
 				.Result.ToListAsync();
 		}
 	}
