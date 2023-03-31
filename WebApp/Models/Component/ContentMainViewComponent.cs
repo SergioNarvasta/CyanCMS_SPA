@@ -14,7 +14,6 @@ namespace HDProjectWeb.Models.Detalles
             _repository = repository;
             _configuration = configuration;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var company_Pk = _configuration["Company_Pk"];

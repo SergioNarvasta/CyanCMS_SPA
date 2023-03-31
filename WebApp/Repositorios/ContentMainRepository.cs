@@ -9,8 +9,7 @@ namespace Site.Repositorios
     public class ContentMainRepository  : IContentMainRepository
     {
         internal MongoRepository _repository = new MongoRepository();
-
-        private IMongoCollection<ContentMain> collection;
+        private readonly IMongoCollection<ContentMain> collection;
 
         public ContentMainRepository() 
         {
@@ -23,13 +22,11 @@ namespace Site.Repositorios
                        .Result.ToListAsync();
             return list;
         }
-        public async Task<IEnumerable<ContentMain>> GetByCompanyPk(string Company_Pk)
+        public async Task<IEnumerable<ContentMain>> GetByCompanyPk(string company_Pk)
         {
             return await collection.FindAsync(new BsonDocument 
-               { { "Company_Pk", Company_Pk } })
+               { { "Company_Pk", company_Pk } })
                 .Result.ToListAsync();
         }
-
-
     }
 }

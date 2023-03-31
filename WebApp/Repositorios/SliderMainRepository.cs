@@ -10,7 +10,7 @@ namespace Site.Repositorios
     {
         internal MongoRepository _repository = new MongoRepository();
 
-        private IMongoCollection<SliderMain> collection;
+        private readonly IMongoCollection<SliderMain> collection;
 
         public SliderMainRepository() 
         {
@@ -23,8 +23,11 @@ namespace Site.Repositorios
                        .Result.ToListAsync();
             return list;
         }
-
-
-
+        public async Task<IEnumerable<SliderMain>> GetByCompanyPk(string company_Pk)
+        {
+            return await collection.FindAsync(new BsonDocument
+               { { "Company_Pk", company_Pk } })
+                .Result.ToListAsync();
+        }
     }
 }
