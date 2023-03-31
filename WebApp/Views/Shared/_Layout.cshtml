@@ -14,8 +14,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand ms-5" asp-area="" asp-controller="Home" asp-action="Index">@ViewBag.Company_Nombre</a>
-                <img />
+                <img class="ms-5" src="data:image/jpg;base64,@ViewBag.File_Base64" width="100" height="60" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@ViewBag.Company_Nombre</a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
