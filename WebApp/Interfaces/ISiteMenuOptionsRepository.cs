@@ -1,6 +1,6 @@
 ﻿using Site.Models;
 
-namespace Site.Repositorios
+namespace Site.Interfaces
 {
 	public interface ISiteMenuOptionsRepository
 	{
