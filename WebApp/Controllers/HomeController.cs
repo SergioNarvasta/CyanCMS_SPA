@@ -26,9 +26,11 @@ namespace Site.Controllers
 
         public IActionResult Index()
         {
-            //var list = _siteMenuOptionsRepository.ListaMenuOpciones();
-            //ViewData["ListaMenuOpciones"] = list;
-            var company = _companyRepository.
+			//var list = _siteMenuOptionsRepository.ListaMenuOpciones();
+			//ViewData["ListaMenuOpciones"] = list;
+			var company_Pk = _configuration["Company_Pk"];
+			var company = _companyRepository.GetByCompanyPk(company_Pk);
+            ViewBag.Company = company;
             return View();
         }
 

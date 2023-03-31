@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Site.Models;
+using Site.Interfaces;
 
 namespace Site.Repositorios
 {
