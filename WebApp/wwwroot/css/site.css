@@ -18,6 +18,13 @@ body {
 }
 footer {
 height:100px;
-background-color:midnightblue;
+background-color:darkslategray;
 color:white;
 }
+    footer p, a {
+    color:white;
+    }
+    footer p {
+    width:130px;
+    margin-left:10px;
+    }
