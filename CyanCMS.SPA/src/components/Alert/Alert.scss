@@ -1,0 +1,11 @@
+@import '../../sass/utilities/functions';
+
+.alert-custom {
+    background: mcColor(purpleGradient, hover);
+    border-radius: 8px;
+    color: mcColor(white) !important;
+    border: none !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

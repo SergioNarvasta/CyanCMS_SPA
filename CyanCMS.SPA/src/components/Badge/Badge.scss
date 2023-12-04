@@ -1,0 +1,8 @@
+@import '../../sass/utilities/functions';
+
+.bg-custom {
+    background-color: mcColor(green);
+    color: mcColor(purple) !important;
+    min-width: 112px;
+    line-height: 28px;
+}

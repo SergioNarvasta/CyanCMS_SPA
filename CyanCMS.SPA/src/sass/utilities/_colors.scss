@@ -1,0 +1,66 @@
+@import './variables';
+
+$colors: (
+    black: (
+        base: #232323,
+        light: #898686,
+        light-2: #a6a3a3,
+        lighter: #858688,
+        dark: #000000,
+    ),
+    gray: (
+        base: #bdbdbd,
+        ligth: #cecbcb,
+        dark: #727171,
+        disabled: #ccc,
+    ),
+    purple: (
+        base: $purple,
+        light: #c56cf3,
+        light1: #d2aae7,
+        light2: #ceafdf,
+        lighter: #dfcde8,
+        lighter2: #e9e3fd,
+        lighter3: #f3cdff,
+        lighter4: #e8e2fd,
+    ),
+    purpleGradient: (
+        hover: linear-gradient(180deg, $purple 0%, #c56cf3 100%),
+        hover1: linear-gradient(180deg, #8038a6 0%, #c56cf3 100%),
+        background: linear-gradient(192.59deg, #8b41b2 -33.07%, #c56cf3 51.74%),
+        background2: linear-gradient(337.78deg, #c56cf3 41.31%, #8038a6 82.19%),
+        rating-75: rgba(128, 56, 166, 0.75),
+        rating-50: rgba(128, 56, 166, 0.5),
+        rating-35: rgba(128, 56, 166, 0.35),
+        rating-20: rgba(128, 56, 166, 0.2),
+        rating-10: rgba(128, 56, 166, 0.1),
+        graphBackground:
+            linear-gradient(
+                180deg,
+                rgba(128, 56, 166, 0.152) 0%,
+                rgba(48, 57, 116, 0) 107.98%
+            ),
+    ),
+    white: (
+        base: #fff,
+        background: #f5f5f5,
+    ),
+    green: (
+        base: $green,
+    ),
+    greenGradient: (
+        base: linear-gradient(89.8deg, $green 30.85%, #c7e475 60.18%),
+    ),
+    yellow: (
+        base: $yellow,
+    ),
+    skyblue: (
+        base: #ecf0f5,
+    ),
+    red: (
+        base: $red,
+    ),
+    pink: (
+        base: $pink,
+    ),
+);

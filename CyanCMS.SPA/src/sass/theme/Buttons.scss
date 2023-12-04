@@ -1,0 +1,165 @@
+@import '../utilities/functions';
+
+.btn-gradient {
+    background: mcColor(purpleGradient, hover);
+    font-weight: bold;
+}
+
+.btn-purple {
+    background-color: mcColor(purple);
+    font-weight: bold;
+    color: mcColor(white);
+    &:hover {
+        background-color: mcColor(purple, light);
+        color: white;
+        scale: 0.95;
+    }
+}
+
+.btn-purple-light {
+    background-color: mcColor(purple, lighter);
+    color: mcColor(purple);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    &:hover {
+        scale: 0.98;
+        color: mcColor(purple);
+
+        background-color: mcColor(purple, light1);
+    }
+}
+
+.btn-purple-icon {
+    color: mcColor(purple);
+    border: 0.846288px solid rgba(133, 134, 136, 0.4);
+    font-size: 1.5rem;
+    min-width: 40px;
+    max-width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover,
+    &:active {
+        color: mcColor(white);
+        background-color: mcColor(purple);
+    }
+}
+
+.btn-purple-gradient {
+    background: mcColor(purpleGradient, hover1);
+    font-weight: bold;
+    border: none;
+    color: mcColor(white);
+    &:hover {
+        scale: 0.98;
+        color: mcColor(white);
+        background: mcColor(purpleGradient, background);
+    }
+}
+
+.btn-only-icon {
+    color: #bdbdbd;
+    font-size: 1.5rem;
+    margin: 0px;
+    padding: 0px;
+    &:hover {
+        color: #bdbdbd;
+    }
+}
+
+.btn-green {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background-color: mcColor(green);
+    color: mcColor(purple);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3))
+        drop-shadow(0px -1px 3px rgba(0, 0, 0, 0.3));
+    &:hover,
+    &:active,
+    &:focus-visible {
+        border: 1px solid mcColor(green) !important;
+        background-color: mcColor(green) !important;
+        opacity: 0.8;
+        color: mcColor(purple) !important;
+    }
+}
+
+.btn-green-outline {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background-color: mcColor(white);
+    color: mcColor(black);
+    border: 1px solid mcColor(green);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3))
+        drop-shadow(0px -1px 3px rgba(0, 0, 0, 0.3));
+    &:hover,
+    &:active,
+    &:focus-visible {
+        border: 1px solid mcColor(green) !important;
+        background-color: mcColor(white) !important;
+        color: mcColor(black) !important;
+    }
+}
+
+.btn-white-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), 0px -1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 11px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    height: 21px;
+    max-width: 126px;
+    color: mcColor(black, dark);
+    &:hover,
+    &:active,
+    &:focus-visible {
+        border: 1px solid mcColor(purple, light2) !important;
+        background-color: mcColor(purple, light2) !important;
+        color: mcColor(black, dark) !important;
+    }
+}
+
+.btn-purple-outline {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background-color: mcColor(white);
+    color: mcColor(purple);
+    border: 1px solid mcColor(purple);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3))
+        drop-shadow(0px -1px 3px rgba(0, 0, 0, 0.3));
+    &:hover,
+    &:active,
+    &:focus-visible {
+        border: 1px solid mcColor(purple) !important;
+        background-color: mcColor(white) !important;
+        color: mcColor(purple) !important;
+    }
+}
+
+.btn-custom-dropdown-item {
+    &:hover,
+    &:active,
+    &:focus-visible {
+        color: var(--bs-dropdown-link-hover-color);
+        background-color: var(--bs-dropdown-link-hover-bg);
+    }
+}
+
+.btn-custom-disabled {
+    background: mcColor(gray);
+    border: none;
+    color: mcColor(purple);
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), 0px -1px 3px rgba(0, 0, 0, 0.3);
+    &:hover {
+        color: mcColor(purple);
+        background: mcColor(gray, ligth);
+    }
+}
