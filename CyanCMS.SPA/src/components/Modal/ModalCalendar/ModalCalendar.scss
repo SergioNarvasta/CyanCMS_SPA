@@ -1,0 +1,47 @@
+@import '../../../sass/utilities/functions';
+
+.button-calendar {
+    display: flex !important;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.6rem;
+    background-color: mcColor(white) !important;
+    color: mcColor(black, lighter) !important;
+    box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3),
+        0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    --bs-btn-font-size: 0.85rem !important;
+    --bs-btn-border-color: rgba(0, 0, 0, 0.3) !important;
+    --bs-btn-hover-border-color: #8038a6 !important;
+    --bs-btn-active-border-color: #8038a6 !important;
+    --bs-btn-border-radius: 0.5rem;
+    &:hover,
+    &:focus-visible,
+    &:active {
+        background-color: mcColor(white) !important;
+        color: mcColor(black, lighter) !important;
+    }
+    &__active {
+        border: 1px solid mcColor(purple, light2) !important;
+        background-color: mcColor(purple, light2) !important;
+        color: mcColor(black, dark) !important;
+    }
+    &__icon {
+        color: mcColor(purple);
+    }
+}
+
+.modal-calendar {
+    &__title {
+        font-size: 0.875rem;
+    }
+    &__description {
+        margin-top: -0.5rem;
+        font-size: 0.8rem;
+        margin-bottom: 0px;
+    }
+    &__content {
+        max-width: 640px !important;
+    }
+}

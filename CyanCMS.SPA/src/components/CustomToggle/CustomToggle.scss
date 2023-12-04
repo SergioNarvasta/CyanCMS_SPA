@@ -1,0 +1,30 @@
+@import '../../sass/utilities/functions';
+
+.custom__toggle_div_container {
+    display: flex;
+    align-items: center;
+    color: mcColor(gray, dark);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3))
+        drop-shadow(0px -1px 3px rgba(0, 0, 0, 0.3));
+    border-radius: 0.375rem;
+    height: auto;
+    span {
+        position: relative;
+        left: -35px;
+    }
+
+    .custom__toggle_div {
+        height: 39px;
+        background-color: mcColor(white);
+        width: auto;
+        padding: 10px 15px 10px 15px;
+        border-radius: 5px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        color: mcColor(black, lighter);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

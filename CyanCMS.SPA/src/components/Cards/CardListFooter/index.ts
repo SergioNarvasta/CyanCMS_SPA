@@ -1,0 +1,1 @@
+export { CardListFooter } from './CardListFooter';

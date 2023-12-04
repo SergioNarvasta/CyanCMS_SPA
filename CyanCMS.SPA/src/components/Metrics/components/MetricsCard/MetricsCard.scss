@@ -1,0 +1,69 @@
+@import '../../../../sass/utilities/functions';
+
+.metrics-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    min-width: 160px;
+    width: 100%;
+    height: 100px;
+    &-title {
+        line-height: 14px;
+        max-width: 75%;
+
+        color: #8b8b8b;
+    }
+    &-value-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        font-size: 1.3rem;
+        color: mcColor(purple);
+        font-weight: bold;
+        .separation-metrics {
+            margin-right: 3px;
+        }
+        .no-separation-metrics {
+            margin-right: -3px;
+        }
+        .attached-value {
+            position: relative;
+            font-size: 0.625rem;
+            display: flex;
+            &-positive {
+                color: #a0c63b;
+                bottom: 12px;
+            }
+            &-negative {
+                top: 12px;
+                color: #f30b0b;
+            }
+            &-neutro {
+                margin-left: 3px;
+                color: mcColor(gray);
+            }
+        }
+        .from-zero-positive {
+            color: #a0c63b;
+            display: flex;
+            font-size: 0.625rem;
+        }
+        .from-zero-negative {
+            color: #f30b0b;
+            display: flex;
+            font-size: 0.625rem;
+        }
+    }
+
+    .metrics-card-tooltip {
+        position: absolute;
+        left: 85%;
+    }
+}
+
+.complete-shadow {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), 0px -1px 3px rgba(0, 0, 0, 0.3);
+}

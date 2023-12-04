@@ -1,0 +1,12 @@
+.custom-modal {
+    &__content {
+        min-width: 400px;
+    }
+    &__body {
+        padding: 2.125rem !important;
+        line-height: 2.125rem;
+    }
+    &__dialog {
+        min-width: 400px;
+    }
+}

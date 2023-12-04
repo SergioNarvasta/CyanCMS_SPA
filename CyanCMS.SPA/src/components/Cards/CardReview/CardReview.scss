@@ -1,0 +1,25 @@
+@import '../../../sass/utilities/functions';
+
+.card-review {
+    color: mcColor(purple);
+    border: 1px solid mcColor(purple);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    padding: 0rem 0.5rem;
+    font-size: 3.125rem;
+    max-height: 55px;
+    &__container {
+        max-width: 340px;
+        @media (max-width: 968px) {
+            max-width: 100% !important;
+        }
+    }
+}
+
+.active-color {
+    color: mcColor(yellow);
+}
+
+.inactive-color {
+    color: #d8d8d8;
+}

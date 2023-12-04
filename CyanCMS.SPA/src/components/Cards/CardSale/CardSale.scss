@@ -1,0 +1,32 @@
+@import '../../../sass/utilities/functions';
+
+.card-sale {
+    &__title {
+        font-size: 0.95rem;
+        color: mcColor(black, lighter);
+        font-weight: 600;
+        line-height: 12px;
+        max-width: 70%;
+        width: 70%;
+    }
+    &__image {
+        width: 20px;
+        height: 23px;
+    }
+    &__value {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__line {
+        background-color: mcColor(green);
+        height: 5px;
+        border-radius: 11px;
+        margin: 0px 20px;
+    }
+}
+
+.metrics-card-tooltip {
+    position: absolute;
+    left: 85%;
+}

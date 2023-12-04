@@ -1,0 +1,17 @@
+@import '../../../sass/utilities/functions';
+
+.btn-custom-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: mcColor(white);
+    color: mcColor(black, lighter);
+    border: 2px solid mcColor(black, lighter) !important;
+    border-radius: 10px;
+    min-width: 250px;
+    min-height: 74px;
+    font-size: 25px !important;
+    text-align: left;
+    --bs-btn-active-bg: #8038a6;
+    --bs-btn-active-color: white;
+}

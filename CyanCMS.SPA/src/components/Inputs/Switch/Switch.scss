@@ -1,0 +1,16 @@
+@import '../../../sass/utilities/functions';
+
+.custom-switch {
+    .form-check-input {
+        &:focus {
+            border-color: mcColor(purple);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23c56cf3'/%3e%3c/svg%3e") !important;
+            box-shadow: none;
+        }
+        &:checked {
+            background-color: mcColor(purple);
+            border-color: mcColor(purple);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        }
+    }
+}

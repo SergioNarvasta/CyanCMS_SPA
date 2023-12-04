@@ -1,0 +1,21 @@
+@import '../../../../../sass/utilities/functions';
+
+.product-metric-wrapper {
+    width: 100%;
+    .product-metric-detail-container {
+        padding: 15px;
+        border-radius: 15px;
+        .product-sku {
+            color: mcColor(purple);
+            font-size: 0.9rem;
+            font-weight: bold;
+            max-width: 90%;
+        }
+        .product-name {
+            color: mcColor(black, lighter);
+            font-weight: bold;
+            font-size: 0.7rem;
+            max-width: 90%;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.stars-raiting-container {
+    display: flex;
+    max-width: 90px;
+    width: 100%;
+    justify-content: space-between;
+    .raiting-star {
+        width: 17px;
+    }
+}

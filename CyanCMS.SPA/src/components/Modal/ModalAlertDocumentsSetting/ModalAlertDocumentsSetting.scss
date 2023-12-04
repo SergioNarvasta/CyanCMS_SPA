@@ -1,0 +1,20 @@
+@import '../../../sass/utilities/functions';
+
+.custom-modal-alert {
+    &__title {
+        font-size: 1rem;
+        line-height: 1rem;
+        color: mcColor(purple);
+        font-weight: bold;
+    }
+    &__description {
+        font-size: 1rem;
+        line-height: 1rem;
+        @extend %custom-modal-text;
+    }
+}
+
+%custom-modal-text {
+    font-size: 1rem;
+    line-height: 1rem;
+}

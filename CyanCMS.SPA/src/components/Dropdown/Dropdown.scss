@@ -1,0 +1,42 @@
+@import '../../sass/utilities/functions';
+
+%custom-dropdown__item {
+    font-size: 0.75rem;
+    color: mcColor(black, lighter) !important;
+    display: flex !important;
+    padding-left: 1.5rem !important;
+    align-items: center;
+    gap: 1rem;
+    line-height: 20px;
+}
+.custom-dropdown {
+    &__menu-dark {
+        background-color: mcColor(black, light-2) !important;
+        padding: 6px 0px !important;
+        min-width: 100% !important;
+    }
+    &__item {
+        @extend %custom-dropdown__item;
+        width: 100%;
+        .active,
+        &:active,
+        &:focus,
+        &:hover {
+            font-weight: bold;
+            color: mcColor(purple) !important;
+        }
+    }
+    &__item-dark {
+        @extend %custom-dropdown__item;
+        color: mcColor(gray, ligth) !important;
+        font-size: 1rem;
+        padding-left: 9.6px !important;
+        white-space: break-spaces !important;
+        text-align: start !important;
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: mcColor(purple) !important;
+        }
+    }
+}

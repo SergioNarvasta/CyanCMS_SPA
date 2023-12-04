@@ -1,0 +1,15 @@
+@import '../../../../../sass/utilities/functions';
+
+.table__title {
+    color: mcColor(black, light);
+}
+
+.card-table {
+    padding-right: 0.5rem;
+    height: 80%;
+    tbody {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+}

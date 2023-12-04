@@ -1,0 +1,31 @@
+.rdp {
+    --rdp-cell-size: 30px;
+    margin: 0em;
+}
+
+.rdp-multiple_months {
+    width: 100%;
+}
+
+.rdp-months {
+    display: flex;
+    gap: 1.125rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.rdp-month {
+    margin: 0px;
+}
+
+.rdp-cell {
+    width: var(--rdp-cell-size);
+    height: 100%;
+    height: var(--rdp-cell-size);
+    padding: 8px 0px;
+    text-align: center;
+}
+
+.rdp-caption_label,
+.rdp-head_cell {
+    font-weight: normal;
+}

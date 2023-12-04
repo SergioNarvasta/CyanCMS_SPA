@@ -1,0 +1,14 @@
+.table-item {
+    &__name {
+        font-size: 0.9375rem;
+        font-weight: 600;
+    }
+    &__sku {
+        font-size: 0.75rem;
+    }
+}
+
+.text-end {
+    font-weight: bold;
+    margin-right: 10px;
+}

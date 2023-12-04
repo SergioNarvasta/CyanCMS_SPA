@@ -1,0 +1,64 @@
+@import '../../../../sass/utilities/functions';
+
+%toggle {
+    border-radius: 9px;
+    color: mcColor(black, lighter);
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.875rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.custom-toggle {
+    background: #ffffff;
+    border: 1px solid rgba(133, 134, 136, 0.25);
+    min-width: 160px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    @extend %toggle;
+}
+
+.custom-toggle__dark {
+    @extend %toggle;
+    background-color: mcColor(black);
+    border: none;
+    padding: 0px;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: mcColor(gray, ligth);
+    width: 100%;
+    text-align: start;
+    flex-wrap: nowrap;
+}
+
+.icon-dropdown {
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238038A6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 0.3s linear;
+
+    &.active {
+        transform: rotate(180deg);
+    }
+}
+
+.icon-dropdown-search {
+    display: block;
+    height: 15px;
+    width: 15px;
+    background-image: url('/src/assets/common/search.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.rotate-icon {
+    transform: rotate(180deg);
+}

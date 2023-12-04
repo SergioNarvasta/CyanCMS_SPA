@@ -1,0 +1,34 @@
+@import '../../../sass/utilities/functions';
+
+.sale-metrics-tab-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    gap: 15px;
+    margin: 2rem auto auto auto;
+    z-index: 500;
+
+    .nav.nav-tabs {
+        justify-content: flex-start;
+        border-width: 0px;
+        .nav-item {
+            width: 200px;
+            background-color: white;
+            border: 0;
+            box-shadow: none;
+            .nav-link {
+                font-size: 1rem;
+                color: #727171;
+                border: none;
+                line-height: 5px;
+                font-weight: 600;
+                border-bottom: 0px solid #c9f25a;
+            }
+            .nav-link.active {
+                color: mcColor(purple);
+                border-bottom: 3px solid #c9f25a;
+                font-weight: bold;
+            }
+        }
+    }
+}

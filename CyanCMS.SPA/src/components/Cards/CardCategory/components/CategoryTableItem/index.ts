@@ -1,0 +1,1 @@
+export { CategoryTableItem } from './CategoryTableItem';

@@ -1,0 +1,19 @@
+.upload-file-input {
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    padding: 5px 10px;
+    color: black;
+    border: 2px solid #a5a5a5;
+    display: flex;
+    justify-content: center;
+    &.dashed {
+        border: 2px dashed #a5a5a5;
+    }
+
+    &-label {
+        // display: flex;
+        cursor: pointer;
+        width: 100%;
+    }
+}

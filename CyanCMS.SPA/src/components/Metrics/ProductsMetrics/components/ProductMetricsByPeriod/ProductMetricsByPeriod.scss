@@ -1,0 +1,24 @@
+@import '../../../../../sass/utilities/functions';
+
+.product-metrics-by-period-container {
+    > .metrics-title {
+        color: mcColor(purple);
+        font-weight: 600;
+    }
+    .table-metrics-header {
+        width: 90%;
+        margin: auto;
+    }
+    .table-metrics-container {
+        width: 90%;
+        .row {
+            span {
+                line-height: 15px;
+            }
+        }
+    }
+    .table-metrics-empty {
+        margin: 6rem;
+        color: mcColor(gray);
+    }
+}
