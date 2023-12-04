@@ -1,0 +1,14 @@
+@import '../../../../sass/utilities/functions';
+
+.navbar-navigation {
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 14px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border: 4px solid mcColor(black);
+        background: mcColor(gray, dark);
+        border-radius: 10px;
+    }
+}

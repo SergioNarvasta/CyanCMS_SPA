@@ -1,0 +1,68 @@
+@import '../../../../../sass/utilities/functions';
+
+.custom-table__pagination {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: end;
+    list-style-type: none;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 17.5302px;
+    max-height: 30px;
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+    margin-bottom: 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), 0px -1px 3px rgba(0, 0, 0, 0.3);
+
+    &__link {
+        a {
+            @extend %link;
+            &:hover {
+                background-color: mcColor(purple);
+                color: white;
+            }
+        }
+    }
+    &__active {
+        a {
+            @extend %link;
+            background-color: mcColor(purple);
+            color: white;
+        }
+    }
+    &__disabled {
+        color: mcColor(gray, dark);
+        &:hover {
+            color: mcColor(gray, dark) !important;
+        }
+    }
+    &__link-arrow {
+        color: mcColor(purple);
+        &:hover,
+        &:active {
+            color: mcColor(purple, light1) !important;
+        }
+    }
+}
+
+.custom-select {
+    background-color: white;
+    border-radius: 0.25rem;
+    border: 1px solid mcColor(gray, dark);
+    color: mcColor(black);
+    &:disabled {
+        color: gray;
+        opacity: 0.5;
+    }
+}
+
+%link {
+    padding: 0.7rem;
+    border-radius: 50%;
+    height: 1.0625rem;
+    width: 1.0625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+}

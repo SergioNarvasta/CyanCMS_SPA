@@ -1,0 +1,144 @@
+@import '../../../sass/utilities/functions';
+
+.custom-table-2 {
+    border-spacing: 0rem 0.4rem;
+    border-collapse: separate;
+    padding: 1px 2px;
+    margin: 0px;
+    --bs-table-hover-bg: #e9e3fd;
+    line-height: 1.5;
+    thead {
+        border-spacing: 0rem;
+        tr {
+            th {
+                word-wrap: break-word;
+                font-weight: 700;
+            }
+        }
+    }
+    thead,
+    tbody {
+        tr {
+            font-size: 0.8rem;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3),
+                0px -1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 11px;
+            min-height: 50px;
+
+            td,
+            th {
+                height: 48px;
+                background-color: #ffffff;
+                padding: 0.625rem;
+                &:first-child {
+                    border-top-left-radius: 11px;
+                    border-bottom-left-radius: 11px;
+                }
+                &:last-child {
+                    border-top-right-radius: 11px;
+                    border-bottom-right-radius: 11px;
+                }
+            }
+        }
+    }
+    &__danger {
+        background-color: #f8d7da !important;
+    }
+    &__gray {
+        --bs-table-hover-bg: mcColor(gray);
+        background-color: mcColor(gray) !important;
+        border: none;
+    }
+    &__disabled {
+        --bs-table-hover-bg: none;
+        background-color: mcColor(skyblue) !important;
+        border: none;
+    }
+}
+
+.custom-table-2-secondary {
+    border-spacing: 0rem 0.4rem;
+    border-collapse: separate;
+    padding: 1px 2px;
+    margin: 0px;
+    --bs-table-hover-bg: #e9e3fd;
+    line-height: 1.5;
+    thead {
+        border-spacing: 0rem;
+        tr {
+            th {
+                word-wrap: break-word;
+                font-weight: 700;
+            }
+        }
+    }
+    thead,
+    tbody {
+        tr {
+            font-size: 0.8rem;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3),
+                0px -1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 11px;
+            min-height: 50px;
+
+            th {
+                height: 48px;
+                color: #fff;
+                background-color: mcColor(purple);
+                padding: 0.625rem;
+                &:first-child {
+                    border-top-left-radius: 11px;
+                    border-bottom-left-radius: 11px;
+                }
+                &:last-child {
+                    border-top-right-radius: 11px;
+                    border-bottom-right-radius: 11px;
+                }
+            }
+
+            td {
+                height: 48px;
+                background-color: #ffffff;
+                padding: 0.625rem;
+                &:first-child {
+                    border-top-left-radius: 11px;
+                    border-bottom-left-radius: 11px;
+                }
+                &:last-child {
+                    border-top-right-radius: 11px;
+                    border-bottom-right-radius: 11px;
+                }
+            }
+        }
+    }
+    &__danger {
+        background-color: #f8d7da !important;
+    }
+    &__gray {
+        --bs-table-hover-bg: mcColor(gray);
+        background-color: mcColor(gray) !important;
+        border: none;
+    }
+}
+
+.pagination-container {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), 0px -1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 11px;
+    padding: 10px 25px;
+    height: 48px;
+    font-size: 0.8rem;
+}
+
+.table-responsive .dropdown,
+.table-responsive .btn-group,
+.table-responsive .btn-group-vertical {
+    position: static;
+}
+
+.table-bg-purple {
+    background-color: #e9e3fd !important;
+}

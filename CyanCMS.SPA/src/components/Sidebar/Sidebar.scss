@@ -1,0 +1,29 @@
+@import '../../sass/utilities/functions';
+
+.sidebar.notHovered {
+    width: 6rem;
+    max-width: 7rem;
+}
+
+.navbar-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: mcColor(black);
+    gap: 1rem;
+    width: 100%;
+    max-width: 260px;
+    transition: 0.2s linear;
+    position: sticky;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+}

@@ -1,0 +1,20 @@
+@import '../../../../sass/utilities/functions';
+
+.sidebar-footer {
+    &__navigation {
+        border-top: 3px solid rgba(187, 199, 206, 0.6);
+        padding: 0.75rem 1.75rem;
+    }
+    &__user {
+        border-radius: 11px;
+        border: 1px solid #000;
+        background: #000;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.btn-footer-navigation {
+    padding: 0px !important;
+    color: mcColor(gray) !important;
+    border: none !important;
+}

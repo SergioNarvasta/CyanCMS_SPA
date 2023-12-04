@@ -1,0 +1,35 @@
+@import '/src/sass/utilities/functions';
+
+.link {
+    border-radius: 10px;
+    color: mcColor(white);
+    padding: 0.75rem;
+    text-decoration: none;
+    display: flex;
+    gap: 2rem;
+    opacity: 0.6;
+    transition: all 0.5s ease-out;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.link-active,
+.link:hover {
+    background: mcColor(purpleGradient, hover);
+    color: mcColor(white);
+    opacity: 1;
+}
+
+.link-disabled,
+.link-disabled:hover {
+    background: none;
+    color: rgba(128, 128, 128, 0.721);
+    opacity: 1 !important;
+}
+
+.link {
+    span {
+        min-width: 100px;
+    }
+}
